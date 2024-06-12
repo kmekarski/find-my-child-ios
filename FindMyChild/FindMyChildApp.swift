@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FindMyChildApp: App {
+    let mapStateManager = MapStateManager()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(mapStateManager)
         }
     }
 }

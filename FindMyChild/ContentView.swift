@@ -6,19 +6,27 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            MapViewRepresentable()
+                .ignoresSafeArea()
+            VStack {
+                Spacer()
+                VStack {
+                    
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 100)
+                .background()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(MapStateManager())
 }
