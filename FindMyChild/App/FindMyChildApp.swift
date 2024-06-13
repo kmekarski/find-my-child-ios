@@ -12,7 +12,7 @@ struct FindMyChildApp: App {
     let mapStateManager = MapStateManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
                 .environmentObject(mapStateManager)
         }
     }

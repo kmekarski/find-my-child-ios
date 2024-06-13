@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         ZStack {
             MapViewRepresentable()
@@ -27,6 +27,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
         .environmentObject(MapStateManager())
 }
