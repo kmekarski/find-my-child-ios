@@ -10,11 +10,13 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject var authManager: AuthManager
     var body: some View {
-        VStack {
+        ZStack {
             if signedIn {
                 HomeView()
+                    .transition(.move(edge: .trailing))
             } else {
                 AuthView()
+                    .transition(.move(edge: .leading))
             }
         }
     }
@@ -29,8 +31,9 @@ private extension RootView {
 #Preview {
     let authManager: AuthManager = AuthManager()
     return RootView()
-        .environmentObject(MapStateManager())
         .environmentObject(authManager)
+        .environmentObject(MapViewModel())
+        .environmentObject(HomeViewModel(childrenManager: MockChildrenManager()))
         .environmentObject(AuthNavigationViewModel())
         .environmentObject(SignInViewModel(authManager: authManager))
         .environmentObject(SignUpViewModel(authManager: authManager))

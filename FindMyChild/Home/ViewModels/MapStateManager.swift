@@ -12,10 +12,10 @@ enum MapViewState {
     case annotationsAdded
 }
 
-class MapStateManager: ObservableObject {
-    @Published var current: MapViewState = .initial
+class MapViewModel: ObservableObject {
+    @Published var currentState: MapViewState = .initial
     
     func go(to: MapViewState) {
-        current = to
+        currentState = to
     }
 }

@@ -16,7 +16,7 @@ struct SignInView: View {
                 Text("Sign in")
             })
             Button(action: goToSignUp, label: {
-                Text("go_to_sign_up")
+                Text("go_to_sign_up_string")
             })
         }
         .navigationBarBackButtonHidden()
@@ -31,7 +31,9 @@ struct SignInView: View {
 
 private extension SignInView {
     func signIn() {
-        signInVM.signIn()
+        withAnimation {
+            signInVM.signIn()
+        }
     }
     
     func goToSignUp() {

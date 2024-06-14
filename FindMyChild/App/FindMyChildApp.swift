@@ -9,27 +9,30 @@ import SwiftUI
 
 @main
 struct FindMyChildApp: App {
-    var mapStateManager: MapStateManager
+    var childrenManager: ChildrenManager
     var authManager: AuthManager
     var signInVM: SignInViewModel
     var signUpVM: SignUpViewModel
-    
+    var homeVM: HomeViewModel
+    var mapVM: MapViewModel
     var authNavVM: AuthNavigationViewModel
     init() {
-        mapStateManager = MapStateManager()
+        childrenManager = ChildrenManager()
         authManager = AuthManager()
         signInVM = SignInViewModel(authManager: authManager)
         signUpVM = SignUpViewModel(authManager: authManager)
-        
+        homeVM = HomeViewModel(childrenManager: childrenManager)
+        mapVM = MapViewModel()
         authNavVM = AuthNavigationViewModel()
     }
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(mapStateManager)
                 .environmentObject(authManager)
                 .environmentObject(signInVM)
                 .environmentObject(signUpVM)
+                .environmentObject(homeVM)
+                .environmentObject(mapVM)
                 .environmentObject(authNavVM)
         }
     }

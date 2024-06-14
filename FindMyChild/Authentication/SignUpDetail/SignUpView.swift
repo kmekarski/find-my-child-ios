@@ -22,7 +22,7 @@ struct SignUpView: View {
                 Text("Back")
             })
             Button(action: goToSignIn, label: {
-                Text("go_to_sign_in")
+                Text("go_to_sign_in_string")
             })
         }
         .navigationBarBackButtonHidden()

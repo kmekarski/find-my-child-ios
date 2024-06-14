@@ -13,4 +13,8 @@ class AuthManager: ObservableObject {
     func signIn() {
         signedIn = true
     }
+    
+    func signOut() {
+        signedIn = false
+    }
 }

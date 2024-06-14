@@ -1,7 +1,49 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "go_to_sign_in" : {
+    "ago_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ago"
+          }
+        }
+      }
+    },
+    "away_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "away"
+          }
+        }
+      }
+    },
+    "Back" : {
+
+    },
+    "Child" : {
+
+    },
+    "distance_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Distance"
+          }
+        }
+      }
+    },
+    "go_to_sign_in_sting" : {
+
+    },
+    "go_to_sign_in_string" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -12,13 +54,85 @@
         }
       }
     },
-    "go_to_sign_up" : {
+    "go_to_sign_up_string" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "No account? Sign up"
+          }
+        }
+      }
+    },
+    "here_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Here"
+          }
+        }
+      }
+    },
+    "kilometers_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "km"
+          }
+        }
+      }
+    },
+    "last_time_seen_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last time seen"
+          }
+        }
+      }
+    },
+    "meters_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "m"
+          }
+        }
+      }
+    },
+    "Parent" : {
+
+    },
+    "Sign in" : {
+
+    },
+    "unknown_location_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown location"
+          }
+        }
+      }
+    },
+    "unknown_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown"
           }
         }
       }

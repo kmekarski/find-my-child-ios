@@ -25,6 +25,19 @@
 		A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */; };
 		A715F3102C1C437E00E5A1F3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F30F2C1C437E00E5A1F3 /* SignUpView.swift */; };
 		A715F3142C1C474900E5A1F3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A715F3132C1C474900E5A1F3 /* Localizable.xcstrings */; };
+		A7A946C52C1C8E280080F270 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946C42C1C8E280080F270 /* StatusView.swift */; };
+		A7A946C82C1C8E650080F270 /* ChildChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946C72C1C8E650080F270 /* ChildChipView.swift */; };
+		A7A946CB2C1C8E750080F270 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946CA2C1C8E750080F270 /* Child.swift */; };
+		A7A946D02C1C8FB90080F270 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946CF2C1C8FB90080F270 /* HomeViewModel.swift */; };
+		A7A946D32C1C8FE70080F270 /* ChildrenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946D22C1C8FE70080F270 /* ChildrenManager.swift */; };
+		A7A946D62C1C924B0080F270 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946D52C1C924B0080F270 /* MockData.swift */; };
+		A7A946D82C1C92590080F270 /* MockData+Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946D72C1C92590080F270 /* MockData+Children.swift */; };
+		A7A946DE2C1C97BA0080F270 /* MockChildrenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946DD2C1C97BA0080F270 /* MockChildrenManager.swift */; };
+		A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946DF2C1C9B1B0080F270 /* ChildData.swift */; };
+		A7A946E22C1CA00C0080F270 /* ChildStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946E12C1CA00C0080F270 /* ChildStatusView.swift */; };
+		A7A946E52C1CA2160080F270 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946E42C1CA2160080F270 /* Int.swift */; };
+		A7A946E72C1CA25F0080F270 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946E62C1CA25F0080F270 /* Date.swift */; };
+		A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A946E92C1CB9970080F270 /* Triangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +60,19 @@
 		A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		A715F30F2C1C437E00E5A1F3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A715F3132C1C474900E5A1F3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A7A946C42C1C8E280080F270 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		A7A946C72C1C8E650080F270 /* ChildChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildChipView.swift; sourceTree = "<group>"; };
+		A7A946CA2C1C8E750080F270 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
+		A7A946CF2C1C8FB90080F270 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A7A946D22C1C8FE70080F270 /* ChildrenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenManager.swift; sourceTree = "<group>"; };
+		A7A946D52C1C924B0080F270 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		A7A946D72C1C92590080F270 /* MockData+Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Children.swift"; sourceTree = "<group>"; };
+		A7A946DD2C1C97BA0080F270 /* MockChildrenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChildrenManager.swift; sourceTree = "<group>"; };
+		A7A946DF2C1C9B1B0080F270 /* ChildData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildData.swift; sourceTree = "<group>"; };
+		A7A946E12C1CA00C0080F270 /* ChildStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildStatusView.swift; sourceTree = "<group>"; };
+		A7A946E42C1CA2160080F270 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
+		A7A946E62C1CA25F0080F270 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		A7A946E92C1CB9970080F270 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +105,10 @@
 		A715F2CC2C19823200E5A1F3 /* FindMyChild */ = {
 			isa = PBXGroup;
 			children = (
+				A7A946E32C1CA20C0080F270 /* Extensions */,
+				A7A946D42C1C923F0080F270 /* MockData */,
+				A7A946D12C1C8FDE0080F270 /* Managers */,
+				A7A946C92C1C8E6E0080F270 /* Models */,
 				A715F3112C1C473000E5A1F3 /* Assets */,
 				A715F30A2C1C3AEF00E5A1F3 /* Protocols */,
 				A715F2F62C1AF3A500E5A1F3 /* Home */,
@@ -103,6 +133,8 @@
 		A715F2DD2C1984C000E5A1F3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A7A946E82C1CB98F0080F270 /* Shapes */,
+				A7A946C62C1C8E580080F270 /* Chips */,
 				A715F2DE2C1984C600E5A1F3 /* MapPins */,
 			);
 			path = UI;
@@ -148,9 +180,8 @@
 		A715F2F62C1AF3A500E5A1F3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				A715F2E12C19863100E5A1F3 /* MapStateManager.swift */,
-				A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */,
-				A715F2CF2C19823200E5A1F3 /* HomeView.swift */,
+				A7A946CC2C1C8F9E0080F270 /* ViewModels */,
+				A7A946C32C1C8E0B0080F270 /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -203,6 +234,86 @@
 				A715F3132C1C474900E5A1F3 /* Localizable.xcstrings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		A7A946C32C1C8E0B0080F270 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */,
+				A715F2CF2C19823200E5A1F3 /* HomeView.swift */,
+				A7A946C42C1C8E280080F270 /* StatusView.swift */,
+				A7A946E12C1CA00C0080F270 /* ChildStatusView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7A946C62C1C8E580080F270 /* Chips */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946C72C1C8E650080F270 /* ChildChipView.swift */,
+			);
+			path = Chips;
+			sourceTree = "<group>";
+		};
+		A7A946C92C1C8E6E0080F270 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946CA2C1C8E750080F270 /* Child.swift */,
+				A7A946DF2C1C9B1B0080F270 /* ChildData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7A946CC2C1C8F9E0080F270 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2E12C19863100E5A1F3 /* MapStateManager.swift */,
+				A7A946CF2C1C8FB90080F270 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7A946D12C1C8FDE0080F270 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946D22C1C8FE70080F270 /* ChildrenManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A7A946D42C1C923F0080F270 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946DC2C1C97AD0080F270 /* MockManagers */,
+				A7A946D52C1C924B0080F270 /* MockData.swift */,
+				A7A946D72C1C92590080F270 /* MockData+Children.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		A7A946DC2C1C97AD0080F270 /* MockManagers */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946DD2C1C97BA0080F270 /* MockChildrenManager.swift */,
+			);
+			path = MockManagers;
+			sourceTree = "<group>";
+		};
+		A7A946E32C1CA20C0080F270 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946E42C1CA2160080F270 /* Int.swift */,
+				A7A946E62C1CA25F0080F270 /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A7A946E82C1CB98F0080F270 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				A7A946E92C1CB9970080F270 /* Triangle.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,20 +387,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A946DE2C1C97BA0080F270 /* MockChildrenManager.swift in Sources */,
+				A7A946E52C1CA2160080F270 /* Int.swift in Sources */,
+				A7A946D02C1C8FB90080F270 /* HomeViewModel.swift in Sources */,
 				A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */,
 				A715F2FA2C1AF4CD00E5A1F3 /* SignInView.swift in Sources */,
 				A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */,
+				A7A946D82C1C92590080F270 /* MockData+Children.swift in Sources */,
 				A715F2E02C1984D700E5A1F3 /* CustomMapPinView.swift in Sources */,
 				A715F2F22C1AF28A00E5A1F3 /* AuthManager.swift in Sources */,
 				A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */,
 				A715F2FC2C1AF4D800E5A1F3 /* SignInViewModel.swift in Sources */,
+				A7A946E22C1CA00C0080F270 /* ChildStatusView.swift in Sources */,
 				A715F2EE2C1AF25700E5A1F3 /* RootView.swift in Sources */,
+				A7A946CB2C1C8E750080F270 /* Child.swift in Sources */,
 				A715F2E22C19863100E5A1F3 /* MapStateManager.swift in Sources */,
 				A715F2DC2C19838100E5A1F3 /* MapViewRepresentable.swift in Sources */,
+				A7A946C52C1C8E280080F270 /* StatusView.swift in Sources */,
 				A715F2FF2C1AF5FA00E5A1F3 /* AuthView.swift in Sources */,
+				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
+				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,
+				A7A946C82C1C8E650080F270 /* ChildChipView.swift in Sources */,
 				A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */,
+				A7A946D32C1C8FE70080F270 /* ChildrenManager.swift in Sources */,
 				A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */,
 				A715F3102C1C437E00E5A1F3 /* SignUpView.swift in Sources */,
+				A7A946D62C1C924B0080F270 /* MockData.swift in Sources */,
+				A7A946E72C1CA25F0080F270 /* Date.swift in Sources */,
 				A715F3012C1AF66000E5A1F3 /* ChooseSignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,16 +8,32 @@
 import SwiftUI
 
 struct CustomMapPinView: View {
+    var childName: String
     var body: some View {
-        ZStack {
-            Circle()
-                .frame(width: 50, height: 50)
-                .foregroundStyle(.blue)
-            Image(systemName: "map")
+        VStack(spacing: 4) {
+            ZStack {
+                Circle()
+                    .foregroundStyle(.blue)
+                Image(systemName: "person")
+            }
+            .frame(width: 48, height: 48)
+
+            
+            VStack(spacing: 0) {
+                Triangle()
+                    .frame(width: 20, height: 10)
+                    .foregroundStyle(Material.thick)
+                Text(childName)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal)
+                    .background(Material.thick)
+                    .clipShape(.rect(cornerRadius: 12))
+            }
         }
+        .frame(width: 100, height: 48)
     }
 }
 
 #Preview {
-    CustomMapPinView()
+    CustomMapPinView(childName: MockData.children[0].name)
 }
