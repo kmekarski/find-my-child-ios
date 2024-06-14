@@ -13,7 +13,7 @@ struct SignInView: View {
     var body: some View {
         VStack {
             Button(action: signIn, label: {
-                Text("Sign in")
+                Text("sign_in_string")
             })
             Button(action: goToSignUp, label: {
                 Text("go_to_sign_up_string")

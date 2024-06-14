@@ -45,7 +45,7 @@ private extension ChildStatusView {
     }
     
     var distanceString: String {
-        let valueString = childData.distance?.asDistanceAwayString() ?? "Distance: " + String(localized: "unknown_string")
+        let valueString = childData.distance?.asDistanceAwayString() ?? String(localized: "distance_string") + ": " + String(localized: "unknown_string")
         return valueString
     }
     

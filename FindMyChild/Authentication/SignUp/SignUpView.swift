@@ -17,9 +17,9 @@ struct SignUpView: View {
     var type: UserType
     var body: some View {
         VStack {
-            Text("sign up " + type.rawValue)
+            Text(typeSignUpString)
             Button(action: goBack, label: {
-                Text("Back")
+                Text("back_string")
             })
             Button(action: goToSignIn, label: {
                 Text("go_to_sign_in_string")
@@ -35,6 +35,14 @@ struct SignUpView: View {
 }
 
 private extension SignUpView {
+    var typeSignUpString: String {
+        switch type {
+        case .parent:
+            return String(localized: "parent_sign_up_string")
+        case .child:
+            return String(localized: "child_sign_up_string")
+        }
+    }
     func goBack() {
         navVM.pop()
     }

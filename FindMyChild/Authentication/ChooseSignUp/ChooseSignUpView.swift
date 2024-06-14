@@ -15,16 +15,16 @@ struct ChooseSignUpView: View {
             Button(action: {
                 chooseSignUp(type: .parent)
             }, label: {
-                Text("Parent")
+                Text("parent_string")
             })
 
             Button(action: {
                 chooseSignUp(type: .child)
             }, label: {
-                Text("Child")
+                Text("child_string")
             })
             Button(action: goToSignIn, label: {
-                Text("go_to_sign_in_sting")
+                Text("go_to_sign_in_string")
             })
         }
         .navigationBarBackButtonHidden()

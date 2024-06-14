@@ -105,11 +105,11 @@
 		A715F2CC2C19823200E5A1F3 /* FindMyChild */ = {
 			isa = PBXGroup;
 			children = (
+				A715F3122C1C473400E5A1F3 /* Strings */,
 				A7A946E32C1CA20C0080F270 /* Extensions */,
 				A7A946D42C1C923F0080F270 /* MockData */,
 				A7A946D12C1C8FDE0080F270 /* Managers */,
 				A7A946C92C1C8E6E0080F270 /* Models */,
-				A715F3112C1C473000E5A1F3 /* Assets */,
 				A715F30A2C1C3AEF00E5A1F3 /* Protocols */,
 				A715F2F62C1AF3A500E5A1F3 /* Home */,
 				A715F2F52C1AF39500E5A1F3 /* Root */,
@@ -159,7 +159,7 @@
 		A715F2F42C1AF38A00E5A1F3 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				A715F30E2C1C436A00E5A1F3 /* SignUpDetail */,
+				A715F30E2C1C436A00E5A1F3 /* SignUp */,
 				A715F2F82C1AF4BE00E5A1F3 /* ChooseSignUp */,
 				A715F2F72C1AF4B700E5A1F3 /* SignIn */,
 				A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */,
@@ -212,20 +212,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		A715F30E2C1C436A00E5A1F3 /* SignUpDetail */ = {
+		A715F30E2C1C436A00E5A1F3 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				A715F30F2C1C437E00E5A1F3 /* SignUpView.swift */,
 			);
-			path = SignUpDetail;
-			sourceTree = "<group>";
-		};
-		A715F3112C1C473000E5A1F3 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				A715F3122C1C473400E5A1F3 /* Strings */,
-			);
-			path = Assets;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		A715F3122C1C473400E5A1F3 /* Strings */ = {
@@ -358,6 +350,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = A715F2C12C19823200E5A1F3;
 			productRefGroup = A715F2CB2C19823200E5A1F3 /* Products */;
