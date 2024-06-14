@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct AuthView: View {
+    @EnvironmentObject var navVM: AuthNavigationViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack(path: $navVM.path) {
+            SignInView()
+                .navigationDestination(for: AuthRoute.self) { routes in
+                    switch routes {
+                    case .signIn:
+                        SignInView()
+                    case .chooseSignUp:
+                        ChooseSignUpView()
+                    case .signUpParent:
+                        SignUpView(type: .parent)
+                    case .signUpChild:
+                        SignUpView(type: .child)
+                    }
+                }
+        }
     }
 }
 
 #Preview {
     AuthView()
+        .environmentObject(AuthNavigationViewModel())
 }

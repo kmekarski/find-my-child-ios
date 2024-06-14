@@ -8,23 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
-		A715F2D02C19823200E5A1F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* ContentView.swift */; };
+		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
 		A715F2D52C19823400E5A1F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D42C19823400E5A1F3 /* Preview Assets.xcassets */; };
 		A715F2DC2C19838100E5A1F3 /* MapViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */; };
 		A715F2E02C1984D700E5A1F3 /* CustomMapPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2DF2C1984D700E5A1F3 /* CustomMapPinView.swift */; };
 		A715F2E22C19863100E5A1F3 /* MapStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2E12C19863100E5A1F3 /* MapStateManager.swift */; };
+		A715F2EE2C1AF25700E5A1F3 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2ED2C1AF25600E5A1F3 /* RootView.swift */; };
+		A715F2F22C1AF28A00E5A1F3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */; };
+		A715F2FA2C1AF4CD00E5A1F3 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2F92C1AF4CD00E5A1F3 /* SignInView.swift */; };
+		A715F2FC2C1AF4D800E5A1F3 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2FB2C1AF4D800E5A1F3 /* SignInViewModel.swift */; };
+		A715F2FF2C1AF5FA00E5A1F3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2FE2C1AF5FA00E5A1F3 /* AuthView.swift */; };
+		A715F3012C1AF66000E5A1F3 /* ChooseSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F3002C1AF66000E5A1F3 /* ChooseSignUpView.swift */; };
+		A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F3042C1AFE1D00E5A1F3 /* SignUpViewModel.swift */; };
+		A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */; };
+		A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */; };
+		A715F3102C1C437E00E5A1F3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F30F2C1C437E00E5A1F3 /* SignUpView.swift */; };
+		A715F3142C1C474900E5A1F3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A715F3132C1C474900E5A1F3 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
-		A715F2CF2C19823200E5A1F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A715F2D12C19823400E5A1F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A715F2D42C19823400E5A1F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewRepresentable.swift; sourceTree = "<group>"; };
 		A715F2DF2C1984D700E5A1F3 /* CustomMapPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapPinView.swift; sourceTree = "<group>"; };
 		A715F2E12C19863100E5A1F3 /* MapStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStateManager.swift; sourceTree = "<group>"; };
+		A715F2ED2C1AF25600E5A1F3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		A715F2F92C1AF4CD00E5A1F3 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		A715F2FB2C1AF4D800E5A1F3 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		A715F2FE2C1AF5FA00E5A1F3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		A715F3002C1AF66000E5A1F3 /* ChooseSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSignUpView.swift; sourceTree = "<group>"; };
+		A715F3042C1AFE1D00E5A1F3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationViewModel.swift; sourceTree = "<group>"; };
+		A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		A715F30F2C1C437E00E5A1F3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		A715F3132C1C474900E5A1F3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +79,15 @@
 		A715F2CC2C19823200E5A1F3 /* FindMyChild */ = {
 			isa = PBXGroup;
 			children = (
+				A715F3112C1C473000E5A1F3 /* Assets */,
+				A715F30A2C1C3AEF00E5A1F3 /* Protocols */,
+				A715F2F62C1AF3A500E5A1F3 /* Home */,
+				A715F2F52C1AF39500E5A1F3 /* Root */,
+				A715F2F42C1AF38A00E5A1F3 /* Authentication */,
+				A715F2F32C1AF2D200E5A1F3 /* App */,
 				A715F2DD2C1984C000E5A1F3 /* UI */,
-				A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */,
-				A715F2CF2C19823200E5A1F3 /* ContentView.swift */,
 				A715F2D12C19823400E5A1F3 /* Assets.xcassets */,
 				A715F2D32C19823400E5A1F3 /* Preview Content */,
-				A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */,
-				A715F2E12C19863100E5A1F3 /* MapStateManager.swift */,
 			);
 			path = FindMyChild;
 			sourceTree = "<group>";
@@ -90,6 +114,95 @@
 				A715F2DF2C1984D700E5A1F3 /* CustomMapPinView.swift */,
 			);
 			path = MapPins;
+			sourceTree = "<group>";
+		};
+		A715F2F32C1AF2D200E5A1F3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A715F2F42C1AF38A00E5A1F3 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A715F30E2C1C436A00E5A1F3 /* SignUpDetail */,
+				A715F2F82C1AF4BE00E5A1F3 /* ChooseSignUp */,
+				A715F2F72C1AF4B700E5A1F3 /* SignIn */,
+				A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */,
+				A715F2FE2C1AF5FA00E5A1F3 /* AuthView.swift */,
+				A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A715F2F52C1AF39500E5A1F3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2ED2C1AF25600E5A1F3 /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A715F2F62C1AF3A500E5A1F3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2E12C19863100E5A1F3 /* MapStateManager.swift */,
+				A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */,
+				A715F2CF2C19823200E5A1F3 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A715F2F72C1AF4B700E5A1F3 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2F92C1AF4CD00E5A1F3 /* SignInView.swift */,
+				A715F2FB2C1AF4D800E5A1F3 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		A715F2F82C1AF4BE00E5A1F3 /* ChooseSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A715F3002C1AF66000E5A1F3 /* ChooseSignUpView.swift */,
+				A715F3042C1AFE1D00E5A1F3 /* SignUpViewModel.swift */,
+			);
+			path = ChooseSignUp;
+			sourceTree = "<group>";
+		};
+		A715F30A2C1C3AEF00E5A1F3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A715F30E2C1C436A00E5A1F3 /* SignUpDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A715F30F2C1C437E00E5A1F3 /* SignUpView.swift */,
+			);
+			path = SignUpDetail;
+			sourceTree = "<group>";
+		};
+		A715F3112C1C473000E5A1F3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A715F3122C1C473400E5A1F3 /* Strings */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		A715F3122C1C473400E5A1F3 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				A715F3132C1C474900E5A1F3 /* Localizable.xcstrings */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +265,7 @@
 			files = (
 				A715F2D52C19823400E5A1F3 /* Preview Assets.xcassets in Resources */,
 				A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */,
+				A715F3142C1C474900E5A1F3 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,11 +276,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */,
+				A715F2FA2C1AF4CD00E5A1F3 /* SignInView.swift in Sources */,
+				A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */,
 				A715F2E02C1984D700E5A1F3 /* CustomMapPinView.swift in Sources */,
-				A715F2D02C19823200E5A1F3 /* ContentView.swift in Sources */,
+				A715F2F22C1AF28A00E5A1F3 /* AuthManager.swift in Sources */,
+				A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */,
+				A715F2FC2C1AF4D800E5A1F3 /* SignInViewModel.swift in Sources */,
+				A715F2EE2C1AF25700E5A1F3 /* RootView.swift in Sources */,
 				A715F2E22C19863100E5A1F3 /* MapStateManager.swift in Sources */,
 				A715F2DC2C19838100E5A1F3 /* MapViewRepresentable.swift in Sources */,
+				A715F2FF2C1AF5FA00E5A1F3 /* AuthView.swift in Sources */,
+				A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */,
 				A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */,
+				A715F3102C1C437E00E5A1F3 /* SignUpView.swift in Sources */,
+				A715F3012C1AF66000E5A1F3 /* ChooseSignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

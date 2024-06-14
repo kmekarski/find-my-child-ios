@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct RootView: View {
-    @EnvironmentObject var rootVM: RootViewModel
+    @EnvironmentObject var authManager: AuthManager
     var body: some View {
-        Text(rootVM.signedIn.description)
+        VStack {
+            if signedIn {
+                HomeView()
+            } else {
+                AuthView()
+            }
+        }
+    }
+}
+
+private extension RootView {
+    var signedIn: Bool {
+        return authManager.signedIn
     }
 }
 
 #Preview {
-    RootView()
-        .environmentObject(RootViewModel(authManager: AuthManager()))
+    let authManager: AuthManager = AuthManager()
+    return RootView()
+        .environmentObject(MapStateManager())
+        .environmentObject(authManager)
+        .environmentObject(AuthNavigationViewModel())
+        .environmentObject(SignInViewModel(authManager: authManager))
+        .environmentObject(SignUpViewModel(authManager: authManager))
 }

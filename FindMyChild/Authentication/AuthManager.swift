@@ -7,6 +7,10 @@
 
 import Foundation
 
-class AuthManager {
-    var signedIn: Bool = true
+class AuthManager: ObservableObject {
+    @Published var signedIn: Bool = false
+    
+    func signIn() {
+        signedIn = true
+    }
 }

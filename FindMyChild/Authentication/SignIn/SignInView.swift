@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct SignInView: View {
+    @EnvironmentObject var signInVM: SignInViewModel
+    @EnvironmentObject var navVM: AuthNavigationViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button(action: signIn, label: {
+                Text("Sign in")
+            })
+            Button(action: goToSignUp, label: {
+                Text("go_to_sign_up")
+            })
+        }
+        .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
     SignInView()
+        .environmentObject(SignInViewModel(authManager: AuthManager()))
+        .environmentObject(AuthNavigationViewModel())
+}
+
+private extension SignInView {
+    func signIn() {
+        signInVM.signIn()
+    }
+    
+    func goToSignUp() {
+        navVM.navigate(route: .chooseSignUp)
+    }
 }
