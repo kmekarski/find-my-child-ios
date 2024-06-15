@@ -7,15 +7,20 @@
 
 import Foundation
 
-enum MapViewState {
+enum MapViewsState {
     case initial
     case annotationsAdded
 }
 
 class MapViewModel: ObservableObject {
-    @Published var currentState: MapViewState = .initial
+    @Published var currentState: MapViewsState
+    @Published var selectedAnnotation: Child?
     
-    func go(to: MapViewState) {
+    init() {
+        self.currentState = .initial
+    }
+    
+    func go(to: MapViewsState) {
         currentState = to
     }
 }

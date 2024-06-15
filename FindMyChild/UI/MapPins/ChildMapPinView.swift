@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct CustomMapPinView: View {
+struct ChildMapPinView: View {
     var childName: String
     var body: some View {
         VStack(spacing: 4) {
             ZStack {
                 Circle()
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(.prim)
                 Image(systemName: "person")
+                    .foregroundStyle(.onPrimary)
+
             }
             .frame(width: 48, height: 48)
 
@@ -24,16 +26,19 @@ struct CustomMapPinView: View {
                     .frame(width: 20, height: 10)
                     .foregroundStyle(Material.thick)
                 Text(childName)
+                    .customFont(.regular, 14)
+                    .foregroundStyle(.onPrimaryContainer)
                     .padding(.vertical, 10)
                     .padding(.horizontal)
                     .background(Material.thick)
                     .clipShape(.rect(cornerRadius: 12))
             }
+            .shadow(color: .black.opacity(0.15), radius: 3, y: 3)
         }
         .frame(width: 100, height: 48)
     }
 }
 
 #Preview {
-    CustomMapPinView(childName: MockData.children[0].name)
+    ChildMapPinView(childName: MockData.children[0].name)
 }
