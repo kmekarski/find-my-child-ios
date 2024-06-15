@@ -37,6 +37,6 @@ private extension SignInView {
     }
     
     func goToSignUp() {
-        navVM.navigate(route: .chooseSignUp)
+        navVM.navigate(route: .signUp)
     }
 }

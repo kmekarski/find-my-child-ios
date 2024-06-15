@@ -16,12 +16,8 @@ struct AuthView: View {
                     switch routes {
                     case .signIn:
                         SignInView()
-                    case .chooseSignUp:
-                        ChooseSignUpView()
-                    case .signUpParent:
-                        SignUpView(type: .parent)
-                    case .signUpChild:
-                        SignUpView(type: .child)
+                    case .signUp:
+                        SignUpView()
                     }
                 }
         }
@@ -29,6 +25,9 @@ struct AuthView: View {
 }
 
 #Preview {
-    AuthView()
+    let authManager = AuthManager()
+    return AuthView()
         .environmentObject(AuthNavigationViewModel())
+        .environmentObject(SignInViewModel(authManager: authManager))
+        .environmentObject(SignUpViewModel(authManager: authManager))
 }

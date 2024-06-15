@@ -10,9 +10,7 @@ import SwiftUI
 
 enum AuthRoute: String, Hashable, Route {
     case signIn
-    case chooseSignUp
-    case signUpParent
-    case signUpChild
+    case signUp
 }
 
 class AuthNavigationViewModel: NavigationViewModel {

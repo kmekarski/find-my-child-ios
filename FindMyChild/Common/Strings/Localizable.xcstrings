@@ -1,6 +1,16 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+      "localizations" : {
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
     "ago_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -31,22 +41,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "stąd"
-          }
-        }
-      }
-    },
-    "back_string" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Back"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wróć"
           }
         }
       }
@@ -84,6 +78,23 @@
         }
       }
     },
+    "choose_sign_up_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose account type"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz typ konta"
+          }
+        }
+      }
+    },
     "distance_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -97,6 +108,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Odległość"
+          }
+        }
+      }
+    },
+    "email_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
           }
         }
       }
@@ -151,9 +178,6 @@
           }
         }
       }
-    },
-    "History" : {
-
     },
     "history_string" : {
       "extractionState" : "manual",
@@ -239,6 +263,22 @@
         }
       }
     },
+    "name_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nazwa"
+          }
+        }
+      }
+    },
     "parent_sign_up_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -272,6 +312,38 @@
         }
       }
     },
+    "password_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasło"
+          }
+        }
+      }
+    },
+    "repeat_password_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeat password"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powtórz hasło"
+          }
+        }
+      }
+    },
     "sign_in_string" : {
       "localizations" : {
         "en" : {
@@ -284,6 +356,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zaloguj się"
+          }
+        }
+      }
+    },
+    "sign_up_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign Up"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zarejestruj się"
           }
         }
       }
