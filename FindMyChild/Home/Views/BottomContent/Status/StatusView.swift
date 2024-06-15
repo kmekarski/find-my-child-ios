@@ -8,24 +8,16 @@
 import SwiftUI
 
 struct StatusView: View {
-    var children: [Child]
-    var childrenData: [ChildData]
-    @Binding var selectedChild: Child?
-    var onChildSelected: (Child) -> ()
+    @EnvironmentObject var homeVM: HomeViewModel
     var body: some View {
         VStack() {
             HStack {
-                ForEach(children) { child in
-                    Button(action: {
-                        onChildSelected(child)
-                    }, label: {
-                        ChildChipView(child: child, isSelected: selectedChild?.id == child.id)
-                    })
-                }
+                
+                ChildSelectorView(children: children, childrenData: childrenData, selectedChild: $homeVM.selectedChild, onChildSelected: selectChild)
                 
                 Spacer()
                 
-                if let selectedChildData = selectedChildData {
+                if selectedChild != nil {
                     batteryIcon
                     phoneButton
                 }
@@ -43,6 +35,22 @@ struct StatusView: View {
 }
 
 private extension StatusView {
+    var children: [Child] {
+        return homeVM.children
+    }
+    
+    var childrenData: [ChildData] {
+        return homeVM.childrenData
+    }
+    
+    func selectChild(child: Child) {
+        homeVM.selectChild(child)
+    }
+    
+    var selectedChild: Child? {
+        homeVM.selectedChild
+    }
+    
     var selectedChildData: ChildData? {
         guard let selectedChild = selectedChild else {
             return nil

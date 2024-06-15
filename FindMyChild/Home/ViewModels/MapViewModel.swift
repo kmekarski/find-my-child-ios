@@ -14,7 +14,6 @@ enum MapViewsState {
 
 class MapViewModel: ObservableObject {
     @Published var currentState: MapViewsState
-    @Published var selectedAnnotation: Child?
     
     init() {
         self.currentState = .initial
@@ -22,10 +21,5 @@ class MapViewModel: ObservableObject {
     
     func go(to: MapViewsState) {
         currentState = to
-    }
-    
-    func selectAnnotation(child: Child) {
-        selectedAnnotation = child
-        print("\(child.name) annotation selected")
     }
 }

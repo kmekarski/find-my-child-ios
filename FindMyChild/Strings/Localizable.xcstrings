@@ -152,6 +152,26 @@
         }
       }
     },
+    "History" : {
+
+    },
+    "history_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historia"
+          }
+        }
+      }
+    },
     "just_now_string" : {
       "localizations" : {
         "en" : {
@@ -264,6 +284,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zaloguj się"
+          }
+        }
+      }
+    },
+    "status_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Status"
           }
         }
       }

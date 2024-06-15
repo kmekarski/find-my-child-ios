@@ -21,7 +21,7 @@ extension MockData {
     private static let names = [
         "Sophie",
         "Blake",
-        "John"
+        "Janek"
     ]
     
     private static let phoneNumbers = [

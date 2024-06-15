@@ -8,9 +8,15 @@
 import SwiftUI
 import MapKit
 
+enum HomeViewTab: CaseIterable {
+    case status
+    case history
+}
+
 struct HomeView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     @EnvironmentObject var mapVM: MapViewModel
+    @State var selectedItem: HomeViewTab = .status
 
     var body: some View {
         ZStack {
@@ -21,17 +27,15 @@ struct HomeView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                StatusView(
-                    children: children,
-                           childrenData: childrenData,
-                           selectedChild: $homeVM.selectedChild,
-                           onChildSelected: selectChild
-                )
-                .padding(.top, 20)
-                .padding(.horizontal, 20)
+                VStack {
+                    BottomContentView(selectedItem: selectedItem)
+                        .padding(.bottom, 8)
+                    BottomTabBarView(selectedItem: $selectedItem)
+                }
                 .frame(maxWidth: .infinity)
                 .background(Material.thick)
             }
+            
         }
     }
 }
