@@ -14,26 +14,23 @@ struct ChildStatusView: View {
         HStack {
             Image(systemName: "person")
                 .frame(width: 56, height: 56)
+                .foregroundStyle(.onPrimary)
                 .background()
-                .backgroundStyle(.blue)
+                .backgroundStyle(.accent)
                 .clipShape(.circle)
                 .padding(.trailing, 8)
             VStack(alignment: .leading) {
                 Text(locationString)
+                    .customFont(.bold, 18)
+                    .lineLimit(2)
                 Text(distanceString)
+                    .customFont(.light)
+                    .padding(.bottom, 4)
                 Text(lastTimeSeenString)
+                    .customFont(.regular)
+                    .lineLimit(2)
             }
-            Spacer()
-            if childData.batteryLevel != nil {
-                Image(systemName: batteryIconName)
-            } else {
-                batteryUnknownIcon
-            }
-            
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "phone")
-            })
-            
+            .foregroundStyle(.onPrimaryContainer)            
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -52,42 +49,6 @@ private extension ChildStatusView {
     var lastTimeSeenString: String {
         let valueString = childData.updatedDate?.asTimeAgoString() ?? String(localized: "unknown_string")
         return String(localized: "last_time_seen_string") + ": " + valueString
-    }
-    
-    var batteryIconName: String {
-        guard let batteryLevel = childData.batteryLevel else {
-            return ""
-        }
-        switch batteryLevel {
-        case 76...100:
-            return "battery.100percent"
-        case 51...75:
-            return "battery.75percent"
-        case 26...50:
-            return "battery.25percent"
-        case 0...25:
-            return "battery.0percent"
-        default:
-            return ""
-        }
-    }
-    
-    var batteryUnknownIcon: some View {
-        ZStack {
-            Image(systemName: "battery.0percent")
-            Image(systemName: "questionmark")
-                .background() {
-                    VStack(spacing: 0){
-                        Rectangle()
-                            .frame(width: 14, height: 10)
-                        Rectangle()
-                            .frame(width: 7, height: 10)
-                            .offset(x: -1)
-                    }
-                    .foregroundStyle(.white)
-                }
-                .offset(x: -1)
-        }
     }
 }
 

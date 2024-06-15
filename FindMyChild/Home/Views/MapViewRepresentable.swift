@@ -12,8 +12,12 @@ struct MapViewRepresentable: UIViewRepresentable {
     let mapView = MKMapView()
     
     var mapVM: MapViewModel
-    var children: [Child]
-    var childrenData: [ChildData]
+    var homeVM: HomeViewModel
+    
+    init(mapVM: MapViewModel, homeVM: HomeViewModel) {
+        self.mapVM = mapVM
+        self.homeVM = homeVM
+    }
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -27,6 +31,8 @@ struct MapViewRepresentable: UIViewRepresentable {
     func updateUIView(_ uiView: UIViewType, context: Context) {
         switch mapVM.currentState {
         case .initial:
+            let children = homeVM.children
+            let childrenData = homeVM.childrenData
             context.coordinator.addAnnotations(children: children, childrenData: childrenData)
             mapVM.go(to: .annotationsAdded)
         case .annotationsAdded:
@@ -46,12 +52,6 @@ extension MapViewRepresentable {
         // MARK: - Properties
         
         var parent: MapViewRepresentable
-        var userLocationCoordinate: CLLocationCoordinate2D?
-        var currentRegion: MKCoordinateRegion?
-        
-        var polylines: [MKPolyline] = []
-        var polylineRenderers: [MKPolylineRenderer] = []
-        var overlayCopies: [MKOverlay] = []
         
         // MARK: - Lifecycle
         
@@ -62,61 +62,70 @@ extension MapViewRepresentable {
         
         // MARK: - MKMapViewDelegate
         
-        func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-            self.userLocationCoordinate = userLocation.coordinate
-            let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-            let region = MKCoordinateRegion(
-                center: center,
-                span: span)
-            
-            if self.currentRegion == nil {
-                parent.mapView.setRegion(region, animated: true)
-            }
-            
-            self.currentRegion = region
-        }
-        
         func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            guard !(annotation is MKUserLocation) else { return nil }
-            guard let title = annotation.title else { return nil }
-            
-            let customPinView: UIView
-            
-            if let title = title, title.hasPrefix("childPin_") {
-                let childName = title.components(separatedBy: "childPin_")[1]
-                let pinRootView = CustomMapPinView(childName: childName)
-                customPinView = UIHostingController(rootView: pinRootView).view
-                let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customPin")
-                annotationView.addSubview(customPinView)
-                return annotationView
-            } else {
-                return nil
-            }
+            guard let childAnnotation = annotation as? ChildAnnotation else { return nil }
+            let childAnnotationView = ChildAnnotationView(annotation: childAnnotation, reuseIdentifier: "childAnnotation")
+            return childAnnotationView
         }
         
-        
-        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            if let polyline = overlay as? MKPolyline {
-                let polyLineRenderer = MKPolylineRenderer(overlay: polyline)
-                polyLineRenderer.strokeColor = .blue
-                polyLineRenderer.lineWidth = 7
-                polylineRenderers.append(polyLineRenderer)
-                return polyLineRenderer
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            let selectedAnnotations = mapView.selectedAnnotations
+            for annotation in selectedAnnotations {
+                mapView.deselectAnnotation(annotation, animated: false)
             }
-            return MKOverlayRenderer(overlay: overlay)
+            
+            if let childAnnotationView = view as? ChildAnnotationView,
+               let childAnnotation = childAnnotationView.annotation as? ChildAnnotation {
+                parent.homeVM.selectedChild = childAnnotation.child
+            }
         }
         
         func addAnnotations(children: [Child], childrenData: [ChildData]) {
             parent.mapView.removeAnnotations(parent.mapView.annotations)
             childrenData.indices.forEach { index in
-                let annotation = MKPointAnnotation()
-                if let coordinate = childrenData[index].coordinate {
-                    annotation.coordinate = coordinate
-                    annotation.title = "childPin_" + children[index].name
-                    parent.mapView.addAnnotation(annotation)
+                let child = children[index]
+                if let childCoordinate = childrenData[index].coordinate {
+                    let childAnnotation = ChildAnnotation(child: child, coordinate: childCoordinate)
+                    parent.mapView.addAnnotation(childAnnotation)
                 }
             }
         }
+    }
+}
+
+class ChildAnnotation: NSObject, MKAnnotation {
+    let coordinate: CLLocationCoordinate2D
+    let child: Child
+    
+    init(child: Child, coordinate: CLLocationCoordinate2D) {
+        self.child = child
+        self.coordinate = coordinate
+    }
+}
+
+class ChildAnnotationView: MKAnnotationView {
+    private var hostingController: UIHostingController<ChildMapPinView>?
+    
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        self.annotation = annotation
+        if let annotation = annotation as? ChildAnnotation {
+            let customView = ChildMapPinView(child: annotation.child, isSelected: false)
+            let hostingController = UIHostingController(rootView: customView)
+            self.hostingController = hostingController
+            self.frame.size.width = 100
+            self.frame.size.height = 96
+            self.addSubview(hostingController.view)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        hostingController?.view.removeFromSuperview()
+        hostingController = nil
     }
 }

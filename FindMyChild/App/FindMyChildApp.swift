@@ -24,6 +24,13 @@ struct FindMyChildApp: App {
         homeVM = HomeViewModel(childrenManager: childrenManager)
         mapVM = MapViewModel()
         authNavVM = AuthNavigationViewModel()
+        
+        for family in UIFont.familyNames {
+            print("Family: \(family)")
+            for name in UIFont.fontNames(forFamilyName: family) {
+                print("   - \(name)")
+            }
+        }
     }
     var body: some Scene {
         WindowGroup {

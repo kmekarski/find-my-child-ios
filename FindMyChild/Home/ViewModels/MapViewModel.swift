@@ -23,4 +23,9 @@ class MapViewModel: ObservableObject {
     func go(to: MapViewsState) {
         currentState = to
     }
+    
+    func selectAnnotation(child: Child) {
+        selectedAnnotation = child
+        print("\(child.name) annotation selected")
+    }
 }

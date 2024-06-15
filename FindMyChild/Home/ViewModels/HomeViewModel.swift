@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    private var childrenManager: ChildrenManagerProtocol
+    var childrenManager: ChildrenManagerProtocol
     @Published var children: [Child]
     @Published var childrenData: [ChildData]
     @Published var selectedChild: Child?

@@ -1,0 +1,6 @@
+framework module Pods_FindMyChild {
+  umbrella header "Pods-FindMyChild-umbrella.h"
+
+  export *
+  module * { export * }
+}

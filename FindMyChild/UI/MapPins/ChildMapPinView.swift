@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ChildMapPinView: View {
-    var childName: String
+    var child: Child
+    var isSelected: Bool
     var body: some View {
         VStack(spacing: 4) {
             ZStack {
@@ -19,13 +20,11 @@ struct ChildMapPinView: View {
 
             }
             .frame(width: 48, height: 48)
-
-            
             VStack(spacing: 0) {
                 Triangle()
                     .frame(width: 20, height: 10)
                     .foregroundStyle(Material.thick)
-                Text(childName)
+                Text(child.name)
                     .customFont(.regular, 14)
                     .foregroundStyle(.onPrimaryContainer)
                     .padding(.vertical, 10)
@@ -34,11 +33,16 @@ struct ChildMapPinView: View {
                     .clipShape(.rect(cornerRadius: 12))
             }
             .shadow(color: .black.opacity(0.15), radius: 3, y: 3)
+            .frame(width: 100, height: 48)
         }
-        .frame(width: 100, height: 48)
+        .offset(x: 50, y: 24)
+        .scaleEffect(isSelected ? 1.5 : 1)
     }
 }
 
 #Preview {
-    ChildMapPinView(childName: MockData.children[0].name)
+    HStack {
+        ChildMapPinView(child: MockData.children[0], isSelected: false)
+        ChildMapPinView(child: MockData.children[1], isSelected: true)
+    }
 }

@@ -16,8 +16,7 @@ struct HomeView: View {
         ZStack {
             MapViewRepresentable(
                 mapVM: mapVM,
-                children: children,
-                childrenData: childrenData
+                homeVM: homeVM
             )
                 .ignoresSafeArea()
             VStack {
