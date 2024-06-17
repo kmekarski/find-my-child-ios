@@ -19,6 +19,15 @@ enum UserType {
             return String(localized: "child_string")
         }
     }
+    
+    var icon: String {
+        switch self {
+        case .parent:
+            return "figure.and.child.holdinghands"
+        case .child:
+            return "figure.child"
+        }
+    }
 }
 
 struct SignUpView: View {
@@ -27,20 +36,27 @@ struct SignUpView: View {
     var body: some View {
         VStack {
             
-            if signUpVM.selectedAccountType == nil {
+            VStack {
                 chooseSignUpMessage
+                accountTypeButtons
             }
+            .padding(32)
+            .padding(.top, 32)
+            .background(.prim)
             
-            accountTypeButtons
-            
-            form
-                .padding(.vertical, 24)
-            
-            signUpButton
-            
-            goToSignInButton
+            VStack {
+                form
+                    .padding(.vertical, 24)
+                
+                signUpButton
+                    .padding(.bottom, 12)
+                
+                goToSignInButton
+                
+            }
+            .padding()
+            Spacer()
         }
-        .padding()
         .navigationBarBackButtonHidden()
     }
 }
@@ -54,7 +70,9 @@ struct SignUpView: View {
 private extension SignUpView {
     
     func chooseSignUp(type: UserType) {
-        signUpVM.selectedAccountType = type
+        withAnimation {
+            signUpVM.selectedAccountType = type
+        }
     }
     
     func signUp() {
@@ -69,28 +87,33 @@ private extension SignUpView {
         let isSelected = type == signUpVM.selectedAccountType
         return Button(action: { chooseSignUp(type: type) }, label: {
             VStack {
+                Image(systemName: type.icon)
+                    .font(.system(size: isSelected ? 36 : 30))
                 Text(type.text)
-                    .customFont(.regular, 24)
+                    .customFont(.regular, isSelected ? 20 : 18)
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 64)
+            .padding()
             .foregroundStyle(isSelected ? .accent : .second)
-            .background(isSelected ? .primaryContainer : .secondaryContainer)
+            .background(isSelected ? .primaryContainer : .surface)
             .clipShape(.rect(cornerRadius: 16))
+            .customShadow(.outline)
         })
     }
     
     var chooseSignUpMessage: some View {
         Text("choose_sign_up_string")
+            .foregroundStyle(.onPrimary)
             .customFont(.regular, 24)
             .padding(.bottom)
     }
     
     var accountTypeButtons: some View {
         HStack(spacing: 12) {
-            chooseSignUpButton(type: .child)
             chooseSignUpButton(type: .parent)
+            chooseSignUpButton(type: .child)
         }
+        .frame(height: 108)
     }
     
     var form: some View {

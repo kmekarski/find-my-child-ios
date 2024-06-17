@@ -16,12 +16,13 @@ struct WideButtonView: View {
     
     var body: some View {
         Text(text)
-            .customFont(.bold, 24)
-            .foregroundStyle(.prim)
+            .customFont(.regular, 20)
+            .foregroundStyle(.onPrimary)
             .padding(12)
             .frame(maxWidth: .infinity)
-            .background(.primaryContainer)
+            .background(.prim)
             .clipShape(.rect(cornerRadius: 12))
+            .customShadow(.subtleDownShadow)
     }
 }
 

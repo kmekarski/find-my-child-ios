@@ -328,6 +328,23 @@
         }
       }
     },
+    "phone_number_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone number"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numer telefonu"
+          }
+        }
+      }
+    },
     "repeat_password_string" : {
       "localizations" : {
         "en" : {

@@ -47,6 +47,8 @@
 		A7D7F8A32C1DF058004897FC /* AuthTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F8A22C1DF058004897FC /* AuthTextFieldView.swift */; };
 		A7D7F8A52C1DF30F004897FC /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F8A42C1DF30F004897FC /* SignUpTextField.swift */; };
 		A7D7F8A82C1DF774004897FC /* WideButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F8A72C1DF774004897FC /* WideButtonView.swift */; };
+		A7D7F8AC2C2090AB004897FC /* CustomShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F8AB2C2090AB004897FC /* CustomShadowModifier.swift */; };
+		A7D7F8AE2C20913E004897FC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F8AD2C20913E004897FC /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +96,8 @@
 		A7D7F8A22C1DF058004897FC /* AuthTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextFieldView.swift; sourceTree = "<group>"; };
 		A7D7F8A42C1DF30F004897FC /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		A7D7F8A72C1DF774004897FC /* WideButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideButtonView.swift; sourceTree = "<group>"; };
+		A7D7F8AB2C2090AB004897FC /* CustomShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShadowModifier.swift; sourceTree = "<group>"; };
+		A7D7F8AD2C20913E004897FC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,7 @@
 		A715F2DD2C1984C000E5A1F3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A7D7F8AA2C209096004897FC /* ViewModifiers */,
 				A7D7F8A62C1DF769004897FC /* Buttons */,
 				A7D7F8A12C1DF048004897FC /* TextFields */,
 				A7A946E82C1CB98F0080F270 /* Shapes */,
@@ -192,10 +197,10 @@
 		A715F2F42C1AF38A00E5A1F3 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A7D7F8A92C1E0D8A004897FC /* Navigation */,
 				A7D7F89D2C1DEFE0004897FC /* Views */,
 				A715F2F82C1AF4BE00E5A1F3 /* SignUp */,
 				A715F2F72C1AF4B700E5A1F3 /* SignIn */,
-				A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				A7A946E62C1CA25F0080F270 /* Date.swift */,
 				A7D7F87F2C1CE4C4004897FC /* Color.swift */,
 				A7D7F8812C1CEB3F004897FC /* Font.swift */,
+				A7D7F8AD2C20913E004897FC /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +418,22 @@
 				A7D7F8A72C1DF774004897FC /* WideButtonView.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		A7D7F8A92C1E0D8A004897FC /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A7D7F8AA2C209096004897FC /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				A7D7F8AB2C2090AB004897FC /* CustomShadowModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		B20646C5B38DB70193AD9EA0 /* Frameworks */ = {
@@ -526,6 +548,7 @@
 				A7D7F8822C1CEB3F004897FC /* Font.swift in Sources */,
 				A7A946D02C1C8FB90080F270 /* HomeViewModel.swift in Sources */,
 				A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */,
+				A7D7F8AE2C20913E004897FC /* View.swift in Sources */,
 				A715F2FA2C1AF4CD00E5A1F3 /* SignInView.swift in Sources */,
 				A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */,
 				A7D7F8952C1DCEFB004897FC /* HistoryView.swift in Sources */,
@@ -546,6 +569,7 @@
 				A715F2FF2C1AF5FA00E5A1F3 /* AuthView.swift in Sources */,
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
 				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,
+				A7D7F8AC2C2090AB004897FC /* CustomShadowModifier.swift in Sources */,
 				A7A946C82C1C8E650080F270 /* ChildChipView.swift in Sources */,
 				A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */,
 				A7A946D32C1C8FE70080F270 /* ChildrenManager.swift in Sources */,

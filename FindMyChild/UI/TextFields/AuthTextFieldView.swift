@@ -19,7 +19,7 @@ struct AuthTextFieldView: View {
                 TextField("", text: $text, prompt: Text(title).foregroundColor(.second))
                     .frame(height: 48)
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    .background(.secondaryContainer)
+                    .background(.surface)
                     .foregroundColor(.onSecondaryContainer)
                     .cornerRadius(10)
                 if !text.isEmpty && clearButtonVisible {
@@ -32,7 +32,7 @@ struct AuthTextFieldView: View {
                     }
                 }
             }
-            .shadow(color: .second, radius: 1)
+            .shadow(color: .outline, radius: 1)
             .shadow(color: invalid ? .red : .clear, radius: 1)
             .frame(height: 52)
             

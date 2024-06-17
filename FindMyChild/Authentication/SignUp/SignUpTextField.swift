@@ -12,6 +12,7 @@ enum SignUpTextField: CaseIterable {
     case email
     case password
     case repeatPassword
+    case phoneNumber
     
     var text: String {
         switch self {
@@ -23,6 +24,9 @@ enum SignUpTextField: CaseIterable {
             return String(localized: "password_string")
         case .repeatPassword:
             return String(localized: "repeat_password_string")
+        case .phoneNumber:
+            return String(localized: "phone_number_string")
         }
+        
     }
 }
