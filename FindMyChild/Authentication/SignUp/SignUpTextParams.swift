@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SignUpTextField: CaseIterable {
+enum SignUpTextParams: CaseIterable {
     case name
     case email
     case password
