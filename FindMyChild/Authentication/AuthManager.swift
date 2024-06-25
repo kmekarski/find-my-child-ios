@@ -8,13 +8,19 @@
 import Foundation
 
 class AuthManager: ObservableObject {
-    @Published var signedIn: Bool = false
+    @Published var isSignedIn: Bool = false
     
     func signIn() {
-        signedIn = true
+        isSignedIn = true
     }
     
     func signOut() {
-        signedIn = false
+        isSignedIn = false
     }
+}
+
+protocol AuthManagerProtocol {
+    var isSignedIn: Bool { get set }
+    func signIn()
+    func signOut()
 }
