@@ -7,26 +7,16 @@
 
 import Foundation
 
-enum SignUpTextParams: CaseIterable {
-    case name
-    case email
-    case password
-    case repeatPassword
-    case phoneNumber
+struct SignUpTextParams {
+    var name: String = ""
+    var email: String = ""
+    var password: String = ""
+    var repeatPassword: String = ""
+    var phoneNumber: String = ""
     
-    var text: String {
-        switch self {
-        case .name:
-            return String(localized: "name_string")
-        case .email:
-            return String(localized: "email_string")
-        case .password:
-            return String(localized: "password_string")
-        case .repeatPassword:
-            return String(localized: "repeat_password_string")
-        case .phoneNumber:
-            return String(localized: "phone_number_string")
-        }
-        
-    }
+    static let nameHint = String(localized: "name_string")
+    static let emailHint = String(localized: "email_string")
+    static let passwordHint = String(localized: "password_string")
+    static let repeatPasswordHint = String(localized: "repeat_password_string")
+    static let phoneNumberHint = String(localized: "phone_number_string")
 }

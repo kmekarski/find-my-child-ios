@@ -9,8 +9,9 @@ import SwiftUI
 
 @main
 struct FindMyChildApp: App {
-    var childrenManager: ChildrenManager
-    var authManager: AuthManager
+    var childrenManager: ChildrenManagerProtocol
+    var authManager: AuthManagerProtocol
+    var authVM: AuthViewModel
     var signInVM: SignInViewModel
     var signUpVM: SignUpViewModel
     var homeVM: HomeViewModel
@@ -19,11 +20,12 @@ struct FindMyChildApp: App {
     init() {
         childrenManager = ChildrenManager()
         authManager = AuthManager()
+        authVM = AuthViewModel(authManager: authManager)
+        authNavVM = AuthNavigationViewModel()
         signInVM = SignInViewModel(authManager: authManager)
         signUpVM = SignUpViewModel(authManager: authManager)
         homeVM = HomeViewModel(childrenManager: childrenManager)
         mapVM = MapViewModel()
-        authNavVM = AuthNavigationViewModel()
         
         for family in UIFont.familyNames {
             print("Family: \(family)")
@@ -35,7 +37,7 @@ struct FindMyChildApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(authManager)
+                .environmentObject(authVM)
                 .environmentObject(signInVM)
                 .environmentObject(signUpVM)
                 .environmentObject(homeVM)

@@ -45,6 +45,40 @@
         }
       }
     },
+    "back_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wróć"
+          }
+        }
+      }
+    },
+    "child_data_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Child data"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dane dziecka"
+          }
+        }
+      }
+    },
     "child_sign_up_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -78,7 +112,7 @@
         }
       }
     },
-    "choose_sign_up_string" : {
+    "choose_account_type_string" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -91,6 +125,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wybierz typ konta"
+          }
+        }
+      }
+    },
+    "choose_sign_up_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up as"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zarejestruj się jako"
           }
         }
       }
@@ -178,6 +229,9 @@
           }
         }
       }
+    },
+    "history" : {
+
     },
     "history_string" : {
       "extractionState" : "manual",
@@ -279,6 +333,23 @@
         }
       }
     },
+    "parent_data_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parent data"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dane rodzica"
+          }
+        }
+      }
+    },
     "parent_sign_up_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -361,6 +432,23 @@
         }
       }
     },
+    "sign_in_data_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in data"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dane logowania"
+          }
+        }
+      }
+    },
     "sign_in_string" : {
       "localizations" : {
         "en" : {
@@ -377,18 +465,67 @@
         }
       }
     },
+    "sign_in_subtitle_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "...and find your child?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "...i znajdź swoje dziecko?"
+          }
+        }
+      }
+    },
+    "sign_in_title_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in to Find My Child"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaloguj się do Find My Child"
+          }
+        }
+      }
+    },
     "sign_up_string" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sign Up"
+            "value" : "Sign up"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zarejestruj się"
+          }
+        }
+      }
+    },
+    "sign_up_title_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign up to Find My Child"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zarejestruj się w Find My Child"
           }
         }
       }

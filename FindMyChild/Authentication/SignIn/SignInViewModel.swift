@@ -6,15 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SignInViewModel: ObservableObject {
-    var authManager: AuthManager
+    var authManager: AuthManagerProtocol
     
-    init(authManager: AuthManager) {
+    @Published var textParams: SignInTextParams = SignInTextParams()
+    
+    init(authManager: AuthManagerProtocol) {
         self.authManager = authManager
     }
     
     func signIn() {
+        print(textParams.email)
+        print(textParams.password)
         authManager.signIn()
     }
 }

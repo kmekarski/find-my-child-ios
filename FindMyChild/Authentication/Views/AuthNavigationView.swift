@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct AuthViewSettings {
-    static let bottomPadding: CGFloat = 32
-    static let topPadding: CGFloat = 48
-    static let headerTitleFontSize: CGFloat = 28
-    static let headerSubitleFontSize: CGFloat = 18
-    static let headerBottomPadding: CGFloat = 32
-    static let headerHorizontalPadding: CGFloat = 32
-    static let headerTitleBottomPadding: CGFloat = 8
-    static let authButtonBottomPadding: CGFloat = 12
-    static let authButtonTopPadding: CGFloat = 8
-}
-
 struct AuthNavigationView: View {
     @EnvironmentObject var navVM: AuthNavigationViewModel
     var body: some View {

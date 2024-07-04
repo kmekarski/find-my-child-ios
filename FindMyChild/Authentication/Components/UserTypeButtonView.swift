@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct UserTypeButtonView: View {
+    var type: UserType
+    var action: (UserType) -> ()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: { action(type) }, label: {
+            VStack {
+                Image(systemName: type.icon)
+                    .font(.system(size: 36))
+                    .padding(.bottom, 2)
+                Text(type.text)
+                    .customFont(.regular, 20)
+            }
+            .foregroundStyle(.second)
+            .frame(maxWidth: .infinity)
+            .padding(24)
+            .background(.surface)
+            .clipShape(.rect(cornerRadius: 16))
+            .customShadow(.outline)
+        })
     }
 }
 
 #Preview {
-    UserTypeButtonView()
+    UserTypeButtonView(type: .child, action: {_ in })
 }

@@ -20,23 +20,10 @@ struct HomeView: View {
 
     var body: some View {
         ZStack {
-            MapViewRepresentable(
-                mapVM: mapVM,
-                homeVM: homeVM
-            )
-                .ignoresSafeArea()
-            VStack {
-                Spacer()
-                VStack {
-                    BottomContentView(selectedItem: selectedItem)
-                        .padding(.bottom, 8)
-                    BottomTabBarView(selectedItem: $selectedItem)
-                }
-                .frame(maxWidth: .infinity)
-                .background(Material.thick)
-            }
-            
+            map
+            overlay
         }
+        .ignoresSafeArea(edges: [.bottom])
     }
 }
 
@@ -58,5 +45,58 @@ private extension HomeView {
     
     func selectChild(child: Child) {
         homeVM.selectChild(child)
+    }
+    
+    var map: some View {
+        MapViewRepresentable(
+            mapVM: mapVM,
+            homeVM: homeVM
+        )
+        .ignoresSafeArea()
+    }
+    
+    var overlay: some View {
+        VStack {
+            topOverlay
+            Spacer()
+            bottomOverlay
+        }
+    }
+    
+    var topOverlay: some View {
+        VStack {
+            HStack {
+                IconButtonView(icon: "line.3.horizontal")
+                Spacer()
+                Image(systemName: "bell.fill")
+                    .foregroundStyle(.prim)
+                IconButtonView(icon: "person")
+            }
+            .padding(.horizontal)
+            .padding(.bottom)
+            .frame(maxWidth: .infinity)
+            .background(Material.thick)
+            .padding(.bottom, 4)
+            HStack {
+                ChildSelectorView(children: children, childrenData: childrenData, selectedChild: $homeVM.selectedChild, onChildSelected: selectChild)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+        }
+    }
+    
+    var bottomOverlay: some View {
+        VStack {
+            ChildHeaderView()
+            BottomContentView(selectedItem: selectedItem)
+                .padding(.bottom, 8)
+                .animation(nil, value: UUID())
+            Divider()
+            BottomTabBarView(selectedItem: $selectedItem)
+        }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
+        .frame(maxWidth: .infinity)
+        .background(Material.thick)
     }
 }

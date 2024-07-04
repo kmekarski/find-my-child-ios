@@ -13,6 +13,15 @@ class HomeViewModel: ObservableObject {
     @Published var childrenData: [ChildData]
     @Published var selectedChild: Child?
     
+    var selectedChildData: ChildData? {
+        guard let selectedChild = selectedChild else {
+            return nil
+        }
+        return childrenData.first { childData in
+            childData.childId == selectedChild.id
+        }
+    }
+    
     init(childrenManager: ChildrenManagerProtocol) {
         self.childrenManager = childrenManager
         self.children = childrenManager.children

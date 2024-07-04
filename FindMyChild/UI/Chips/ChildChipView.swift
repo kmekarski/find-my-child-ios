@@ -12,13 +12,14 @@ struct ChildChipView: View {
     var isSelected: Bool
     var body: some View {
         Text(child.name)
-            .customFont(.bold)
+            .customFont(.bold, 18)
             .padding(.horizontal)
             .padding(.vertical, 8)
             .foregroundStyle(isSelected ? .onPrimary : .onPrimaryContainer)
             .background()
             .backgroundStyle(isSelected ? .prim : .secondaryContainer)
             .clipShape(.capsule)
+            .customShadow(.outline)
     }
 }
 

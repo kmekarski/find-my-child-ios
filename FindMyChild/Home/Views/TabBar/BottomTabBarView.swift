@@ -34,14 +34,14 @@ struct BottomTabBarView: View {
             ForEach(HomeViewTab.allCases, id: \.self) { item in
                 BottomTabBarItemView(item: item, isSelected: item == selectedItem)
                     .onTapGesture {
-                        selectedItem = item
+                        withAnimation {
+                            selectedItem = item
+                        }
                     }
             }
         }
-        .padding(8)
-        .background(.secondaryContainer.opacity(0.5))
-        .clipShape(.rect(cornerRadius: 32))
-        .padding(.horizontal)
+        .padding(.horizontal, 32)
+        .padding(.bottom)
     }
 }
 
@@ -63,8 +63,6 @@ struct BottomTabBarItemView: View {
         .padding(8)
         .foregroundStyle(isSelected ? .prim : .second)
         .frame(maxWidth: .infinity)
-        .background(isSelected ? .primaryContainer : Color.clear)
-        .clipShape(.rect(cornerRadius: 24))
     }
 }
 

@@ -12,4 +12,8 @@ extension View {
     func customShadow(_ type: CustomShadowType) -> some View {
         modifier(CustomShadowModifier(type: type))
     }
+    
+    func toastView(toast: Binding<Toast?>) -> some View {
+        self.modifier(ToastModifier(toast: toast))
+      }
 }

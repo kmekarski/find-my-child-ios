@@ -11,13 +11,8 @@ struct HistoryView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     var body: some View {
         VStack {
-            ChildSelectorView(
-                children: children,
-                childrenData: childrenData,
-                selectedChild: $homeVM.selectedChild,
-                onChildSelected: selectChild
-            )
-            .frame(maxWidth: .infinity, alignment: .leading)
+            Text("history")
+                .frame(height: 400)
         }
     }
 }

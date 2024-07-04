@@ -8,15 +8,16 @@
 import Foundation
 import SwiftUI
 
-enum AuthRoute: String, Hashable, Route {
+enum AuthScreenType: String, Hashable, Route {
     case signIn
     case signUp
+    case chooseUserType
 }
 
 class AuthNavigationViewModel: NavigationViewModel {
     @Published var path = NavigationPath()
     
-    func navigate(route: AuthRoute)  {
+    func navigate(route: AuthScreenType)  {
         path.append(route)
     }
     

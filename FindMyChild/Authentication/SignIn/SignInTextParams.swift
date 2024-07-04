@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct SignInTextParams {
+    var email: String = ""
+    var password: String = ""
+    
+    static let emailHint = String(localized: "email_string")
+    static let passwordHint = String(localized: "password_string")
+}

@@ -9,26 +9,22 @@ import Foundation
 import SwiftUI
 
 class SignUpViewModel: ObservableObject {
-    var authManager: AuthManager
+    var authManager: AuthManagerProtocol
     
-    @Published var formTextData: [SignUpTextField: String] = Dictionary(uniqueKeysWithValues: SignUpTextField.allCases.map({ ($0, "")
-    }))
+    @Published var textParams: SignUpTextParams = SignUpTextParams()
     
     @Published var selectedAccountType: UserType?
     
-    init(authManager: AuthManager) {
+    init(authManager: AuthManagerProtocol) {
         self.authManager = authManager
     }
     
     func signUp() {
+        print(textParams.name)
+        print(textParams.email)
+        print(textParams.password)
+        print(textParams.repeatPassword)
+        print(textParams.phoneNumber)
         print(selectedAccountType)
-        print(formTextData)
     }
-    
-    func binding(for field: SignUpTextField) -> Binding<String> {
-            return Binding(
-                get: { self.formTextData[field, default: ""] },
-                set: { self.formTextData[field] = $0 }
-            )
-        }
 }

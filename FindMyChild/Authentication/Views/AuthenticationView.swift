@@ -7,26 +7,23 @@
 
 import SwiftUI
 
-
 struct AuthenticationView: View {
+    @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var signUpVM: SignUpViewModel
     @EnvironmentObject var signInVM: SignInViewModel
     @EnvironmentObject var navVM: AuthNavigationViewModel
-    
-    @State var currentScreen: AuthRoute = .signIn
+    var screenType: AuthScreenType
     var body: some View {
         VStack {
             VStack {
                 header
             }
-            .padding(.horizontal, AuthViewSettings.headerHorizontalPadding)
-            .padding(.top, AuthViewSettings.topPadding)
-            .padding(.bottom, AuthViewSettings.headerBottomPadding)
+            .padding(32)
             .background(.prim)
             
             ScrollView {
                 VStack {
-                    switch currentScreen {
+                    switch screenType {
                     case .signIn:
                         signInForm
                     case .signUp:
@@ -39,35 +36,36 @@ struct AuthenticationView: View {
                 .padding(.horizontal)
             }
             VStack {
-                authButton
-                    .padding(.bottom, AuthViewSettings.authButtonBottomPadding)
+                if screenType == .signIn || screenType == .signUp {
+                    authButton
+                        .padding(.bottom, 12)
+                }
                 switchScreenButton
             }
-            .padding(.top, AuthViewSettings.authButtonTopPadding)
+            .padding(.top, 8)
             .padding(.horizontal)
-            .padding(.bottom, AuthViewSettings.bottomPadding)
+            .padding(.bottom, 32)
         }
         .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    let authManager = AuthManager()
-    return AuthenticationView()
+    let authManager = MockAuthManager()
+    return AuthenticationView(screenType: .signIn)
         .environmentObject(AuthNavigationViewModel())
         .environmentObject(SignInViewModel(authManager: authManager))
         .environmentObject(SignUpViewModel(authManager: authManager))
+        .environmentObject(AuthViewModel(authManager: authManager))
 }
 
 private extension AuthenticationView {
     func signIn() {
-        withAnimation {
-            signInVM.signIn()
-        }
+        signInVM.signIn()
     }
     
     func signUp() {
-
+        
     }
     
     
@@ -76,28 +74,46 @@ private extension AuthenticationView {
     }
     
     func goToSignIn() {
-        navVM.navigate(route: .signIn)
+        navVM.popToRoot()
+    }
+    
+    func goToChooseUserType() {
+        navVM.navigate(route: .chooseUserType)
+    }
+    
+    func goBack() {
+        navVM.pop()
     }
     
     func onAuthButtonTapped() {
-        switch currentScreen {
+        switch screenType {
         case .signIn:
-            goToSignUp()
+            signIn()
         case .signUp:
-            goToSignIn()
+            signUp()
         case .chooseUserType:
             break
         }
     }
     
-    func onChooseUserType(type: UserType) {
-        withAnimation {
-            signUpVM.selectedAccountType = type
+    func onSwitchScreenButtonTapped() {
+        switch screenType {
+        case .signIn:
+            goToChooseUserType()
+        case .signUp:
+            goToSignIn()
+        case .chooseUserType:
+            goToSignIn()
         }
     }
     
+    func onChooseUserType(type: UserType) {
+        signUpVM.selectedAccountType = type
+        goToSignUp()
+    }
+    
     var headerTitleText: String {
-        switch currentScreen {
+        switch screenType {
         case .signIn: String(localized: "sign_in_title_string")
         case .signUp: String(localized: "sign_up_title_string")
         case .chooseUserType: String(localized: "choose_account_type_string")
@@ -105,7 +121,7 @@ private extension AuthenticationView {
     }
     
     var headerSubtitleText: String? {
-        switch currentScreen {
+        switch screenType {
         case .signIn: String(localized: "sign_in_subtitle_string")
         case .signUp: nil
         case .chooseUserType: nil
@@ -113,19 +129,20 @@ private extension AuthenticationView {
     }
     
     var formTitleText: String {
-        if currentScreen == .signIn {
+        if screenType == .signIn {
             return String(localized: "sign_in_data_string")
-        } else if currentScreen == .signUp {
-            let text = switch signUpVM.selectedAccountType {
+        } else if screenType == .signUp {
+            return switch signUpVM.selectedAccountType {
             case .child: String(localized: "child_data_string")
             case .parent: String(localized: "parent_data_string")
             case .none: ""
             }
-        } else { return "" }
+        }
+        return ""
     }
     
     var authButtonText: String {
-        switch currentScreen {
+        switch screenType {
         case .signIn: String(localized: "sign_in_string")
         case .signUp: String(localized: "sign_up_string")
         case .chooseUserType: ""
@@ -133,10 +150,10 @@ private extension AuthenticationView {
     }
     
     var switchScreenButtonText: String {
-        switch currentScreen {
+        switch screenType {
         case .signIn: String(localized: "go_to_sign_up_string")
         case .signUp: String(localized: "go_to_sign_in_string")
-        case .chooseUserType: ""
+        case .chooseUserType: String(localized: "go_to_sign_in_string")
         }
     }
     
@@ -144,12 +161,12 @@ private extension AuthenticationView {
         VStack(alignment: .leading) {
             Text(headerTitleText)
                 .foregroundStyle(.onPrimary)
-                .customFont(.regular, AuthViewSettings.headerTitleFontSize)
-                .padding(.bottom, AuthViewSettings.headerTitleBottomPadding)
+                .customFont(.regular, 28)
+                .padding(.bottom, 8)
             if let headerSubtitleText = headerSubtitleText {
                 Text(headerSubtitleText)
                     .foregroundStyle(.primaryContainer)
-                    .customFont(.regular, AuthViewSettings.headerSubitleFontSize)
+                    .customFont(.regular, 18)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -183,12 +200,12 @@ private extension AuthenticationView {
     
     var authButton: some View {
         return Button(action: onAuthButtonTapped, label: {
-            WideButtonView(authButtonText)
+            WideButtonView(authButtonText, isLoading: authVM.isAuthenticating)
         })
     }
     
     var switchScreenButton: some View {
-        Button(action: goToSignIn, label: {
+        Button(action: onSwitchScreenButtonTapped, label: {
             Text(switchScreenButtonText)
                 .customFont(.regular)
                 .foregroundStyle(.accent)

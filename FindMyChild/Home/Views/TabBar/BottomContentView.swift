@@ -21,8 +21,6 @@ struct BottomContentView: View {
                 HistoryView()
             }
         }
-        .padding(.top, 20)
-        .padding(.horizontal, 20)
     }
 }
 

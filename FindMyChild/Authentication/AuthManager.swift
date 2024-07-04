@@ -7,20 +7,31 @@
 
 import Foundation
 
-class AuthManager: ObservableObject {
+protocol AuthManagerProtocol {
+    var delegate: AuthDelegateProtocol? { get set }
+    var isSignedIn: Bool { get set }
+    func signIn()
+    func signOut()
+}
+
+protocol AuthDelegateProtocol {
+    func didStartAuthenticating()
+    func didSignIn()
+    func didSignOut()
+}
+
+class AuthManager: AuthManagerProtocol {
+    var delegate: AuthDelegateProtocol?
+    
     @Published var isSignedIn: Bool = false
     
     func signIn() {
         isSignedIn = true
+        delegate?.didSignIn()
     }
     
     func signOut() {
         isSignedIn = false
+        delegate?.didSignOut()
     }
-}
-
-protocol AuthManagerProtocol {
-    var isSignedIn: Bool { get set }
-    func signIn()
-    func signOut()
 }
