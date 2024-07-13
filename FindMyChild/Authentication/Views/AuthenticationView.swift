@@ -272,13 +272,13 @@ private extension AuthenticationView {
 }
 
 extension AuthenticationView: SignInViewModelDelegate {
-    func showErrorMessage() {
-        toast = Toast(style: .error, message: "Something went wrong")
+    func showSignInValidationErrorMessage(_ error: AuthValidationError) {
+        toast = Toast(style: .error, message: error.message)
     }
 }
 
 extension AuthenticationView: SignUpViewModelDelegate {
-    func showErrorMessage(_ error: SignUpError) {
+    func showSignUpValidationErrorMessage(_ error: AuthValidationError) {
         toast = Toast(style: .error, message: error.message)
     }
 }

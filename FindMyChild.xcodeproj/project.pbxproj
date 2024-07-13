@@ -15,7 +15,10 @@
 		A70BE5CF2C43008800176E31 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A70BE5CE2C43008800176E31 /* FirebaseFirestore */; };
 		A70BE5D12C43008800176E31 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A70BE5D02C43008800176E31 /* FirebaseFirestoreSwift */; };
 		A70BE5D52C4314CE00176E31 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5D42C4314CE00176E31 /* ValidationManager.swift */; };
-		A70BE5D72C4315D800176E31 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5D62C4315D800176E31 /* SignUpError.swift */; };
+		A70BE5D72C4315D800176E31 /* SignUpValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */; };
+		A70BE5D92C43222500176E31 /* SignInValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5D82C43222500176E31 /* SignInValidationError.swift */; };
+		A70BE5DC2C4323D300176E31 /* AuthValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */; };
+		A70BE5DE2C43261900176E31 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5DD2C43261900176E31 /* AuthError.swift */; };
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
 		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
@@ -73,7 +76,10 @@
 		8877CDAC315CCFA88AA1D0AA /* Pods-FindMyChild.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyChild.release.xcconfig"; path = "Target Support Files/Pods-FindMyChild/Pods-FindMyChild.release.xcconfig"; sourceTree = "<group>"; };
 		A70BE5C52C42FFC900176E31 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A70BE5D42C4314CE00176E31 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
-		A70BE5D62C4315D800176E31 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
+		A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidationError.swift; sourceTree = "<group>"; };
+		A70BE5D82C43222500176E31 /* SignInValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInValidationError.swift; sourceTree = "<group>"; };
+		A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidationError.swift; sourceTree = "<group>"; };
+		A70BE5DD2C43261900176E31 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
 		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -161,6 +167,17 @@
 			path = Validation;
 			sourceTree = "<group>";
 		};
+		A70BE5DA2C4323C300176E31 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */,
+				A70BE5D82C43222500176E31 /* SignInValidationError.swift */,
+				A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */,
+				A70BE5DD2C43261900176E31 /* AuthError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		A715F2C12C19823200E5A1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +256,7 @@
 		A715F2F42C1AF38A00E5A1F3 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A70BE5DA2C4323C300176E31 /* Errors */,
 				A7946B0E2C2AEF4500176EC0 /* Models */,
 				A7946B082C2ACDC300176EC0 /* ViewModels */,
 				A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */,
@@ -322,7 +340,6 @@
 			isa = PBXGroup;
 			children = (
 				A7946B0F2C2AEF4D00176EC0 /* UserType.swift */,
-				A70BE5D62C4315D800176E31 /* SignUpError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -637,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7D7F8A32C1DF058004897FC /* AuthTextFieldView.swift in Sources */,
+				A70BE5D92C43222500176E31 /* SignInValidationError.swift in Sources */,
 				A7A946DE2C1C97BA0080F270 /* MockChildrenManager.swift in Sources */,
 				A7A946E52C1CA2160080F270 /* Int.swift in Sources */,
 				A7D7F8822C1CEB3F004897FC /* Font.swift in Sources */,
@@ -668,6 +686,7 @@
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
 				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,
 				A770832D2C374C8700A39508 /* ToastModifier.swift in Sources */,
+				A70BE5DE2C43261900176E31 /* AuthError.swift in Sources */,
 				A7D7F8AC2C2090AB004897FC /* CustomShadowModifier.swift in Sources */,
 				A7A946C82C1C8E650080F270 /* ChildChipView.swift in Sources */,
 				A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */,
@@ -678,9 +697,10 @@
 				A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */,
 				A7A946D62C1C924B0080F270 /* MockData.swift in Sources */,
 				A7D7F88F2C1DC248004897FC /* BottomContentView.swift in Sources */,
+				A70BE5DC2C4323D300176E31 /* AuthValidationError.swift in Sources */,
 				A7D7F8932C1DC4EF004897FC /* BottomTabBarView.swift in Sources */,
 				A7946B072C2ACC1700176EC0 /* MockAuthManager.swift in Sources */,
-				A70BE5D72C4315D800176E31 /* SignUpError.swift in Sources */,
+				A70BE5D72C4315D800176E31 /* SignUpValidationError.swift in Sources */,
 				A7946B022C2AC4DE00176EC0 /* AuthenticationView.swift in Sources */,
 				A7A946E72C1CA25F0080F270 /* Date.swift in Sources */,
 				A7D7F8A82C1DF774004897FC /* WideButtonView.swift in Sources */,

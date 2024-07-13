@@ -7,9 +7,7 @@
 
 import Foundation
 
-typealias SignUpValidationResult = Result<Bool, SignUpError>
-
-enum SignUpError: Error {
+enum SignUpValidationError: AuthError {
     case emptyField
     case usernameInvalid
     case usernameWrongLength

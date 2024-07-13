@@ -23,14 +23,16 @@ class SignInViewModel: ObservableObject {
         print(textParams.password)
         let email = textParams.email
         let password = textParams.password
-        guard authManager.validateSignIn(email: email, password: password) else {
-            delegate?.showErrorMessage()
-            return
+        let validationResult = authManager.validateSignIn(email: email, password: password)
+        switch validationResult {
+        case .success(let success):
+            authManager.signIn(email: email, password: password)
+        case .failure(let error):
+            delegate?.showSignInValidationErrorMessage(error)
         }
-        authManager.signIn(email: email, password: password)
     }
 }
 
 protocol SignInViewModelDelegate {
-    func showErrorMessage()
+    func showSignInValidationErrorMessage(_ error: AuthValidationError)
 }

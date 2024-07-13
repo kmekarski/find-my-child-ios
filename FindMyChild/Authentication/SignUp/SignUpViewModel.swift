@@ -37,11 +37,11 @@ class SignUpViewModel: ObservableObject {
         case .success(let success):
             break
         case .failure(let error):
-            delegate?.showErrorMessage(error)
+            delegate?.showSignUpValidationErrorMessage(error)
         }
     }
 }
 
 protocol SignUpViewModelDelegate {
-    func showErrorMessage(_ error: SignUpError)
+    func showSignUpValidationErrorMessage(_ error: AuthValidationError)
 }

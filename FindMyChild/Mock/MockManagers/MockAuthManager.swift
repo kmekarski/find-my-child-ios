@@ -8,7 +8,7 @@
 import Foundation
 
 class MockAuthManager: AuthManagerProtocol {
-    func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> Result<Bool, SignUpError> {
+    func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> AuthValidationResult {
         let validations =  [ValidationManager.validateNonEmptyField(username),
             ValidationManager.validateUsername(username),
             ValidationManager.validateNonEmptyField(email),
@@ -30,8 +30,17 @@ class MockAuthManager: AuthManagerProtocol {
         return .success(true)
     }
     
-    func validateSignIn(email: String, password: String) -> Bool {
-        return true
+    func validateSignIn(email: String, password: String) -> AuthValidationResult {
+        let validations =  [ValidationManager.validateNonEmptyField(email), ValidationManager.validateNonEmptyField(password)]
+        for result in validations {
+            switch result {
+            case .success(let success):
+                continue
+            case .failure(let error):
+                return .failure(error)
+            }
+        }
+        return .success(true)
     }
     
     func signIn(email: String, password: String) {
