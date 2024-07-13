@@ -7,16 +7,23 @@
 
 import SwiftUI
 
+enum IconButtonSize: CGFloat {
+    case small = 32
+    case medium = 40
+    case large = 50
+}
+
 struct IconButtonView: View {
     var icon: String
-    var size: CGFloat = 40
+    var size: IconButtonSize = .medium
     var body: some View {
         Image(systemName: icon)
             .foregroundStyle(.prim)
-            .frame(width: size, height: size)
+            .fontWeight(.semibold)
+            .frame(width: size.rawValue, height: size.rawValue)
             .background(Material.thick)
             .clipShape(Circle())
-            .customShadow(.outline)
+            .customShadow(.subtleOutline)
 
     }
 }

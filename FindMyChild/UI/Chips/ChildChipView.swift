@@ -19,7 +19,7 @@ struct ChildChipView: View {
             .background()
             .backgroundStyle(isSelected ? .prim : .secondaryContainer)
             .clipShape(.capsule)
-            .customShadow(.outline)
+            .customShadow(.subtleOutline)
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserTypeButtonView: View {
     var type: UserType
+    var isSelected: Bool
     var action: (UserType) -> ()
     var body: some View {
         Button(action: { action(type) }, label: {
@@ -19,16 +20,20 @@ struct UserTypeButtonView: View {
                 Text(type.text)
                     .customFont(.regular, 20)
             }
-            .foregroundStyle(.second)
+            .foregroundStyle(isSelected ? .prim : .second)
             .frame(maxWidth: .infinity)
             .padding(24)
             .background(.surface)
             .clipShape(.rect(cornerRadius: 16))
-            .customShadow(.outline)
+            .customShadow(isSelected ? .accentOutline : .subtleOutline)
         })
     }
 }
 
 #Preview {
-    UserTypeButtonView(type: .child, action: {_ in })
+    HStack {
+        UserTypeButtonView(type: .child, isSelected: false, action: {_ in })
+        UserTypeButtonView(type: .parent, isSelected: true, action: {_ in })
+    }
+        .padding()
 }

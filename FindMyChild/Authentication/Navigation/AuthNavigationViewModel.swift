@@ -12,6 +12,15 @@ enum AuthScreenType: String, Hashable, Route {
     case signIn
     case signUp
     case chooseUserType
+    
+    var showBackButton: Bool {
+        switch self {
+        case .signIn:
+            return false
+        case .signUp, .chooseUserType:
+            return true
+        }
+    }
 }
 
 class AuthNavigationViewModel: NavigationViewModel {

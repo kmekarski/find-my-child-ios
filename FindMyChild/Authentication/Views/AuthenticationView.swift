@@ -30,16 +30,16 @@ struct AuthenticationView: View {
                         signUpform
                     case .chooseUserType:
                         chooseAccountTypeButtons
+                            .padding(.bottom, 24)
+                        chooseAccountTypeInfo
                     }
                 }
                 .padding(.top)
                 .padding(.horizontal)
             }
             VStack {
-                if screenType == .signIn || screenType == .signUp {
                     authButton
                         .padding(.bottom, 12)
-                }
                 switchScreenButton
             }
             .padding(.top, 8)
@@ -92,7 +92,7 @@ private extension AuthenticationView {
         case .signUp:
             signUp()
         case .chooseUserType:
-            break
+            goToSignUp()
         }
     }
     
@@ -109,7 +109,6 @@ private extension AuthenticationView {
     
     func onChooseUserType(type: UserType) {
         signUpVM.selectedAccountType = type
-        goToSignUp()
     }
     
     var headerTitleText: String {
@@ -145,7 +144,7 @@ private extension AuthenticationView {
         switch screenType {
         case .signIn: String(localized: "sign_in_string")
         case .signUp: String(localized: "sign_up_string")
-        case .chooseUserType: ""
+        case .chooseUserType: String(localized: "go_next_string")
         }
     }
     
@@ -159,9 +158,14 @@ private extension AuthenticationView {
     
     var header: some View {
         VStack(alignment: .leading) {
-            Text(headerTitleText)
-                .foregroundStyle(.onPrimary)
-                .customFont(.regular, 28)
+            HStack(alignment: .top, spacing: 12) {
+                if screenType.showBackButton {
+                    backButton
+                }
+                Text(headerTitleText)
+                    .foregroundStyle(.onPrimary)
+                    .customFont(.regular, 28)
+            }
                 .padding(.bottom, 8)
             if let headerSubtitleText = headerSubtitleText {
                 Text(headerSubtitleText)
@@ -170,6 +174,12 @@ private extension AuthenticationView {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    var backButton: some View {
+        Button(action: goBack, label: {
+            IconButtonView(icon: "chevron.left", size: .small)
+        })
     }
     
     var signInForm: some View {
@@ -193,9 +203,49 @@ private extension AuthenticationView {
     
     var chooseAccountTypeButtons: some View {
         HStack(spacing: 12) {
-            UserTypeButtonView(type: .parent, action: onChooseUserType)
-            UserTypeButtonView(type: .child, action: onChooseUserType)
+            UserTypeButtonView(type: .parent, isSelected: signUpVM.selectedAccountType == .parent, action: onChooseUserType)
+            UserTypeButtonView(type: .child, isSelected: signUpVM.selectedAccountType == .child, action: onChooseUserType)
         }
+    }
+    
+    var chooseAccountTypeInfo: some View {
+        let headerText: String = switch signUpVM.selectedAccountType {
+        case .parent: String(localized: "choose_account_type_info_header_parent_string")
+        case .child: String(localized: "choose_account_type_info_header_child_string")
+        case .none: ""
+        }
+        let infoList: [String] = switch signUpVM.selectedAccountType {
+        case .parent: [
+            String(localized: "choose_account_type_info_row_parent_1_string"),
+            String(localized: "choose_account_type_info_row_parent_2_string"),
+            String(localized: "choose_account_type_info_row_parent_3_string"),
+            String(localized: "choose_account_type_info_row_parent_4_string"),
+        ]
+        case .child: [
+            String(localized: "choose_account_type_info_row_child_1_string"),
+            String(localized: "choose_account_type_info_row_child_2_string"),
+            String(localized: "choose_account_type_info_row_child_3_string"),
+            String(localized: "choose_account_type_info_row_child_4_string"),
+        ]
+        case .none: []
+        }
+        return VStack {
+            Text(headerText)
+                .customFont(.regular, 20)
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
+            VStack(alignment: .leading, spacing: 20) {
+                ForEach(infoList, id: \.self) { rowText in
+                    HStack(alignment: .top) {
+                        Image(systemName: "checkmark.circle")
+                            .foregroundStyle(.accent)
+                            .fontWeight(.semibold)
+                        Text(rowText)
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, 8)
     }
     
     var authButton: some View {
@@ -211,4 +261,5 @@ private extension AuthenticationView {
                 .foregroundStyle(.accent)
         })
     }
+    
 }

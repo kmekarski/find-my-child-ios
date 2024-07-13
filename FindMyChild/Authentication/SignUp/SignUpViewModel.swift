@@ -13,7 +13,7 @@ class SignUpViewModel: ObservableObject {
     
     @Published var textParams: SignUpTextParams = SignUpTextParams()
     
-    @Published var selectedAccountType: UserType?
+    @Published var selectedAccountType: UserType? = .parent
     
     init(authManager: AuthManagerProtocol) {
         self.authManager = authManager

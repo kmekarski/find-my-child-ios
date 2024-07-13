@@ -11,7 +11,7 @@ struct HistoryView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     var body: some View {
         VStack {
-            Text("history")
+            Text("history_string")
                 .frame(height: 400)
         }
     }

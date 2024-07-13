@@ -5,7 +5,7 @@
 //  Created by klaudiuszmekarski on 13/06/2024.
 //
 
-import SwiftUI
+import SwiftUI 
 
 struct AuthNavigationView: View {
     @EnvironmentObject var navVM: AuthNavigationViewModel

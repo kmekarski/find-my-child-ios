@@ -112,6 +112,189 @@
         }
       }
     },
+    "choose_account_type_info_header_%@_string" : {
+
+    },
+    "choose_account_type_info_header_child_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With a Child Account, you can:"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Z Kontem Dziecka możesz:"
+          }
+        }
+      }
+    },
+    "choose_account_type_info_header_parent_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With a Parent Account, you can:"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Z Kontem Rodzica możesz:"
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_%@_%lld_string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "choose_account_type_info_row_%_%2$lld_string"
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_child_1_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share your real-time location with your parents."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Udostępniać swoją lokalizację w czasie rzeczywistym rodzicom."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_child_2_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View your activity history and locations shared with your parents."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przeglądać historię aktywności i lokalizacje udostępniane rodzicom."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_child_3_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact your parents quickly via call, message, or video call."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szybko skontaktować się z rodzicami przez telefon, wiadomość lub wideorozmowę."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_child_4_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customize privacy settings and choose what information to share."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostosować ustawienia prywatności i wybierać, które informacje udostępniać."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_parent_1_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View real-time locations of all your children on a map."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyświetlać w czasie rzeczywistym lokalizacje wszystkich swoich dzieci na mapie."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_parent_2_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Access your child's activity history and recent locations."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzyskać dostęp do historii aktywności i ostatnich lokalizacji dziecka."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_parent_3_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quickly contact your child via call, message, or video call."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szybko skontaktować się z dzieckiem przez telefon, wiadomość lub wideorozmowę."
+          }
+        }
+      }
+    },
+    "choose_account_type_info_row_parent_4_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Customize settings and notifications for each child."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dostosować ustawienia i powiadomienia dla każdego dziecka."
+          }
+        }
+      }
+    },
     "choose_account_type_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -179,6 +362,23 @@
         }
       }
     },
+    "go_next_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Dalej"
+          }
+        }
+      }
+    },
     "go_to_sign_in_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -229,9 +429,6 @@
           }
         }
       }
-    },
-    "history" : {
-
     },
     "history_string" : {
       "extractionState" : "manual",
@@ -519,13 +716,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sign up to Find My Child"
+            "value" : "Sign up"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zarejestruj się w Find My Child"
+            "value" : "Zarejestruj się"
           }
         }
       }
