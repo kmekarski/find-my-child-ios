@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class SignInViewModel: ObservableObject {
+    var delegate: SignInViewModelDelegate?
     var authManager: AuthManagerProtocol
     
     @Published var textParams: SignInTextParams = SignInTextParams()
@@ -20,6 +21,16 @@ class SignInViewModel: ObservableObject {
     func signIn() {
         print(textParams.email)
         print(textParams.password)
-        authManager.signIn()
+        let email = textParams.email
+        let password = textParams.password
+        guard authManager.validateSignIn(email: email, password: password) else {
+            delegate?.showErrorMessage()
+            return
+        }
+        authManager.signIn(email: email, password: password)
     }
+}
+
+protocol SignInViewModelDelegate {
+    func showErrorMessage()
 }

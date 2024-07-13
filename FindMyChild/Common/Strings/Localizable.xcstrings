@@ -112,9 +112,6 @@
         }
       }
     },
-    "choose_account_type_info_header_%@_string" : {
-
-    },
     "choose_account_type_info_header_child_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -150,6 +147,7 @@
       }
     },
     "choose_account_type_info_row_%@_%lld_string" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -346,6 +344,23 @@
         }
       }
     },
+    "email_invalid_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email is not valid."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email jest nieprawidłowy."
+          }
+        }
+      }
+    },
     "email_string" : {
       "localizations" : {
         "en" : {
@@ -358,6 +373,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "empty_field_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All fields must not be empty."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żadne pole nie może być puste."
           }
         }
       }
@@ -596,6 +628,40 @@
         }
       }
     },
+    "passwords_do_not_match_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwords do not match."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasła nie są identyczne."
+          }
+        }
+      }
+    },
+    "phone_number_invalid_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phone number is not valid."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numer telefonu jest nieprawidłowy."
+          }
+        }
+      }
+    },
     "phone_number_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -774,6 +840,57 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "nieznane"
+          }
+        }
+      }
+    },
+    "username_invalid_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username may contain only letters and digits."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nazwa użytkownika może zawierać jedynie litery i cyfry."
+          }
+        }
+      }
+    },
+    "username_wrong_length_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Username must be 3-15 characters long."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nazwa użytkownika musi składać się z 3-15 znaków."
+          }
+        }
+      }
+    },
+    "weak_password_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password must be 8 or more characters long."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hasło musi się składać z przynajmniej 8 znaków."
           }
         }
       }

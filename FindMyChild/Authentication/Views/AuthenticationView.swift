@@ -12,6 +12,7 @@ struct AuthenticationView: View {
     @EnvironmentObject var signUpVM: SignUpViewModel
     @EnvironmentObject var signInVM: SignInViewModel
     @EnvironmentObject var navVM: AuthNavigationViewModel
+    @State var toast: Toast?
     var screenType: AuthScreenType
     var body: some View {
         VStack {
@@ -47,6 +48,11 @@ struct AuthenticationView: View {
             .padding(.bottom, 32)
         }
         .navigationBarBackButtonHidden()
+        .toastView(toast: $toast)
+        .onAppear() {
+            signInVM.delegate = self
+            signUpVM.delegate = self
+        }
     }
 }
 
@@ -65,9 +71,8 @@ private extension AuthenticationView {
     }
     
     func signUp() {
-        
+        signUpVM.signUp()
     }
-    
     
     func goToSignUp() {
         navVM.navigate(route: .signUp)
@@ -233,15 +238,17 @@ private extension AuthenticationView {
             Text(headerText)
                 .customFont(.regular, 20)
                 .multilineTextAlignment(.center)
-                .padding(.bottom)
-            VStack(alignment: .leading, spacing: 20) {
+            Divider()
+            VStack(alignment: .leading) {
                 ForEach(infoList, id: \.self) { rowText in
                     HStack(alignment: .top) {
                         Image(systemName: "checkmark.circle")
-                            .foregroundStyle(.accent)
+                            .foregroundStyle(.check)
                             .fontWeight(.semibold)
                         Text(rowText)
                     }
+                    .padding(.vertical, 6)
+                    Divider()
                 }
             }
         }
@@ -262,4 +269,16 @@ private extension AuthenticationView {
         })
     }
     
+}
+
+extension AuthenticationView: SignInViewModelDelegate {
+    func showErrorMessage() {
+        toast = Toast(style: .error, message: "Something went wrong")
+    }
+}
+
+extension AuthenticationView: SignUpViewModelDelegate {
+    func showErrorMessage(_ error: SignUpError) {
+        toast = Toast(style: .error, message: error.message)
+    }
 }
