@@ -14,6 +14,7 @@ extension AuthManager {
             let errorCode = AuthErrorCode.Code(rawValue: error.code) else {
             return .somethingWentWrong
         }
+        print(error.localizedDescription)
         return switch errorCode {
         case .emailAlreadyInUse: .signUp(.emailAlreadyTaken)
         case .wrongPassword: .signIn(.wrongCredentials)

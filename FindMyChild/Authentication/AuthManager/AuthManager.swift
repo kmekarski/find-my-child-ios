@@ -73,7 +73,13 @@ class AuthManager: AuthManagerProtocol {
     
     func signOut() {
         delegate?.didStartAuthenticating()
+        do {
+            try Auth.auth().signOut()
+        } catch(let error) {
+            delegate?.didSignOut(result: .failure(getAuthError(error)))
+        }
         isSignedIn = false
         delegate?.didSignOut(result: .success(true))
+
     }
 }

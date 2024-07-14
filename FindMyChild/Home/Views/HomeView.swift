@@ -16,6 +16,7 @@ enum HomeViewTab: CaseIterable {
 struct HomeView: View {
     @EnvironmentObject var homeVM: HomeViewModel
     @EnvironmentObject var mapVM: MapViewModel
+    @EnvironmentObject var authVM: AuthViewModel
     @State var selectedItem: HomeViewTab = .status
 
     var body: some View {
@@ -29,9 +30,11 @@ struct HomeView: View {
 
 #Preview {
     let childrenManager = MockChildrenManager()
+    let authManager = MockAuthManager()
     return HomeView()
         .environmentObject(MapViewModel())
         .environmentObject(HomeViewModel(childrenManager: childrenManager))
+        .environmentObject(AuthViewModel(authManager: authManager))
 }
 
 private extension HomeView {
@@ -70,6 +73,9 @@ private extension HomeView {
                 Spacer()
                 Image(systemName: "bell.fill")
                     .foregroundStyle(.prim)
+                Button(action: signOut, label: {
+                    Text("Sign out")
+                })
                 IconButtonView(icon: "person")
             }
             .padding(.horizontal)
@@ -98,5 +104,9 @@ private extension HomeView {
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
         .background(Material.thick)
+    }
+    
+    func signOut() {
+        authVM.signOut()
     }
 }

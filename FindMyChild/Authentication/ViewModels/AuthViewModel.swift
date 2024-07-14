@@ -12,7 +12,7 @@ protocol AuthViewModelDelegate {
     func showAuthErrorMessage(_ error: AuthErrorProtocol)
 }
 
-class AuthViewModel: ObservableObject, AuthDelegateProtocol {
+class AuthViewModel: ObservableObject {
     var authManager: AuthManagerProtocol
     var delegate: AuthViewModelDelegate?
     
@@ -26,40 +26,35 @@ class AuthViewModel: ObservableObject, AuthDelegateProtocol {
         self.authManager.checkAuthentication()
     }
     
+    func didAuthenticate(result: AuthResult) {
+        isAuthenticating = false
+        switch result {
+        case .success(let authUser):
+            withAnimation() {
+                isSignedIn = true
+                currentUser = authUser
+            }
+        case .failure(let error):
+            delegate?.showAuthErrorMessage(error)
+        }
+    }
+    
+    func signOut() {
+        authManager.signOut()
+    }
+}
+
+extension AuthViewModel: AuthDelegateProtocol {
     func didStartAuthenticating() {
         isAuthenticating = true
     }
     
-    func didAuthenticate(result: AuthResult) {
-        
-    }
-    
     func didSignIn(result: AuthResult) {
-        isAuthenticating = false
-        switch result {
-        case .success(let authUser):
-            withAnimation() {
-                isSignedIn = true
-                currentUser = authUser
-                print("username: " + authUser.username)
-            }
-        case .failure(let error):
-            delegate?.showAuthErrorMessage(error)
-        }
+        didAuthenticate(result: result)
     }
     
     func didSignUp(result: AuthResult) {
-        isAuthenticating = false
-        switch result {
-        case .success(let authUser):
-            withAnimation() {
-                isSignedIn = true
-                currentUser = authUser
-                print("username: " + authUser.username)
-            }
-        case .failure(let error):
-            delegate?.showAuthErrorMessage(error)
-        }
+        didAuthenticate(result: result)
     }
     
     func didSignOut(result: SignOutResult) {

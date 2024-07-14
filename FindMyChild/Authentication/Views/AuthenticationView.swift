@@ -15,7 +15,7 @@ struct AuthenticationView: View {
     @State var toast: Toast?
     var screenType: AuthScreenType
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             VStack {
                 header
             }
