@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SignInValidationError: AuthError {
+enum SignInValidationError: AuthErrorProtocol {
     var message: String {
         return ""
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SignUpError: AuthError {
+enum SignUpError: AuthErrorProtocol {
     case emailAlreadyTaken
     var message: String {
         return String(localized: "email_already_taken_message_string")

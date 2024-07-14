@@ -18,13 +18,13 @@
 		A70BE5D72C4315D800176E31 /* SignUpValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */; };
 		A70BE5D92C43222500176E31 /* SignInValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5D82C43222500176E31 /* SignInValidationError.swift */; };
 		A70BE5DC2C4323D300176E31 /* AuthValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */; };
-		A70BE5DE2C43261900176E31 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5DD2C43261900176E31 /* AuthError.swift */; };
+		A70BE5DE2C43261900176E31 /* AuthErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5DD2C43261900176E31 /* AuthErrorProtocol.swift */; };
 		A70BE5E02C43CDD000176E31 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5DF2C43CDD000176E31 /* Results.swift */; };
 		A70BE5E22C43CE0A00176E31 /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E12C43CE0A00176E31 /* SignInError.swift */; };
 		A70BE5E42C43D07900176E31 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E32C43D07900176E31 /* SignUpError.swift */; };
 		A70BE5E62C43D11500176E31 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E52C43D11500176E31 /* AuthUser.swift */; };
-		A70BE5E82C43D1E000176E31 /* SignOutError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E72C43D1E000176E31 /* SignOutError.swift */; };
 		A70BE5EA2C43D3C700176E31 /* MockData+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E92C43D3C700176E31 /* MockData+Auth.swift */; };
+		A70BE5EC2C43D9E900176E31 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5EB2C43D9E900176E31 /* AuthError.swift */; };
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
 		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
@@ -85,13 +85,13 @@
 		A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidationError.swift; sourceTree = "<group>"; };
 		A70BE5D82C43222500176E31 /* SignInValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInValidationError.swift; sourceTree = "<group>"; };
 		A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidationError.swift; sourceTree = "<group>"; };
-		A70BE5DD2C43261900176E31 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		A70BE5DD2C43261900176E31 /* AuthErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrorProtocol.swift; sourceTree = "<group>"; };
 		A70BE5DF2C43CDD000176E31 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		A70BE5E12C43CE0A00176E31 /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
 		A70BE5E32C43D07900176E31 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
 		A70BE5E52C43D11500176E31 /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
-		A70BE5E72C43D1E000176E31 /* SignOutError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutError.swift; sourceTree = "<group>"; };
 		A70BE5E92C43D3C700176E31 /* MockData+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Auth.swift"; sourceTree = "<group>"; };
+		A70BE5EB2C43D9E900176E31 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
 		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -182,16 +182,24 @@
 		A70BE5DA2C4323C300176E31 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */,
-				A70BE5D82C43222500176E31 /* SignInValidationError.swift */,
-				A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */,
-				A70BE5DD2C43261900176E31 /* AuthError.swift */,
+				A70BE5ED2C43D9EE00176E31 /* Validation */,
+				A70BE5DD2C43261900176E31 /* AuthErrorProtocol.swift */,
 				A70BE5DF2C43CDD000176E31 /* Results.swift */,
 				A70BE5E12C43CE0A00176E31 /* SignInError.swift */,
 				A70BE5E32C43D07900176E31 /* SignUpError.swift */,
-				A70BE5E72C43D1E000176E31 /* SignOutError.swift */,
+				A70BE5EB2C43D9E900176E31 /* AuthError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		A70BE5ED2C43D9EE00176E31 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE5D62C4315D800176E31 /* SignUpValidationError.swift */,
+				A70BE5D82C43222500176E31 /* SignInValidationError.swift */,
+				A70BE5DB2C4323D300176E31 /* AuthValidationError.swift */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		A715F2C12C19823200E5A1F3 = {
@@ -679,7 +687,6 @@
 				A7A946D02C1C8FB90080F270 /* HomeViewModel.swift in Sources */,
 				A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */,
 				A7D7F8AE2C20913E004897FC /* View.swift in Sources */,
-				A70BE5E82C43D1E000176E31 /* SignOutError.swift in Sources */,
 				A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */,
 				A770832F2C374CB000A39508 /* Toast.swift in Sources */,
 				A7D7F8952C1DCEFB004897FC /* HistoryView.swift in Sources */,
@@ -691,6 +698,7 @@
 				A715F2F22C1AF28A00E5A1F3 /* AuthManager.swift in Sources */,
 				A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */,
 				A7D7F8B02C209FA5004897FC /* SignInTextParams.swift in Sources */,
+				A70BE5EC2C43D9E900176E31 /* AuthError.swift in Sources */,
 				A7ED444F2C26FD0600BF8B5B /* IconButtonView.swift in Sources */,
 				A715F2FC2C1AF4D800E5A1F3 /* SignInViewModel.swift in Sources */,
 				A70BE5E42C43D07900176E31 /* SignUpError.swift in Sources */,
@@ -709,7 +717,7 @@
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
 				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,
 				A770832D2C374C8700A39508 /* ToastModifier.swift in Sources */,
-				A70BE5DE2C43261900176E31 /* AuthError.swift in Sources */,
+				A70BE5DE2C43261900176E31 /* AuthErrorProtocol.swift in Sources */,
 				A7D7F8AC2C2090AB004897FC /* CustomShadowModifier.swift in Sources */,
 				A70BE5E62C43D11500176E31 /* AuthUser.swift in Sources */,
 				A7A946C82C1C8E650080F270 /* ChildChipView.swift in Sources */,

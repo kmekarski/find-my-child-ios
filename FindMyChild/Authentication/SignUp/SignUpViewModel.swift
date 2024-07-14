@@ -21,6 +21,10 @@ class SignUpViewModel: ObservableObject {
     }
     
     func signUp() {
+        guard let type = selectedAccountType else {
+            delegate?.showSignUpValidationErrorMessage(.signUp(.typeNotSelected))
+            return
+        }
         let username = textParams.name
         let email = textParams.email
         let password = textParams.password
@@ -35,7 +39,7 @@ class SignUpViewModel: ObservableObject {
         )
         switch validationResult {
         case .success(let success):
-            break
+            authManager.signUp(username: username, email: email, password: password, phoneNumber: phoneNumber, type: type)
         case .failure(let error):
             delegate?.showSignUpValidationErrorMessage(error)
         }

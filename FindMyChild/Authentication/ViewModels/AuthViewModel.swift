@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 protocol AuthViewModelDelegate {
-    func showAuthErrorMessage(_ error: AuthError)
+    func showAuthErrorMessage(_ error: AuthErrorProtocol)
 }
 
 class AuthViewModel: ObservableObject, AuthDelegateProtocol {
@@ -29,7 +29,25 @@ class AuthViewModel: ObservableObject, AuthDelegateProtocol {
         isAuthenticating = true
     }
     
-    func didSignIn(result: SignInResult) {
+    func didAuthenticate(result: AuthResult) {
+        
+    }
+    
+    func didSignIn(result: AuthResult) {
+        isAuthenticating = false
+        switch result {
+        case .success(let authUser):
+            withAnimation() {
+                isSignedIn = true
+                currentUser = authUser
+                print("username: " + authUser.username)
+            }
+        case .failure(let error):
+            delegate?.showAuthErrorMessage(error)
+        }
+    }
+    
+    func didSignUp(result: AuthResult) {
         isAuthenticating = false
         switch result {
         case .success(let authUser):

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SignInError: AuthError {
+enum SignInError: AuthErrorProtocol {
     case wrongCredentials
     var message: String {
         return String(localized: "wrong_credentials_message_string")

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SignUpValidationError: AuthError {
+enum SignUpValidationError: AuthErrorProtocol {
     case emptyField
     case usernameInvalid
     case usernameWrongLength
@@ -15,6 +15,7 @@ enum SignUpValidationError: AuthError {
     case phoneNumberInvalid
     case weakPassword
     case passwordsDoNotMatch
+    case typeNotSelected
     
     var message: String {
         return switch self {
@@ -25,6 +26,7 @@ enum SignUpValidationError: AuthError {
         case .usernameWrongLength: String(localized: "username_wrong_length_message_string")
         case .phoneNumberInvalid: String(localized: "phone_number_invalid_message_string")
         case .passwordsDoNotMatch: String(localized: "passwords_do_not_match_message_string")
+        case .typeNotSelected: String(localized: "user_type_not_selected_message_string")
         }
     }
 }

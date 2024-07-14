@@ -839,6 +839,9 @@
         }
       }
     },
+    "user_type_not_selected_message_string" : {
+
+    },
     "username_invalid_message_string" : {
       "extractionState" : "manual",
       "localizations" : {

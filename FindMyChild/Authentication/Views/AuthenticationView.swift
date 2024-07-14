@@ -289,7 +289,7 @@ extension AuthenticationView: SignUpViewModelDelegate {
 }
 
 extension AuthenticationView: AuthViewModelDelegate {
-    func showAuthErrorMessage(_ error: any AuthError) {
+    func showAuthErrorMessage(_ error: any AuthErrorProtocol) {
         showErrorToast(message: error.message)
     }
 }

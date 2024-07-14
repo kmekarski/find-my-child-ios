@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthValidationError: AuthError {
+enum AuthValidationError: AuthErrorProtocol {
     case signIn(SignInValidationError)
     case signUp(SignUpValidationError)
     case emptyField

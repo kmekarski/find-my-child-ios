@@ -7,10 +7,8 @@
 
 import Foundation
 
-typealias SignInResult = Result<AuthUser, SignInError>
+typealias AuthResult = Result<AuthUser, AuthError>
 
-typealias SignUpResult = Result<AuthUser, SignUpError>
-
-typealias SignOutResult = Result<Bool, SignOutError>
+typealias SignOutResult = Result<Bool, AuthError>
 
 typealias AuthValidationResult = Result<Bool, AuthValidationError>

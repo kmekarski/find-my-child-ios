@@ -51,6 +51,14 @@ class MockAuthManager: AuthManagerProtocol {
         }
     }
     
+    func signUp(username: String, email: String, password: String, phoneNumber: String, type: UserType) {
+        self.delegate?.didStartAuthenticating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.isSignedIn = true
+            self.delegate?.didSignUp(result: .success(MockData.parentAuthUser))
+        }
+    }
+    
     var delegate: AuthDelegateProtocol?
     
     var isSignedIn: Bool = false
