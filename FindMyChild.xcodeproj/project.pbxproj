@@ -36,6 +36,9 @@
 		A70BE60A2C4438BB00176E31 /* MapHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6092C4438BB00176E31 /* MapHeaderView.swift */; };
 		A70BE60F2C443C0F00176E31 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */; };
 		A70BE6112C443C2700176E31 /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6102C443C2700176E31 /* SettingsHeaderView.swift */; };
+		A70BE6132C44423B00176E31 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6122C44423B00176E31 /* ProfileViewModel.swift */; };
+		A70BE6162C44453600176E31 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6152C44453600176E31 /* FirebaseService.swift */; };
+		A70BE6192C44479C00176E31 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6182C44479C00176E31 /* User.swift */; };
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
 		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
@@ -114,6 +117,9 @@
 		A70BE6092C4438BB00176E31 /* MapHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHeaderView.swift; sourceTree = "<group>"; };
 		A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		A70BE6102C443C2700176E31 /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
+		A70BE6122C44423B00176E31 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A70BE6152C44453600176E31 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		A70BE6182C44479C00176E31 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
 		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -280,6 +286,7 @@
 		A70BE6002C44291200176E31 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A70BE6122C44423B00176E31 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -320,6 +327,22 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		A70BE6142C44451D00176E31 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6152C44453600176E31 /* FirebaseService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		A70BE6172C44479500176E31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6182C44479C00176E31 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A715F2C12C19823200E5A1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +364,7 @@
 		A715F2CC2C19823200E5A1F3 /* FindMyChild */ = {
 			isa = PBXGroup;
 			children = (
+				A70BE6142C44451D00176E31 /* Firebase */,
 				A7D7F8972C1DCF5E004897FC /* Map */,
 				A70BE5FE2C44290900176E31 /* Profile */,
 				A70BE5F92C4428E700176E31 /* Settings */,
@@ -641,6 +665,7 @@
 		A7D7F8A02C1DF029004897FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A70BE6172C44479500176E31 /* Models */,
 				A70BE5D32C4314BB00176E31 /* Validation */,
 				A715F30A2C1C3AEF00E5A1F3 /* Protocols */,
 				A7A946E32C1CA20C0080F270 /* Extensions */,
@@ -815,11 +840,13 @@
 				A70BE5EA2C43D3C700176E31 /* MockData+Auth.swift in Sources */,
 				A7A946D82C1C92590080F270 /* MockData+Children.swift in Sources */,
 				A7ED44522C2725D900BF8B5B /* ChildHeaderView.swift in Sources */,
+				A70BE6132C44423B00176E31 /* ProfileViewModel.swift in Sources */,
 				A70BE5D52C4314CE00176E31 /* ValidationManager.swift in Sources */,
 				A715F2E02C1984D700E5A1F3 /* ChildMapPinView.swift in Sources */,
 				A715F2F22C1AF28A00E5A1F3 /* AuthManager.swift in Sources */,
 				A70BE6042C44295100176E31 /* HomeTemplateView.swift in Sources */,
 				A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */,
+				A70BE6192C44479C00176E31 /* User.swift in Sources */,
 				A7D7F8B02C209FA5004897FC /* SignInTextParams.swift in Sources */,
 				A70BE6022C44291C00176E31 /* ProfileView.swift in Sources */,
 				A70BE5EC2C43D9E900176E31 /* AuthError.swift in Sources */,
@@ -845,6 +872,7 @@
 				A70BE6082C44329E00176E31 /* HomeHeaderTemplateView.swift in Sources */,
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
 				A70BE60F2C443C0F00176E31 /* ProfileHeaderView.swift in Sources */,
+				A70BE6162C44453600176E31 /* FirebaseService.swift in Sources */,
 				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,
 				A70BE5F62C4427AA00176E31 /* HomeNavigationView.swift in Sources */,
 				A770832D2C374C8700A39508 /* ToastModifier.swift in Sources */,

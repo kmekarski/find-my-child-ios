@@ -31,10 +31,8 @@ class AuthManager: AuthManagerProtocol {
     @Published var isSignedIn: Bool = false
     
     func checkAuthentication() {
-        if let user = Auth.auth().currentUser {
-            let authUser = MockData.parentAuthUser
-            self.isSignedIn = true
-            delegate?.didSignIn(result: .success(authUser))
+        if let authUser = Auth.auth().currentUser {
+            handleSignInSuccess(userId: authUser.uid)
         }
     }
     
@@ -42,16 +40,11 @@ class AuthManager: AuthManagerProtocol {
         delegate?.didStartAuthenticating()
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
             guard let self = self else { return }
-            guard let user = result?.user,
-                  error == nil else {
-                self.isSignedIn = false
-                let authError = getAuthError(error)
-                delegate?.didSignIn(result: .failure(authError))
+            guard let userId = result?.user.uid, error == nil else {
+                handleError(error: error!)
                 return
             }
-            let authUser = AuthUser(id: user.uid, username: "someUser", email: user.email ?? "someEmail", phoneNumber: "123456789", type: .parent)
-            self.isSignedIn = true
-            delegate?.didSignIn(result: .success(authUser))
+            handleSignInSuccess(userId: userId)
         }
     }
     
@@ -59,15 +52,14 @@ class AuthManager: AuthManagerProtocol {
         delegate?.didStartAuthenticating()
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
             guard let self = self else { return }
-            guard let user = result?.user, error == nil else {
-                self.isSignedIn = false
-                let authError = getAuthError(error)
-                delegate?.didSignUp(result: .failure(authError))
+            guard let userId = result?.user.uid, error == nil else {
+                handleError(error: error!)
                 return
             }
-            let authUser = AuthUser(id: user.uid, username: username, email: email, phoneNumber: phoneNumber, type: type)
+            let newUser = User(id: userId,username: username, email: email, phoneNumber: phoneNumber, type: type)
+            FirebaseService.createUser(user: newUser)
             self.isSignedIn = true
-            delegate?.didSignUp(result: .success(authUser))
+            delegate?.didSignUp(result: .success(newUser))
         }
     }
     
@@ -81,5 +73,22 @@ class AuthManager: AuthManagerProtocol {
         isSignedIn = false
         delegate?.didSignOut(result: .success(true))
 
+    }
+    
+    private func handleSignInSuccess(userId: String) {
+        FirebaseService.getUser(userId: userId) { [weak self] user in
+            guard let user = user else {
+                self?.delegate?.didSignIn(result: .failure(.somethingWentWrong))
+                return
+            }
+            self?.isSignedIn = true
+            self?.delegate?.didSignIn(result: .success(user))
+        }
+    }
+    
+    private func handleError(error: any Error) {
+        self.isSignedIn = false
+        let authError = getAuthError(error)
+        delegate?.didSignUp(result: .failure(authError))
     }
 }

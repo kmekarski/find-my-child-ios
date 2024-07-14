@@ -45,14 +45,14 @@ class MockAuthManager: AuthManagerProtocol {
     
     func checkAuthentication() {
         self.isSignedIn = true
-        self.delegate?.didSignIn(result: .success(MockData.parentAuthUser))
+        self.delegate?.didSignIn(result: .success(MockData.parentUser))
     }
     
     func signIn(email: String, password: String) {
         self.delegate?.didStartAuthenticating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
-            self.delegate?.didSignIn(result: .success(MockData.parentAuthUser))
+            self.delegate?.didSignIn(result: .success(MockData.parentUser))
         }
     }
     
@@ -60,7 +60,7 @@ class MockAuthManager: AuthManagerProtocol {
         self.delegate?.didStartAuthenticating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
-            self.delegate?.didSignUp(result: .success(MockData.parentAuthUser))
+            self.delegate?.didSignUp(result: .success(MockData.parentUser))
         }
     }
     

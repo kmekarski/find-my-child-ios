@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserType {
+enum UserType: String, Codable {
     case parent
     case child
     

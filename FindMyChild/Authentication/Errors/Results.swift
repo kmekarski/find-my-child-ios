@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias AuthResult = Result<AuthUser, AuthError>
+typealias AuthResult = Result<User, AuthError>
 
 typealias SignOutResult = Result<Bool, AuthError>
 

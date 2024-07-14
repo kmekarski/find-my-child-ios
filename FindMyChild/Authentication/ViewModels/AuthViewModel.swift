@@ -16,7 +16,7 @@ class AuthViewModel: ObservableObject {
     var authManager: AuthManagerProtocol
     var delegate: AuthViewModelDelegate?
     
-    @Published var currentUser: AuthUser?
+    @Published var currentUser: User?
     @Published var isSignedIn: Bool = false
     @Published var isAuthenticating: Bool = false
     
