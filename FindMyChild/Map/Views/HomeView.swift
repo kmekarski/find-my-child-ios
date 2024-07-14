@@ -13,12 +13,12 @@ enum HomeViewTab: CaseIterable {
     case history
 }
 
-struct HomeView: View {
+struct HomeView: HomeScreenProtocol {
     @EnvironmentObject var homeVM: HomeViewModel
     @EnvironmentObject var mapVM: MapViewModel
     @EnvironmentObject var authVM: AuthViewModel
     @State var selectedItem: HomeViewTab = .status
-
+    var type: HomeScreenType = .map
     var body: some View {
         ZStack {
             map
@@ -60,34 +60,8 @@ private extension HomeView {
     
     var overlay: some View {
         VStack {
-            topOverlay
             Spacer()
             bottomOverlay
-        }
-    }
-    
-    var topOverlay: some View {
-        VStack {
-            HStack {
-                IconButtonView(icon: "line.3.horizontal")
-                Spacer()
-                Image(systemName: "bell.fill")
-                    .foregroundStyle(.prim)
-                Button(action: signOut, label: {
-                    Text("Sign out")
-                })
-                IconButtonView(icon: "person")
-            }
-            .padding(.horizontal)
-            .padding(.bottom)
-            .frame(maxWidth: .infinity)
-            .background(Material.thick)
-            .padding(.bottom, 4)
-            HStack {
-                ChildSelectorView(children: children, childrenData: childrenData, selectedChild: $homeVM.selectedChild, onChildSelected: selectChild)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
         }
     }
     
@@ -104,9 +78,5 @@ private extension HomeView {
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
         .background(Material.thick)
-    }
-    
-    func signOut() {
-        authVM.signOut()
     }
 }

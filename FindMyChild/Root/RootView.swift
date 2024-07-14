@@ -12,7 +12,7 @@ struct RootView: View {
     var body: some View {
         ZStack {
             if signedIn {
-                HomeView()
+                HomeNavigationView()
                     .transition(.move(edge: .trailing))
             } else {
                 AuthNavigationView()
@@ -34,6 +34,7 @@ private extension RootView {
         .environmentObject(MapViewModel())
         .environmentObject(HomeViewModel(childrenManager: MockChildrenManager()))
         .environmentObject(AuthNavigationViewModel())
+        .environmentObject(HomeNavigationViewModel())
         .environmentObject(SignInViewModel(authManager: authManager))
         .environmentObject(SignUpViewModel(authManager: authManager))
         .environmentObject(AuthViewModel(authManager: authManager))

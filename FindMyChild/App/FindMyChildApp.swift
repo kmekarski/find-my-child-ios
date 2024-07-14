@@ -13,11 +13,12 @@ struct FindMyChildApp: App {
     var childrenManager: ChildrenManagerProtocol
     var authManager: AuthManagerProtocol
     var authVM: AuthViewModel
+    var authNavVM: AuthNavigationViewModel
     var signInVM: SignInViewModel
     var signUpVM: SignUpViewModel
     var homeVM: HomeViewModel
+    var homeNavVM: HomeNavigationViewModel
     var mapVM: MapViewModel
-    var authNavVM: AuthNavigationViewModel
     init() {
         FirebaseApp.configure()
         childrenManager = ChildrenManager()
@@ -27,17 +28,19 @@ struct FindMyChildApp: App {
         signInVM = SignInViewModel(authManager: authManager)
         signUpVM = SignUpViewModel(authManager: authManager)
         homeVM = HomeViewModel(childrenManager: childrenManager)
+        homeNavVM = HomeNavigationViewModel()
         mapVM = MapViewModel()
     }
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(authVM)
+                .environmentObject(authNavVM)
                 .environmentObject(signInVM)
                 .environmentObject(signUpVM)
                 .environmentObject(homeVM)
+                .environmentObject(homeNavVM)
                 .environmentObject(mapVM)
-                .environmentObject(authNavVM)
         }
     }
 }

@@ -27,6 +27,15 @@
 		A70BE5EC2C43D9E900176E31 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5EB2C43D9E900176E31 /* AuthError.swift */; };
 		A70BE5F22C43E5D200176E31 /* AuthManager+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5F12C43E5D200176E31 /* AuthManager+Validation.swift */; };
 		A70BE5F42C43E60300176E31 /* AuthManager+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5F32C43E60300176E31 /* AuthManager+Errors.swift */; };
+		A70BE5F62C4427AA00176E31 /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5F52C4427AA00176E31 /* HomeNavigationView.swift */; };
+		A70BE5F82C4427FE00176E31 /* HomeNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5F72C4427FE00176E31 /* HomeNavigationViewModel.swift */; };
+		A70BE5FD2C4428FA00176E31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5FC2C4428FA00176E31 /* SettingsView.swift */; };
+		A70BE6022C44291C00176E31 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6012C44291C00176E31 /* ProfileView.swift */; };
+		A70BE6042C44295100176E31 /* HomeTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6032C44295100176E31 /* HomeTemplateView.swift */; };
+		A70BE6082C44329E00176E31 /* HomeHeaderTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6072C44329E00176E31 /* HomeHeaderTemplateView.swift */; };
+		A70BE60A2C4438BB00176E31 /* MapHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6092C4438BB00176E31 /* MapHeaderView.swift */; };
+		A70BE60F2C443C0F00176E31 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */; };
+		A70BE6112C443C2700176E31 /* SettingsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6102C443C2700176E31 /* SettingsHeaderView.swift */; };
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
 		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
@@ -96,6 +105,15 @@
 		A70BE5EB2C43D9E900176E31 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		A70BE5F12C43E5D200176E31 /* AuthManager+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Validation.swift"; sourceTree = "<group>"; };
 		A70BE5F32C43E60300176E31 /* AuthManager+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Errors.swift"; sourceTree = "<group>"; };
+		A70BE5F52C4427AA00176E31 /* HomeNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
+		A70BE5F72C4427FE00176E31 /* HomeNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationViewModel.swift; sourceTree = "<group>"; };
+		A70BE5FC2C4428FA00176E31 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A70BE6012C44291C00176E31 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A70BE6032C44295100176E31 /* HomeTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTemplateView.swift; sourceTree = "<group>"; };
+		A70BE6072C44329E00176E31 /* HomeHeaderTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderTemplateView.swift; sourceTree = "<group>"; };
+		A70BE6092C4438BB00176E31 /* MapHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHeaderView.swift; sourceTree = "<group>"; };
+		A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		A70BE6102C443C2700176E31 /* SettingsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeaderView.swift; sourceTree = "<group>"; };
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
 		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -216,6 +234,92 @@
 			path = AuthManager;
 			sourceTree = "<group>";
 		};
+		A70BE5F92C4428E700176E31 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE5FB2C4428F100176E31 /* Views */,
+				A70BE5FA2C4428EB00176E31 /* ViewModels */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A70BE5FA2C4428EB00176E31 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A70BE5FB2C4428F100176E31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE5FC2C4428FA00176E31 /* SettingsView.swift */,
+				A70BE6102C443C2700176E31 /* SettingsHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A70BE5FE2C44290900176E31 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6002C44291200176E31 /* ViewModels */,
+				A70BE5FF2C44290C00176E31 /* Views */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A70BE5FF2C44290C00176E31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6012C44291C00176E31 /* ProfileView.swift */,
+				A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A70BE6002C44291200176E31 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A70BE6052C44327400176E31 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE5F52C4427AA00176E31 /* HomeNavigationView.swift */,
+				A70BE5F72C4427FE00176E31 /* HomeNavigationViewModel.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A70BE60B2C443BC500176E31 /* ViewTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6032C44295100176E31 /* HomeTemplateView.swift */,
+				A70BE6072C44329E00176E31 /* HomeHeaderTemplateView.swift */,
+			);
+			path = ViewTemplates;
+			sourceTree = "<group>";
+		};
+		A70BE60C2C443BE500176E31 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6092C4438BB00176E31 /* MapHeaderView.swift */,
+				A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */,
+				A715F2CF2C19823200E5A1F3 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A70BE60D2C443BE900176E31 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2E12C19863100E5A1F3 /* MapViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		A715F2C12C19823200E5A1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +341,9 @@
 		A715F2CC2C19823200E5A1F3 /* FindMyChild */ = {
 			isa = PBXGroup;
 			children = (
+				A7D7F8972C1DCF5E004897FC /* Map */,
+				A70BE5FE2C44290900176E31 /* Profile */,
+				A70BE5F92C4428E700176E31 /* Settings */,
 				A70BE5C52C42FFC900176E31 /* GoogleService-Info.plist */,
 				A7D7F8A02C1DF029004897FC /* Common */,
 				A7D7F89E2C1DEFFF004897FC /* Children */,
@@ -318,6 +425,8 @@
 		A715F2F62C1AF3A500E5A1F3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A70BE60B2C443BC500176E31 /* ViewTemplates */,
+				A70BE6052C44327400176E31 /* Navigation */,
 				A7A946CC2C1C8F9E0080F270 /* ViewModels */,
 				A7A946C32C1C8E0B0080F270 /* Views */,
 			);
@@ -397,9 +506,7 @@
 			children = (
 				A7D7F89A2C1DCFA6004897FC /* Components */,
 				A7D7F8982C1DCF76004897FC /* BottomContent */,
-				A7D7F8972C1DCF5E004897FC /* Map */,
 				A7D7F8962C1DCF53004897FC /* TabBar */,
-				A715F2CF2C19823200E5A1F3 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -415,7 +522,6 @@
 		A7A946CC2C1C8F9E0080F270 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A715F2E12C19863100E5A1F3 /* MapViewModel.swift */,
 				A7A946CF2C1C8FB90080F270 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
@@ -472,7 +578,8 @@
 		A7D7F8972C1DCF5E004897FC /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				A715F2DB2C19838100E5A1F3 /* MapViewRepresentable.swift */,
+				A70BE60D2C443BE900176E31 /* ViewModels */,
+				A70BE60C2C443BE500176E31 /* Views */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -699,6 +806,7 @@
 				A7A946E52C1CA2160080F270 /* Int.swift in Sources */,
 				A7D7F8822C1CEB3F004897FC /* Font.swift in Sources */,
 				A7A946D02C1C8FB90080F270 /* HomeViewModel.swift in Sources */,
+				A70BE60A2C4438BB00176E31 /* MapHeaderView.swift in Sources */,
 				A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */,
 				A7D7F8AE2C20913E004897FC /* View.swift in Sources */,
 				A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */,
@@ -710,8 +818,10 @@
 				A70BE5D52C4314CE00176E31 /* ValidationManager.swift in Sources */,
 				A715F2E02C1984D700E5A1F3 /* ChildMapPinView.swift in Sources */,
 				A715F2F22C1AF28A00E5A1F3 /* AuthManager.swift in Sources */,
+				A70BE6042C44295100176E31 /* HomeTemplateView.swift in Sources */,
 				A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */,
 				A7D7F8B02C209FA5004897FC /* SignInTextParams.swift in Sources */,
+				A70BE6022C44291C00176E31 /* ProfileView.swift in Sources */,
 				A70BE5EC2C43D9E900176E31 /* AuthError.swift in Sources */,
 				A7ED444F2C26FD0600BF8B5B /* IconButtonView.swift in Sources */,
 				A715F2FC2C1AF4D800E5A1F3 /* SignInViewModel.swift in Sources */,
@@ -722,16 +832,21 @@
 				A70BE5E02C43CDD000176E31 /* Results.swift in Sources */,
 				A7D7F8A52C1DF30F004897FC /* SignUpTextParams.swift in Sources */,
 				A70BE5F22C43E5D200176E31 /* AuthManager+Validation.swift in Sources */,
+				A70BE5FD2C4428FA00176E31 /* SettingsView.swift in Sources */,
 				A715F2EE2C1AF25700E5A1F3 /* RootView.swift in Sources */,
 				A7A946CB2C1C8E750080F270 /* Child.swift in Sources */,
+				A70BE5F82C4427FE00176E31 /* HomeNavigationViewModel.swift in Sources */,
 				A715F2E22C19863100E5A1F3 /* MapViewModel.swift in Sources */,
 				A715F2DC2C19838100E5A1F3 /* MapViewRepresentable.swift in Sources */,
 				A7A946C52C1C8E280080F270 /* StatusView.swift in Sources */,
 				A7D7F8912C1DC2A2004897FC /* ChildSelectorView.swift in Sources */,
 				A70BE5F42C43E60300176E31 /* AuthManager+Errors.swift in Sources */,
 				A715F2FF2C1AF5FA00E5A1F3 /* AuthNavigationView.swift in Sources */,
+				A70BE6082C44329E00176E31 /* HomeHeaderTemplateView.swift in Sources */,
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
+				A70BE60F2C443C0F00176E31 /* ProfileHeaderView.swift in Sources */,
 				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,
+				A70BE5F62C4427AA00176E31 /* HomeNavigationView.swift in Sources */,
 				A770832D2C374C8700A39508 /* ToastModifier.swift in Sources */,
 				A70BE5DE2C43261900176E31 /* AuthErrorProtocol.swift in Sources */,
 				A7D7F8AC2C2090AB004897FC /* CustomShadowModifier.swift in Sources */,
@@ -741,6 +856,7 @@
 				A7A946D32C1C8FE70080F270 /* ChildrenManager.swift in Sources */,
 				A7946B132C2AF9B100176EC0 /* ToastView.swift in Sources */,
 				A7946B102C2AEF4D00176EC0 /* UserType.swift in Sources */,
+				A70BE6112C443C2700176E31 /* SettingsHeaderView.swift in Sources */,
 				A7946B0A2C2ACDDD00176EC0 /* AuthViewModel.swift in Sources */,
 				A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */,
 				A7A946D62C1C924B0080F270 /* MockData.swift in Sources */,
