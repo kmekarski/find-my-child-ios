@@ -334,7 +334,20 @@
       }
     },
     "email_already_taken_message_string" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email is used by existing account."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email jest używany przez istniejące konto."
+          }
+        }
+      }
     },
     "email_invalid_message_string" : {
       "extractionState" : "manual",
@@ -786,7 +799,20 @@
       }
     },
     "something_went_wrong_message_string" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong. Try again later."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Coś poszło nie tak. Spróbuj ponownie później."
+          }
+        }
+      }
     },
     "status_string" : {
       "extractionState" : "manual",
@@ -840,7 +866,20 @@
       }
     },
     "user_type_not_selected_message_string" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User type was not selected."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Typ użytkownika nie został wybrany."
+          }
+        }
+      }
     },
     "username_invalid_message_string" : {
       "extractionState" : "manual",

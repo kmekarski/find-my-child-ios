@@ -30,6 +30,7 @@ struct WideButtonView: View {
         .foregroundStyle(.onPrimary)
         .padding(12)
         .frame(maxWidth: .infinity)
+        .frame(height: 46)
         .background(.prim)
         .clipShape(.rect(cornerRadius: 12))
         .customShadow(.subtleDownShadow)

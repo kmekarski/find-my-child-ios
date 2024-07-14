@@ -11,6 +11,7 @@ import FirebaseAuth
 protocol AuthManagerProtocol {
     var delegate: AuthDelegateProtocol? { get set }
     var isSignedIn: Bool { get set }
+    func checkAuthentication()
     func signIn(email: String, password: String)
     func signUp(username: String, email: String, password: String, phoneNumber: String, type: UserType)
     func signOut()
@@ -26,53 +27,26 @@ protocol AuthDelegateProtocol {
 }
 
 class AuthManager: AuthManagerProtocol {
-    func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> AuthValidationResult {
-        let validations =  [ValidationManager.validateNonEmptyField(username),
-                            ValidationManager.validateUsername(username),
-                            ValidationManager.validateNonEmptyField(email),
-                            ValidationManager.validateEmail(email),
-                            ValidationManager.validateNonEmptyField(password),
-                            ValidationManager.validatePassword(password),
-                            ValidationManager.validatePasswordsMatch(password, repeatPassword),
-                            ValidationManager.validateNonEmptyField(phoneNumber),
-                            ValidationManager.validatePhoneNumber(phoneNumber)
-        ]
-        for result in validations {
-            switch result {
-            case .success(_):
-                continue
-            case .failure(let error):
-                return .failure(error)
-            }
-        }
-        return .success(true)
-    }
-    
-    func validateSignIn(email: String, password: String) -> AuthValidationResult {
-        let validations =  [ValidationManager.validateNonEmptyField(email), ValidationManager.validateNonEmptyField(password)]
-        for result in validations {
-            switch result {
-            case .success(_):
-                continue
-            case .failure(let error):
-                return .failure(error)
-            }
-        }
-        return .success(true)
-    }
-    
     var delegate: AuthDelegateProtocol?
-    
     @Published var isSignedIn: Bool = false
+    
+    func checkAuthentication() {
+        if let user = Auth.auth().currentUser {
+            let authUser = MockData.parentAuthUser
+            self.isSignedIn = true
+            delegate?.didSignIn(result: .success(authUser))
+        }
+    }
     
     func signIn(email: String, password: String) {
         delegate?.didStartAuthenticating()
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
             guard let self = self else { return }
             guard let user = result?.user,
-                    error == nil else {
+                  error == nil else {
                 self.isSignedIn = false
-                delegate?.didSignIn(result: .failure(.signIn(.wrongCredentials)))
+                let authError = getAuthError(error)
+                delegate?.didSignIn(result: .failure(authError))
                 return
             }
             let authUser = AuthUser(id: user.uid, username: "someUser", email: user.email ?? "someEmail", phoneNumber: "123456789", type: .parent)
@@ -87,8 +61,8 @@ class AuthManager: AuthManagerProtocol {
             guard let self = self else { return }
             guard let user = result?.user, error == nil else {
                 self.isSignedIn = false
-                print(error!.localizedDescription)
-                delegate?.didSignUp(result: .failure(.signUp(.emailAlreadyTaken)))
+                let authError = getAuthError(error)
+                delegate?.didSignUp(result: .failure(authError))
                 return
             }
             let authUser = AuthUser(id: user.uid, username: username, email: email, phoneNumber: phoneNumber, type: type)

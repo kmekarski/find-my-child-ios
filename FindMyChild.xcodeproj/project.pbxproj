@@ -25,6 +25,8 @@
 		A70BE5E62C43D11500176E31 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E52C43D11500176E31 /* AuthUser.swift */; };
 		A70BE5EA2C43D3C700176E31 /* MockData+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5E92C43D3C700176E31 /* MockData+Auth.swift */; };
 		A70BE5EC2C43D9E900176E31 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5EB2C43D9E900176E31 /* AuthError.swift */; };
+		A70BE5F22C43E5D200176E31 /* AuthManager+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5F12C43E5D200176E31 /* AuthManager+Validation.swift */; };
+		A70BE5F42C43E60300176E31 /* AuthManager+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE5F32C43E60300176E31 /* AuthManager+Errors.swift */; };
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
 		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
@@ -92,6 +94,8 @@
 		A70BE5E52C43D11500176E31 /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		A70BE5E92C43D3C700176E31 /* MockData+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockData+Auth.swift"; sourceTree = "<group>"; };
 		A70BE5EB2C43D9E900176E31 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		A70BE5F12C43E5D200176E31 /* AuthManager+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Validation.swift"; sourceTree = "<group>"; };
+		A70BE5F32C43E60300176E31 /* AuthManager+Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthManager+Errors.swift"; sourceTree = "<group>"; };
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
 		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -202,6 +206,16 @@
 			path = Validation;
 			sourceTree = "<group>";
 		};
+		A70BE5F02C43E5C600176E31 /* AuthManager */ = {
+			isa = PBXGroup;
+			children = (
+				A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */,
+				A70BE5F12C43E5D200176E31 /* AuthManager+Validation.swift */,
+				A70BE5F32C43E60300176E31 /* AuthManager+Errors.swift */,
+			);
+			path = AuthManager;
+			sourceTree = "<group>";
+		};
 		A715F2C12C19823200E5A1F3 = {
 			isa = PBXGroup;
 			children = (
@@ -280,10 +294,10 @@
 		A715F2F42C1AF38A00E5A1F3 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A70BE5F02C43E5C600176E31 /* AuthManager */,
 				A70BE5DA2C4323C300176E31 /* Errors */,
 				A7946B0E2C2AEF4500176EC0 /* Models */,
 				A7946B082C2ACDC300176EC0 /* ViewModels */,
-				A715F2F12C1AF28A00E5A1F3 /* AuthManager.swift */,
 				A7946B032C2AC87500176EC0 /* Components */,
 				A7D7F8A92C1E0D8A004897FC /* Navigation */,
 				A7D7F89D2C1DEFE0004897FC /* Views */,
@@ -707,12 +721,14 @@
 				A70BE5E22C43CE0A00176E31 /* SignInError.swift in Sources */,
 				A70BE5E02C43CDD000176E31 /* Results.swift in Sources */,
 				A7D7F8A52C1DF30F004897FC /* SignUpTextParams.swift in Sources */,
+				A70BE5F22C43E5D200176E31 /* AuthManager+Validation.swift in Sources */,
 				A715F2EE2C1AF25700E5A1F3 /* RootView.swift in Sources */,
 				A7A946CB2C1C8E750080F270 /* Child.swift in Sources */,
 				A715F2E22C19863100E5A1F3 /* MapViewModel.swift in Sources */,
 				A715F2DC2C19838100E5A1F3 /* MapViewRepresentable.swift in Sources */,
 				A7A946C52C1C8E280080F270 /* StatusView.swift in Sources */,
 				A7D7F8912C1DC2A2004897FC /* ChildSelectorView.swift in Sources */,
+				A70BE5F42C43E60300176E31 /* AuthManager+Errors.swift in Sources */,
 				A715F2FF2C1AF5FA00E5A1F3 /* AuthNavigationView.swift in Sources */,
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
 				A7A946EA2C1CB9970080F270 /* Triangle.swift in Sources */,

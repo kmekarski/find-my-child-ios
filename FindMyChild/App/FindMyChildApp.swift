@@ -8,17 +8,8 @@
 import SwiftUI
 import FirebaseCore
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-    return true
-  }
-}
-
 @main
 struct FindMyChildApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var childrenManager: ChildrenManagerProtocol
     var authManager: AuthManagerProtocol
     var authVM: AuthViewModel
@@ -28,6 +19,7 @@ struct FindMyChildApp: App {
     var mapVM: MapViewModel
     var authNavVM: AuthNavigationViewModel
     init() {
+        FirebaseApp.configure()
         childrenManager = ChildrenManager()
         authManager = AuthManager()
         authVM = AuthViewModel(authManager: authManager)
