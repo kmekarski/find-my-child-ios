@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 enum SignInValidationError: AuthError {
     var message: String {
         return ""

@@ -19,21 +19,21 @@ protocol AuthManagerProtocol {
 
 protocol AuthDelegateProtocol {
     func didStartAuthenticating()
-    func didSignIn()
-    func didSignOut()
+    func didSignIn(result: SignInResult)
+    func didSignOut(result: SignOutResult)
 }
 
 class AuthManager: AuthManagerProtocol {
     func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> AuthValidationResult {
         let validations =  [ValidationManager.validateNonEmptyField(username),
-            ValidationManager.validateUsername(username),
-            ValidationManager.validateNonEmptyField(email),
-            ValidationManager.validateEmail(email),
-            ValidationManager.validateNonEmptyField(password),
-            ValidationManager.validatePassword(password),
-            ValidationManager.validatePasswordsMatch(password, repeatPassword),
-            ValidationManager.validateNonEmptyField(phoneNumber),
-            ValidationManager.validatePhoneNumber(phoneNumber)
+                            ValidationManager.validateUsername(username),
+                            ValidationManager.validateNonEmptyField(email),
+                            ValidationManager.validateEmail(email),
+                            ValidationManager.validateNonEmptyField(password),
+                            ValidationManager.validatePassword(password),
+                            ValidationManager.validatePasswordsMatch(password, repeatPassword),
+                            ValidationManager.validateNonEmptyField(phoneNumber),
+                            ValidationManager.validatePhoneNumber(phoneNumber)
         ]
         for result in validations {
             switch result {
@@ -64,15 +64,24 @@ class AuthManager: AuthManagerProtocol {
     @Published var isSignedIn: Bool = false
     
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+            guard let self = self else { return }
+            guard let user = result?.user, 
+                    let username = user.displayName,
+                  let email = user.email,
+                    error == nil else {
+                self.isSignedIn = false
+                delegate?.didSignIn(result: .failure(.wrongCredentials))
+                return
+            }
+            let authUser = AuthUser(id: user.uid, username: username, email: email, phoneNumber: "123456789", type: .parent)
+            self.isSignedIn = true
+            delegate?.didSignIn(result: .success(authUser))
         }
-        isSignedIn = true
-        delegate?.didSignIn()
     }
     
     func signOut() {
         isSignedIn = false
-        delegate?.didSignOut()
+        delegate?.didSignOut(result: .success(true))
     }
 }

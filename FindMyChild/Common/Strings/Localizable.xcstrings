@@ -146,17 +146,6 @@
         }
       }
     },
-    "choose_account_type_info_row_%@_%lld_string" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "choose_account_type_info_row_%_%2$lld_string"
-          }
-        }
-      }
-    },
     "choose_account_type_info_row_child_1_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -343,6 +332,9 @@
           }
         }
       }
+    },
+    "email_already_taken_message_string" : {
+
     },
     "email_invalid_message_string" : {
       "extractionState" : "manual",
@@ -793,6 +785,9 @@
         }
       }
     },
+    "something_went_wrong_message_string" : {
+
+    },
     "status_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -891,6 +886,23 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Hasło musi się składać z przynajmniej 8 znaków."
+          }
+        }
+      }
+    },
+    "wrong_credentials_message_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wrong sign in credentials."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieprawidłowe dane logowania."
           }
         }
       }

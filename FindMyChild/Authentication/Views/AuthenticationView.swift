@@ -52,6 +52,7 @@ struct AuthenticationView: View {
         .onAppear() {
             signInVM.delegate = self
             signUpVM.delegate = self
+            authVM.delegate = self
         }
     }
 }
@@ -114,6 +115,10 @@ private extension AuthenticationView {
     
     func onChooseUserType(type: UserType) {
         signUpVM.selectedAccountType = type
+    }
+    
+    func showErrorToast(message: String) {
+        toast = Toast(style: .error, message: message)
     }
     
     var headerTitleText: String {
@@ -273,12 +278,18 @@ private extension AuthenticationView {
 
 extension AuthenticationView: SignInViewModelDelegate {
     func showSignInValidationErrorMessage(_ error: AuthValidationError) {
-        toast = Toast(style: .error, message: error.message)
+        showErrorToast(message: error.message)
     }
 }
 
 extension AuthenticationView: SignUpViewModelDelegate {
     func showSignUpValidationErrorMessage(_ error: AuthValidationError) {
-        toast = Toast(style: .error, message: error.message)
+        showErrorToast(message: error.message)
+    }
+}
+
+extension AuthenticationView: AuthViewModelDelegate {
+    func showAuthErrorMessage(_ error: any AuthError) {
+        showErrorToast(message: error.message)
     }
 }

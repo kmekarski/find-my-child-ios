@@ -19,8 +19,6 @@ class SignInViewModel: ObservableObject {
     }
     
     func signIn() {
-        print(textParams.email)
-        print(textParams.password)
         let email = textParams.email
         let password = textParams.password
         let validationResult = authManager.validateSignIn(email: email, password: password)

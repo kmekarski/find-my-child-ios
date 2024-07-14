@@ -34,7 +34,7 @@ class MockAuthManager: AuthManagerProtocol {
         let validations =  [ValidationManager.validateNonEmptyField(email), ValidationManager.validateNonEmptyField(password)]
         for result in validations {
             switch result {
-            case .success(let success):
+            case .success(_):
                 continue
             case .failure(let error):
                 return .failure(error)
@@ -47,7 +47,7 @@ class MockAuthManager: AuthManagerProtocol {
         self.delegate?.didStartAuthenticating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
-            self.delegate?.didSignIn()
+            self.delegate?.didSignIn(result: .success(MockData.parentAuthUser))
         }
     }
     
@@ -63,7 +63,7 @@ class MockAuthManager: AuthManagerProtocol {
         self.delegate?.didStartAuthenticating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
-            self.delegate?.didSignOut()
+            self.delegate?.didSignOut(result: .success(true))
         }
     }
 }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias AuthValidationResult = Result<Bool, AuthValidationError>
-
 enum AuthValidationError: AuthError {
     case signIn(SignInValidationError)
     case signUp(SignUpValidationError)
