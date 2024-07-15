@@ -9,18 +9,18 @@ import Foundation
 import FirebaseFirestore
 
 class FirebaseService {
-    static let usersCollectionPath = "users"
-    static func createUser(user: User) {
-        Firestore.firestore().collection(usersCollectionPath).document(user.id).setData(user.toFirebase())
+    internal static func createDocument<T: Encodable>(document: T, documentId: String, collectionPath: String) throws {
+        try Firestore.firestore().collection(collectionPath).document(documentId).setData(from: document)
     }
     
-    static func getUser(userId: String, completion: @escaping (User?) -> Void) {
-        Firestore.firestore().collection(usersCollectionPath).document(userId).getDocument { snapshot, error in
-            if let error = error {
+    internal static func getDocument<T: Decodable>(documentId: String, collectionPath: String, completion: @escaping (T?) -> Void) {
+        Firestore.firestore().collection(collectionPath).document(documentId).getDocument { snapshot, error in
+            guard error == nil else {
                 completion(nil)
+                return
             }
-            let user = try? snapshot?.data(as: User.self)
-            completion(user)
+            let document = try? snapshot?.data(as: T.self)
+            completion(document)
         }
     }
 }

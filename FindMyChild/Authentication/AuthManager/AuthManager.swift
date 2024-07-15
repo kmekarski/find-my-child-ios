@@ -57,9 +57,21 @@ class AuthManager: AuthManagerProtocol {
                 return
             }
             let newUser = User(id: userId,username: username, email: email, phoneNumber: phoneNumber, type: type)
-            FirebaseService.createUser(user: newUser)
-            self.isSignedIn = true
-            delegate?.didSignUp(result: .success(newUser))
+            do {
+                try FirebaseService.createUser(user: newUser)
+                switch type {
+                case .parent:
+                    let parentUser = ParentUser(user: newUser)
+                    try FirebaseService.createParentUser(user: parentUser)
+                case .child:
+                    let childUser = ChildUser(user: newUser)
+                    try FirebaseService.createChildUser(user: childUser)
+                }
+                isSignedIn = true
+                delegate?.didSignUp(result: .success(newUser))
+            } catch {
+                delegate?.didSignUp(result: .failure(.somethingWentWrong))
+            }
         }
     }
     

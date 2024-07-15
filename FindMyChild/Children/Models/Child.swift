@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Child: Identifiable {
+struct Child: Identifiable, Codable {
     var id: String
     var name: String
     var phoneNumber: String?
