@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct SettingsHeaderView: HomeHeaderProtocol {
+    var title: String? = "Settings"
     @EnvironmentObject var navVM: HomeNavigationViewModel
     var body: some View {
-        HStack {
+        let leftItems = [
             Button(action: goBack, label: {
                 IconButtonView(icon: "chevron.left")
             })
-            Spacer()
-        }
+        ]
+        let headerData = HomeHeaderData(title: title, leftItems: leftItems)
+        return HomeHeaderTemplateView(data: headerData)
     }
 }
 

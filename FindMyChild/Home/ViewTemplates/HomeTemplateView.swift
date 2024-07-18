@@ -19,13 +19,13 @@ struct HomeTemplateView<Screen: HomeScreenProtocol, Header: HomeHeaderProtocol>:
         case .map: AnyView(ZStack {
             screen
             VStack {
-                HomeHeaderTemplateView(header: header)
+                header
                 Spacer()
             }
         }
             .navigationBarBackButtonHidden())
         case .settings, .profile: AnyView(VStack {
-            HomeHeaderTemplateView(header: header)
+            header
             screen
                 .frame(maxHeight: .infinity)
         }

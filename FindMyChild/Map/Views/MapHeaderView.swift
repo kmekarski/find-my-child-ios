@@ -12,21 +12,22 @@ struct MapHeaderView: HomeHeaderProtocol {
     @EnvironmentObject var mapVM: MapViewModel
     @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var navVM: HomeNavigationViewModel
+    var title: String? = nil
     var body: some View {
-        HStack {
+        let leftItems = [
             Button(action: goToSettings, label: {
                 IconButtonView(icon: "line.3.horizontal")
             })
-            Spacer()
+        ]
+        let rightItems = [
             Image(systemName: "bell.fill")
-                .foregroundStyle(.prim)
-            Button(action: signOut, label: {
-                Text("Sign out")
-            })
+                .foregroundStyle(.prim),
             Button(action: goToProfile, label: {
                 IconButtonView(icon: "person")
             })
-        }
+        ] as [Any]
+        let headerData = HomeHeaderData(leftItems: leftItems, rightItems: rightItems)
+        return HomeHeaderTemplateView(data: headerData)
     }
 }
 
@@ -41,10 +42,6 @@ struct MapHeaderView: HomeHeaderProtocol {
 }
 
 extension MapHeaderView {
-    func signOut() {
-        authVM.signOut()
-    }
-    
     func goToSettings() {
         navVM.navigate(route: .settings)
     }

@@ -27,10 +27,9 @@ struct ProfileView: HomeScreenProtocol {
                 }
             }
             settingsList
-            
             Spacer()
+            logoutButton
         }
-        .offset(y: -40)
         .padding(.horizontal)
     }
 }
@@ -58,5 +57,12 @@ extension ProfileView {
             SettingsRowData(title: "Change password", iconName: "lock.fill") {},
         ]
         return SettingsListView(title: "Account settings", rowsData: settingsRowsData)
+    }
+    
+    var logoutButton: some View {
+        let data = SettingsRowData(title: "Logout", iconName: "lock.fill", type: .centered) {
+            authVM.signOut()
+        }
+        return SettingsListRowView(data: data)
     }
 }

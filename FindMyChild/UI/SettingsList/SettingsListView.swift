@@ -20,7 +20,7 @@ struct SettingsListView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 12)
             }
-            VStack(spacing: 12) { // Fixed spacing between elements
+            VStack(spacing: 12) {
                 ForEach(rowsData) { rowData in
                     SettingsListRowView(data: rowData)
                 }

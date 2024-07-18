@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ProfileHeaderView: HomeHeaderProtocol {
     @EnvironmentObject var navVM: HomeNavigationViewModel
+    var title: String? = "Profile"
     var body: some View {
-        HStack {
+        let leftItems = [
             Button(action: goBack, label: {
                 IconButtonView(icon: "chevron.left")
             })
-            Spacer()
-        }
+        ]
+        let headerData = HomeHeaderData(title: title, leftItems: leftItems)
+        return HomeHeaderTemplateView(data: headerData)
     }
 }
 

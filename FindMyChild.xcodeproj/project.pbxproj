@@ -44,6 +44,7 @@
 		A70BE6232C4558EC00176E31 /* FirebaseService+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6222C4558EC00176E31 /* FirebaseService+User.swift */; };
 		A70BE6252C45591300176E31 /* FirebaseService+ParentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6242C45591300176E31 /* FirebaseService+ParentUser.swift */; };
 		A70BE6272C455B7200176E31 /* FirebaseService+ChildUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BE6262C455B7200176E31 /* FirebaseService+ChildUser.swift */; };
+		A70CFB4B2C49A6BD00ECCBD4 /* NavHeaderTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70CFB4A2C49A6BD00ECCBD4 /* NavHeaderTitleView.swift */; };
 		A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */; };
 		A715F2D02C19823200E5A1F3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F2CF2C19823200E5A1F3 /* HomeView.swift */; };
 		A715F2D22C19823400E5A1F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A715F2D12C19823400E5A1F3 /* Assets.xcassets */; };
@@ -133,6 +134,7 @@
 		A70BE6222C4558EC00176E31 /* FirebaseService+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseService+User.swift"; sourceTree = "<group>"; };
 		A70BE6242C45591300176E31 /* FirebaseService+ParentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseService+ParentUser.swift"; sourceTree = "<group>"; };
 		A70BE6262C455B7200176E31 /* FirebaseService+ChildUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseService+ChildUser.swift"; sourceTree = "<group>"; };
+		A70CFB4A2C49A6BD00ECCBD4 /* NavHeaderTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavHeaderTitleView.swift; sourceTree = "<group>"; };
 		A715F2CA2C19823200E5A1F3 /* FindMyChild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyChild.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A715F2CD2C19823200E5A1F3 /* FindMyChildApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyChildApp.swift; sourceTree = "<group>"; };
 		A715F2CF2C19823200E5A1F3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -295,8 +297,6 @@
 			children = (
 				A70BE6012C44291C00176E31 /* ProfileView.swift */,
 				A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */,
-				A74061672C48EEC300266C20 /* SettingsListRowView.swift */,
-				A74061692C48EF4200266C20 /* SettingsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,8 +321,8 @@
 		A70BE60B2C443BC500176E31 /* ViewTemplates */ = {
 			isa = PBXGroup;
 			children = (
+				A70CFB492C49A6AA00ECCBD4 /* Header */,
 				A70BE6032C44295100176E31 /* HomeTemplateView.swift */,
-				A70BE6072C44329E00176E31 /* HomeHeaderTemplateView.swift */,
 			);
 			path = ViewTemplates;
 			sourceTree = "<group>";
@@ -364,6 +364,24 @@
 				A70BE6202C45574E00176E31 /* ChildUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A70CFB492C49A6AA00ECCBD4 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				A70BE6072C44329E00176E31 /* HomeHeaderTemplateView.swift */,
+				A70CFB4A2C49A6BD00ECCBD4 /* NavHeaderTitleView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		A70CFB4C2C49A73000ECCBD4 /* SettingsList */ = {
+			isa = PBXGroup;
+			children = (
+				A74061672C48EEC300266C20 /* SettingsListRowView.swift */,
+				A74061692C48EF4200266C20 /* SettingsListView.swift */,
+			);
+			path = SettingsList;
 			sourceTree = "<group>";
 		};
 		A715F2C12C19823200E5A1F3 = {
@@ -418,6 +436,7 @@
 		A715F2DD2C1984C000E5A1F3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A70CFB4C2C49A73000ECCBD4 /* SettingsList */,
 				A74061642C48055800266C20 /* CircleProfileImage */,
 				A7946B112C2AF9A400176EC0 /* Toast */,
 				A7D7F8AA2C209096004897FC /* ViewModifiers */,
@@ -935,6 +954,7 @@
 				A70BE5D72C4315D800176E31 /* SignUpValidationError.swift in Sources */,
 				A7946B022C2AC4DE00176EC0 /* AuthenticationView.swift in Sources */,
 				A7A946E72C1CA25F0080F270 /* Date.swift in Sources */,
+				A70CFB4B2C49A6BD00ECCBD4 /* NavHeaderTitleView.swift in Sources */,
 				A7D7F8A82C1DF774004897FC /* WideButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

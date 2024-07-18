@@ -73,7 +73,7 @@ extension AuthTextFieldView {
     .padding(32)
 }
 
-struct AuthTextFieldModifier: ViewModifier {
+fileprivate struct AuthTextFieldModifier: ViewModifier {
     func body(content: Content) -> some View {
             return content
             .frame(height: 48)
