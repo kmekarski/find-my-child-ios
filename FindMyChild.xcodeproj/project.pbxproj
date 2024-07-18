@@ -59,6 +59,8 @@
 		A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */; };
 		A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */; };
 		A74061662C48056900266C20 /* CircleProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74061652C48056900266C20 /* CircleProfileImageView.swift */; };
+		A74061682C48EEC300266C20 /* SettingsListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74061672C48EEC300266C20 /* SettingsListRowView.swift */; };
+		A740616A2C48EF4200266C20 /* SettingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74061692C48EF4200266C20 /* SettingsListView.swift */; };
 		A770832D2C374C8700A39508 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770832C2C374C8700A39508 /* ToastModifier.swift */; };
 		A770832F2C374CB000A39508 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770832E2C374CB000A39508 /* Toast.swift */; };
 		A7946B022C2AC4DE00176EC0 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7946B012C2AC4DE00176EC0 /* AuthenticationView.swift */; };
@@ -147,6 +149,8 @@
 		A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationViewModel.swift; sourceTree = "<group>"; };
 		A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		A74061652C48056900266C20 /* CircleProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileImageView.swift; sourceTree = "<group>"; };
+		A74061672C48EEC300266C20 /* SettingsListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListRowView.swift; sourceTree = "<group>"; };
+		A74061692C48EF4200266C20 /* SettingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListView.swift; sourceTree = "<group>"; };
 		A770832C2C374C8700A39508 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		A770832E2C374CB000A39508 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		A7946B012C2AC4DE00176EC0 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 			children = (
 				A70BE6012C44291C00176E31 /* ProfileView.swift */,
 				A70BE60E2C443C0F00176E31 /* ProfileHeaderView.swift */,
+				A74061672C48EEC300266C20 /* SettingsListRowView.swift */,
+				A74061692C48EF4200266C20 /* SettingsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -889,6 +895,7 @@
 				A70BE5E02C43CDD000176E31 /* Results.swift in Sources */,
 				A7D7F8A52C1DF30F004897FC /* SignUpTextParams.swift in Sources */,
 				A70BE5F22C43E5D200176E31 /* AuthManager+Validation.swift in Sources */,
+				A74061682C48EEC300266C20 /* SettingsListRowView.swift in Sources */,
 				A70BE5FD2C4428FA00176E31 /* SettingsView.swift in Sources */,
 				A715F2EE2C1AF25700E5A1F3 /* RootView.swift in Sources */,
 				A7A946CB2C1C8E750080F270 /* Child.swift in Sources */,
@@ -921,6 +928,7 @@
 				A715F2CE2C19823200E5A1F3 /* FindMyChildApp.swift in Sources */,
 				A7A946D62C1C924B0080F270 /* MockData.swift in Sources */,
 				A7D7F88F2C1DC248004897FC /* BottomContentView.swift in Sources */,
+				A740616A2C48EF4200266C20 /* SettingsListView.swift in Sources */,
 				A70BE5DC2C4323D300176E31 /* AuthValidationError.swift in Sources */,
 				A7D7F8932C1DC4EF004897FC /* BottomTabBarView.swift in Sources */,
 				A7946B072C2ACC1700176EC0 /* MockAuthManager.swift in Sources */,

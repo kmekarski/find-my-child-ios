@@ -20,8 +20,10 @@ struct ProfileHeaderView: HomeHeaderProtocol {
 }
 
 #Preview {
-    HomeTemplateView(screen: ProfileView(), header: ProfileHeaderView())
+    let authManager = MockAuthManager()
+    return HomeTemplateView(screen: ProfileView(), header: ProfileHeaderView())
         .environmentObject(HomeNavigationViewModel())
+        .environmentObject(AuthViewModel(authManager: authManager))
 }
 
 extension ProfileHeaderView {

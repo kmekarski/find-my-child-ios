@@ -14,11 +14,11 @@ struct ProfileView: HomeScreenProtocol {
     var body: some View {
         VStack {
             CircleProfileImageView(size: .large)
+                .padding(.bottom)
             if let user = authVM.currentUser {
-                Text(user.username)
-                Text(user.email)
-                Text(user.phoneNumber)
-                Text(user.type.rawValue)
+                generalInfo(user)
+                    .padding(.bottom, 24)
+                
                 if let childrenCount = (user as? ParentUser)?.children.count {
                     Text("\(childrenCount)")
                 }
@@ -26,9 +26,12 @@ struct ProfileView: HomeScreenProtocol {
                     Text(childProperty)
                 }
             }
+            settingsList
+            
             Spacer()
         }
         .offset(y: -40)
+        .padding(.horizontal)
     }
 }
 
@@ -37,4 +40,23 @@ struct ProfileView: HomeScreenProtocol {
     return HomeTemplateView(screen: ProfileView(), header: ProfileHeaderView())
         .environmentObject(ProfileViewModel())
         .environmentObject(AuthViewModel(authManager: authManager))
+}
+
+extension ProfileView {
+    func generalInfo(_ user: User) -> some View {
+        return VStack(spacing: 10) {
+            Text(user.username)
+                .customFont(.regular, 24)
+            Text(user.email)
+        }
+    }
+    
+    var settingsList: some View {
+        let settingsRowsData = [
+            SettingsRowData(title: "Change password", iconName: "lock.fill") {},
+            SettingsRowData(title: "Change password", iconName: "lock.fill") {},
+            SettingsRowData(title: "Change password", iconName: "lock.fill") {},
+        ]
+        return SettingsListView(title: "Account settings", rowsData: settingsRowsData)
+    }
 }
