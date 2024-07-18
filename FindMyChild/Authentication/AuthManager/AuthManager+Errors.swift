@@ -17,7 +17,7 @@ extension AuthManager {
         print(error.localizedDescription)
         return switch errorCode {
         case .emailAlreadyInUse: .signUp(.emailAlreadyTaken)
-        case .wrongPassword: .signIn(.wrongCredentials)
+        case .wrongPassword, .invalidCredential: .signIn(.wrongCredentials)
         default: .somethingWentWrong
         }
     }

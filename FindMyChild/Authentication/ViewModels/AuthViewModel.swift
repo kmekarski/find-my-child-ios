@@ -23,7 +23,9 @@ class AuthViewModel: ObservableObject {
     init(authManager: AuthManagerProtocol) {
         self.authManager = authManager
         self.authManager.delegate = self
-        self.authManager.checkAuthentication()
+        Task {
+            await self.authManager.checkAuthentication()
+        }
     }
     
     func didAuthenticate(result: AuthResult) {

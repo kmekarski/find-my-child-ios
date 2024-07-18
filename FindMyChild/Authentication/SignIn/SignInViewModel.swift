@@ -18,13 +18,13 @@ class SignInViewModel: ObservableObject {
         self.authManager = authManager
     }
     
-    func signIn() {
+    func signIn() async {
         let email = textParams.email
         let password = textParams.password
         let validationResult = authManager.validateSignIn(email: email, password: password)
         switch validationResult {
-        case .success(let success):
-            authManager.signIn(email: email, password: password)
+        case .success(_):
+            await authManager.signIn(email: email, password: password)
         case .failure(let error):
             delegate?.showSignInValidationErrorMessage(error)
         }

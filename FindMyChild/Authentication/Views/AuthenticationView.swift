@@ -67,12 +67,12 @@ struct AuthenticationView: View {
 }
 
 private extension AuthenticationView {
-    func signIn() {
-        signInVM.signIn()
+    func signIn() async {
+        await signInVM.signIn()
     }
     
-    func signUp() {
-        signUpVM.signUp()
+    func signUp() async {
+        await signUpVM.signUp()
     }
     
     func goToSignUp() {
@@ -92,13 +92,15 @@ private extension AuthenticationView {
     }
     
     func onAuthButtonTapped() {
-        switch screenType {
-        case .signIn:
-            signIn()
-        case .signUp:
-            signUp()
-        case .chooseUserType:
-            goToSignUp()
+        Task {
+            switch screenType {
+            case .signIn:
+                await signIn()
+            case .signUp:
+                await signUp()
+            case .chooseUserType:
+                goToSignUp()
+            }
         }
     }
     

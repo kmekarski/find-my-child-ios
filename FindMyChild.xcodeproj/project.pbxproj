@@ -58,6 +58,7 @@
 		A715F3052C1AFE1D00E5A1F3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F3042C1AFE1D00E5A1F3 /* SignUpViewModel.swift */; };
 		A715F3072C1C371400E5A1F3 /* AuthNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */; };
 		A715F30C2C1C3AFA00E5A1F3 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */; };
+		A74061662C48056900266C20 /* CircleProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74061652C48056900266C20 /* CircleProfileImageView.swift */; };
 		A770832D2C374C8700A39508 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770832C2C374C8700A39508 /* ToastModifier.swift */; };
 		A770832F2C374CB000A39508 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770832E2C374CB000A39508 /* Toast.swift */; };
 		A7946B022C2AC4DE00176EC0 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7946B012C2AC4DE00176EC0 /* AuthenticationView.swift */; };
@@ -145,6 +146,7 @@
 		A715F3042C1AFE1D00E5A1F3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		A715F3062C1C371400E5A1F3 /* AuthNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationViewModel.swift; sourceTree = "<group>"; };
 		A715F30B2C1C3AFA00E5A1F3 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		A74061652C48056900266C20 /* CircleProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProfileImageView.swift; sourceTree = "<group>"; };
 		A770832C2C374C8700A39508 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		A770832E2C374CB000A39508 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		A7946B012C2AC4DE00176EC0 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 		A715F2DD2C1984C000E5A1F3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A74061642C48055800266C20 /* CircleProfileImage */,
 				A7946B112C2AF9A400176EC0 /* Toast */,
 				A7D7F8AA2C209096004897FC /* ViewModifiers */,
 				A7D7F8A62C1DF769004897FC /* Buttons */,
@@ -504,6 +507,14 @@
 				A7D7F89B2C1DEF39004897FC /* Localizable.xcstrings */,
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		A74061642C48055800266C20 /* CircleProfileImage */ = {
+			isa = PBXGroup;
+			children = (
+				A74061652C48056900266C20 /* CircleProfileImageView.swift */,
+			);
+			path = CircleProfileImage;
 			sourceTree = "<group>";
 		};
 		A7946B032C2AC87500176EC0 /* Components */ = {
@@ -903,6 +914,7 @@
 				A7A946D32C1C8FE70080F270 /* ChildrenManager.swift in Sources */,
 				A7946B132C2AF9B100176EC0 /* ToastView.swift in Sources */,
 				A7946B102C2AEF4D00176EC0 /* UserType.swift in Sources */,
+				A74061662C48056900266C20 /* CircleProfileImageView.swift in Sources */,
 				A70BE6112C443C2700176E31 /* SettingsHeaderView.swift in Sources */,
 				A7946B0A2C2ACDDD00176EC0 /* AuthViewModel.swift in Sources */,
 				A70BE6252C45591300176E31 /* FirebaseService+ParentUser.swift in Sources */,

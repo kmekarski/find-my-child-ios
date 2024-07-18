@@ -13,14 +13,22 @@ struct ProfileView: HomeScreenProtocol {
     @EnvironmentObject var authVM: AuthViewModel
     var body: some View {
         VStack {
+            CircleProfileImageView(size: .large)
             if let user = authVM.currentUser {
                 Text(user.username)
                 Text(user.email)
                 Text(user.phoneNumber)
                 Text(user.type.rawValue)
+                if let childrenCount = (user as? ParentUser)?.children.count {
+                    Text("\(childrenCount)")
+                }
+                if let childProperty = (user as? ChildUser)?.childProperty {
+                    Text(childProperty)
+                }
             }
             Spacer()
         }
+        .offset(y: -40)
     }
 }
 

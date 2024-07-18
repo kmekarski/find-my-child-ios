@@ -11,6 +11,9 @@
         }
       }
     },
+    "%lld" : {
+
+    },
     "ago_string" : {
       "extractionState" : "manual",
       "localizations" : {
