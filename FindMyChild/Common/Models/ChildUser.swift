@@ -17,13 +17,14 @@ class ChildUser: User {
             username: user.username,
             email: user.email,
             phoneNumber: user.phoneNumber,
-            type: .child
+            type: .child,
+            imageUrl: user.imageUrl
         )
     }
     
-    init(id: String, username: String, email: String, phoneNumber: String, childProperty: String = "lalala") {
+    init(id: String, username: String, email: String, phoneNumber: String, imageUrl: String?, childProperty: String = "lalala") {
         self.childProperty = childProperty
-        super.init(id: id, username: username, email: email, phoneNumber: phoneNumber, type: .parent)
+        super.init(id: id, username: username, email: email, phoneNumber: phoneNumber, type: .parent, imageUrl: imageUrl)
     }
     
     required init(from decoder: Decoder) throws {

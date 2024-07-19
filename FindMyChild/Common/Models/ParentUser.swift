@@ -17,13 +17,13 @@ class ParentUser: User {
             username: user.username,
             email: user.email,
             phoneNumber: user.phoneNumber,
-            type: .parent
+            type: .parent, imageUrl: user.imageUrl
         )
     }
     
-    init(id: String, username: String, email: String, phoneNumber: String, children: [Child] = []) {
+    init(id: String, username: String, email: String, phoneNumber: String, imageUrl: String?, children: [Child] = []) {
         self.children = children
-        super.init(id: id, username: username, email: email, phoneNumber: phoneNumber, type: .parent)
+        super.init(id: id, username: username, email: email, phoneNumber: phoneNumber, type: .parent, imageUrl: imageUrl)
     }
     
     required init(from decoder: Decoder) throws {

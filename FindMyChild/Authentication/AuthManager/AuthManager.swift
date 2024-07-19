@@ -52,7 +52,7 @@ class AuthManager: AuthManagerProtocol {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
-            let newUser = User(id: userId, username: username, email: email, phoneNumber: phoneNumber, type: type)
+            let newUser = User(id: userId, username: username, email: email, phoneNumber: phoneNumber, type: type, imageUrl: nil)
             try FirebaseService.createUser(user: newUser)
             switch type {
             case .parent:

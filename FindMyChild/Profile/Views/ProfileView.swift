@@ -13,8 +13,10 @@ struct ProfileView: HomeScreenProtocol {
     @EnvironmentObject var authVM: AuthViewModel
     var body: some View {
         VStack {
-            CircleProfileImageView(size: .large)
-                .padding(.bottom)
+            if let url = URL(string: authVM.currentUser?.imageUrl ?? "") {
+                CircleProfileImageView(url: url, size: .large)
+                    .padding(.bottom)
+            }
             if let user = authVM.currentUser {
                 generalInfo(user)
                     .padding(.bottom, 24)

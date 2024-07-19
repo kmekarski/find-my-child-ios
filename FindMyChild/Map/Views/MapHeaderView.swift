@@ -19,11 +19,15 @@ struct MapHeaderView: HomeHeaderProtocol {
                 IconButtonView(icon: "line.3.horizontal")
             })
         ]
+        let currentUser = authVM.currentUser
+        let currentUserName = currentUser?.username
+        let urlString = currentUser?.imageUrl ?? "no url found"
+        let profileImageUrl = URL(string: urlString)
         let rightItems = [
             Image(systemName: "bell.fill")
                 .foregroundStyle(.prim),
             Button(action: goToProfile, label: {
-                IconButtonView(icon: "person")
+                CircleProfileImageView(url: profileImageUrl, size: .headerItem)
             })
         ] as [Any]
         let headerData = HomeHeaderData(leftItems: leftItems, rightItems: rightItems)

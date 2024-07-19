@@ -687,6 +687,23 @@
         }
       }
     },
+    "profile_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        }
+      }
+    },
     "repeat_password_string" : {
       "localizations" : {
         "en" : {
@@ -705,6 +722,23 @@
     },
     "Settings" : {
 
+    },
+    "settings_string" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustawienia"
+          }
+        }
+      }
     },
     "sign_in_data_string" : {
       "extractionState" : "manual",
