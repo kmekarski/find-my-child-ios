@@ -10,12 +10,14 @@ import SwiftUI
 enum CircleProfileImageSize: CGFloat {
     case headerItem = 32
     case small = 48
+    case medium = 78
     case large = 128
     
     var borderSize: CGFloat {
         return switch self {
         case .headerItem: 0
         case .small: 3
+        case .medium: 4
         case .large: 5
         }
     }

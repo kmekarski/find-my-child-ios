@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ProfileView: HomeScreenProtocol {
-    var type: HomeScreenType = .profile
     @EnvironmentObject var profileVM: ProfileViewModel
     @EnvironmentObject var authVM: AuthViewModel
+    var type: HomeScreenType = .profile
     var body: some View {
         VStack {
             if let url = URL(string: authVM.currentUser?.imageUrl ?? "") {
@@ -20,19 +20,11 @@ struct ProfileView: HomeScreenProtocol {
             if let user = authVM.currentUser {
                 generalInfo(user)
                     .padding(.bottom, 24)
-                
-                if let childrenCount = (user as? ParentUser)?.children.count {
-                    Text("\(childrenCount)")
-                }
-                if let childProperty = (user as? ChildUser)?.childProperty {
-                    Text(childProperty)
-                }
             }
             settingsList
             Spacer()
             logoutButton
         }
-        .padding(.horizontal)
     }
 }
 

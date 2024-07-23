@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 
 protocol AuthManagerProtocol {
+    var currentUser: User? { get set }
     var delegate: AuthDelegateProtocol? { get set }
     var isSignedIn: Bool { get set }
     func checkAuthentication() async
@@ -28,7 +29,8 @@ protocol AuthDelegateProtocol {
 
 class AuthManager: AuthManagerProtocol {
     var delegate: AuthDelegateProtocol?
-    @Published var isSignedIn: Bool = false
+    var isSignedIn: Bool = false
+    var currentUser: User?
     
     func checkAuthentication() async {
         if let authUser = Auth.auth().currentUser {
@@ -52,17 +54,10 @@ class AuthManager: AuthManagerProtocol {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
-            let newUser = User(id: userId, username: username, email: email, phoneNumber: phoneNumber, type: type, imageUrl: nil)
+            let newUser = User(id: userId, username: username, email: email, phoneNumber: phoneNumber, type: type, imageUrl: nil, isFirstLogin: true, children: [])
             try FirebaseService.createUser(user: newUser)
-            switch type {
-            case .parent:
-                let parentUser = ParentUser(user: newUser)
-                try FirebaseService.createParentUser(user: parentUser)
-            case .child:
-                let childUser = ChildUser(user: newUser)
-                try FirebaseService.createChildUser(user: childUser)
-            }
             isSignedIn = true
+            self.currentUser = newUser
             delegate?.didSignUp(result: .success(newUser))
         } catch {
             handleError(error: error)
@@ -83,15 +78,13 @@ class AuthManager: AuthManagerProtocol {
     
     private func handleSignInSuccess(userId: String) async {
         do {
-            guard let type = try await FirebaseService.getUser(userId: userId)?.type else { return }
-            FirebaseService.getParentOrChildUser(userId: userId, type: type) { [weak self] user in
-                guard let user = user else {
-                    self?.delegate?.didSignIn(result: .failure(.somethingWentWrong))
-                    return
-                }
-                self?.isSignedIn = true
-                self?.delegate?.didSignIn(result: .success(user))
+            guard let user = try await FirebaseService.getUser(userId: userId) else {
+                self.delegate?.didSignIn(result: .failure(.somethingWentWrong))
+                return
             }
+            self.isSignedIn = true
+            self.currentUser = user
+            self.delegate?.didSignIn(result: .success(user))
         } catch {
             delegate?.didSignIn(result: .failure(.somethingWentWrong))
         }

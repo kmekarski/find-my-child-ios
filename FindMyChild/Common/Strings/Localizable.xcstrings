@@ -11,9 +11,6 @@
         }
       }
     },
-    "%lld" : {
-
-    },
     "ago_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -402,6 +399,9 @@
         }
       }
     },
+    "finish onboarding" : {
+
+    },
     "go_next_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -570,6 +570,12 @@
         }
       }
     },
+    "No children added. Add some!" : {
+
+    },
+    "parent onboarding" : {
+
+    },
     "parent_data_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -720,9 +726,6 @@
         }
       }
     },
-    "Settings" : {
-
-    },
     "settings_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -739,6 +742,9 @@
           }
         }
       }
+    },
+    "show error" : {
+
     },
     "sign_in_data_string" : {
       "extractionState" : "manual",

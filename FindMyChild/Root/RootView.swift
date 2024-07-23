@@ -11,19 +11,13 @@ struct RootView: View {
     @EnvironmentObject var authVM: AuthViewModel
     var body: some View {
         ZStack {
-            if signedIn {
-                HomeNavigationView()
-                    .transition(.move(edge: .trailing))
-            } else {
-                AuthNavigationView()
-                    .transition(.move(edge: .leading))
-            }
+            RootRouter.getRoute(currentUser: authVM.currentUser, isSignedIn: isSignedIn).transition(.move(edge: .leading))
         }
     }
 }
 
 private extension RootView {
-    var signedIn: Bool {
+    var isSignedIn: Bool {
         return authVM.isSignedIn
     }
 }
@@ -38,4 +32,22 @@ private extension RootView {
         .environmentObject(SignInViewModel(authManager: authManager))
         .environmentObject(SignUpViewModel(authManager: authManager))
         .environmentObject(AuthViewModel(authManager: authManager))
+}
+
+class RootRouter {
+    static func getRoute(currentUser: User?, isSignedIn: Bool) -> some View {
+        var resultView: any View = AuthNavigationView()
+
+        guard let currentUser = currentUser, isSignedIn else {
+            return AnyView(AuthNavigationView())
+        }
+        
+        if currentUser.type == .parent && currentUser.isFirstLogin {
+            resultView = ParentOnboardingView()
+        } else {
+            resultView = HomeNavigationView()
+        }
+        
+        return AnyView(resultView)
+    }
 }

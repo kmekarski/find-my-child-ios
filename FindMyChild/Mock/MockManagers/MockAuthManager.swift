@@ -8,6 +8,8 @@
 import Foundation
 
 class MockAuthManager: AuthManagerProtocol {
+    var currentUser: User?
+    
     func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> AuthValidationResult {
         let validations =  [ValidationManager.validateNonEmptyField(username),
             ValidationManager.validateUsername(username),
@@ -21,7 +23,7 @@ class MockAuthManager: AuthManagerProtocol {
         ]
         for result in validations {
             switch result {
-            case .success(let success):
+            case .success(_):
                 continue
             case .failure(let error):
                 return .failure(error)
@@ -45,6 +47,7 @@ class MockAuthManager: AuthManagerProtocol {
     
     func checkAuthentication() {
         self.isSignedIn = true
+        self.currentUser = MockData.parentUser
         self.delegate?.didSignIn(result: .success(MockData.parentUser))
     }
     
@@ -52,6 +55,7 @@ class MockAuthManager: AuthManagerProtocol {
         self.delegate?.didStartAuthenticating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
+            self.currentUser = MockData.parentUser
             self.delegate?.didSignIn(result: .success(MockData.parentUser))
         }
     }
@@ -60,6 +64,7 @@ class MockAuthManager: AuthManagerProtocol {
         self.delegate?.didStartAuthenticating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
+            self.currentUser = MockData.parentUser
             self.delegate?.didSignUp(result: .success(MockData.parentUser))
         }
     }

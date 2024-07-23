@@ -28,6 +28,7 @@ struct HomeTemplateView<Screen: HomeScreenProtocol, Header: HomeHeaderProtocol>:
             header
             screen
                 .frame(maxHeight: .infinity)
+                .padding()
         }
             .navigationBarBackButtonHidden())
         }
