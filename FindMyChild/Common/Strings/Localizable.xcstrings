@@ -743,9 +743,6 @@
         }
       }
     },
-    "show error" : {
-
-    },
     "sign_in_data_string" : {
       "extractionState" : "manual",
       "localizations" : {

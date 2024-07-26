@@ -8,7 +8,7 @@
 import SwiftUI
 
 protocol HomeScreenProtocol: View {
-    var type: HomeScreenType { get }
+    var type: AppRoute { get }
 }
 
 struct HomeTemplateView<Screen: HomeScreenProtocol, Header: HomeHeaderProtocol>: View {
@@ -24,7 +24,7 @@ struct HomeTemplateView<Screen: HomeScreenProtocol, Header: HomeHeaderProtocol>:
             }
         }
             .navigationBarBackButtonHidden())
-        case .settings, .profile: AnyView(VStack {
+        default: AnyView(VStack {
             header
             screen
                 .frame(maxHeight: .infinity)

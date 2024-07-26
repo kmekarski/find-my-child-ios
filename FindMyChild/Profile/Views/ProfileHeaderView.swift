@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileHeaderView: HomeHeaderProtocol {
-    @EnvironmentObject var navVM: HomeNavigationViewModel
+    @EnvironmentObject var navVM: NavigationViewModel
     var title: String? = "Profile"
     var body: some View {
         let leftItems = [
@@ -24,7 +24,7 @@ struct ProfileHeaderView: HomeHeaderProtocol {
 #Preview {
     let authManager = MockAuthManager()
     return HomeTemplateView(screen: ProfileView(), header: ProfileHeaderView())
-        .environmentObject(HomeNavigationViewModel())
+        .environmentObject(NavigationViewModel(authManager: authManager))
         .environmentObject(AuthViewModel(authManager: authManager))
 }
 

@@ -13,12 +13,11 @@ struct FindMyChildApp: App {
     var childrenManager: ChildrenManagerProtocol
     var authManager: AuthManagerProtocol
     var userManager: UserManager
+    var navVM: NavigationViewModel
     var authVM: AuthViewModel
-    var authNavVM: AuthNavigationViewModel
     var signInVM: SignInViewModel
     var signUpVM: SignUpViewModel
     var homeVM: HomeViewModel
-    var homeNavVM: HomeNavigationViewModel
     var mapVM: MapViewModel
     var parentOnboardingVM: ParentOnboardingViewModel
     
@@ -27,24 +26,22 @@ struct FindMyChildApp: App {
         childrenManager = ChildrenManager()
         authManager = AuthManager()
         userManager = UserManager()
+        navVM = NavigationViewModel(authManager: authManager)
         authVM = AuthViewModel(authManager: authManager)
-        authNavVM = AuthNavigationViewModel()
         signInVM = SignInViewModel(authManager: authManager)
         signUpVM = SignUpViewModel(authManager: authManager)
         homeVM = HomeViewModel(childrenManager: childrenManager)
-        homeNavVM = HomeNavigationViewModel()
         mapVM = MapViewModel()
         parentOnboardingVM = ParentOnboardingViewModel(userManager: userManager, authManager: authManager)
     }
     var body: some Scene {
         WindowGroup {
             RootView()
+                .environmentObject(navVM)
                 .environmentObject(authVM)
-                .environmentObject(authNavVM)
                 .environmentObject(signInVM)
                 .environmentObject(signUpVM)
                 .environmentObject(homeVM)
-                .environmentObject(homeNavVM)
                 .environmentObject(mapVM)
                 .environmentObject(parentOnboardingVM)
         }

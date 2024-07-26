@@ -18,7 +18,7 @@ struct HomeView: HomeScreenProtocol {
     @EnvironmentObject var mapVM: MapViewModel
     @EnvironmentObject var authVM: AuthViewModel
     @State var selectedItem: HomeViewTab = .status
-    var type: HomeScreenType = .map
+    let type: AppRoute = .map
     var body: some View {
         ZStack {
             map

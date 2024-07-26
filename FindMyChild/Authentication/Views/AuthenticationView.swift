@@ -7,13 +7,21 @@
 
 import SwiftUI
 
+private extension AppRoute {
+    var showBackButton: Bool {
+        switch self {
+        case .signUp, .chooseUserType: true
+        default: false
+        }
+    }
+}
+
 struct AuthenticationView: View {
     @EnvironmentObject var authVM: AuthViewModel
     @EnvironmentObject var signUpVM: SignUpViewModel
     @EnvironmentObject var signInVM: SignInViewModel
-    @EnvironmentObject var navVM: AuthNavigationViewModel
-    @State var toast: Toast?
-    var screenType: AuthScreenType
+    @EnvironmentObject var navVM: NavigationViewModel
+    var screenType: AppRoute
     var body: some View {
         VStack(spacing: 0) {
             VStack {
@@ -33,6 +41,7 @@ struct AuthenticationView: View {
                         chooseAccountTypeButtons
                             .padding(.bottom, 24)
                         chooseAccountTypeInfo
+                    default: EmptyView()
                     }
                 }
                 .padding(.top)
@@ -48,19 +57,16 @@ struct AuthenticationView: View {
             .padding(.bottom, 32)
         }
         .navigationBarBackButtonHidden()
-        .toastView(toast: $toast)
-        .onAppear() {
-            signInVM.delegate = self
-            signUpVM.delegate = self
-            authVM.delegate = self
-        }
+        .toastView(toast: $authVM.toast)
+        .toastView(toast: $signInVM.toast)
+        .toastView(toast: $signUpVM.toast)
     }
 }
 
 #Preview {
     let authManager = MockAuthManager()
     return AuthenticationView(screenType: .signIn)
-        .environmentObject(AuthNavigationViewModel())
+        .environmentObject(NavigationViewModel(authManager: authManager))
         .environmentObject(SignInViewModel(authManager: authManager))
         .environmentObject(SignUpViewModel(authManager: authManager))
         .environmentObject(AuthViewModel(authManager: authManager))
@@ -100,6 +106,7 @@ private extension AuthenticationView {
                 await signUp()
             case .chooseUserType:
                 goToSignUp()
+            default: break
             }
         }
     }
@@ -112,6 +119,7 @@ private extension AuthenticationView {
             goToSignIn()
         case .chooseUserType:
             goToSignIn()
+        default: break
         }
     }
     
@@ -119,23 +127,19 @@ private extension AuthenticationView {
         signUpVM.selectedAccountType = type
     }
     
-    func showErrorToast(message: String) {
-        toast = Toast(style: .error, message: message)
-    }
-    
     var headerTitleText: String {
         switch screenType {
         case .signIn: String(localized: "sign_in_title_string")
         case .signUp: String(localized: "sign_up_title_string")
         case .chooseUserType: String(localized: "choose_account_type_string")
+        default: ""
         }
     }
     
     var headerSubtitleText: String? {
         switch screenType {
         case .signIn: String(localized: "sign_in_subtitle_string")
-        case .signUp: nil
-        case .chooseUserType: nil
+        default: nil
         }
     }
     
@@ -157,6 +161,7 @@ private extension AuthenticationView {
         case .signIn: String(localized: "sign_in_string")
         case .signUp: String(localized: "sign_up_string")
         case .chooseUserType: String(localized: "go_next_string")
+        default: ""
         }
     }
     
@@ -165,6 +170,7 @@ private extension AuthenticationView {
         case .signIn: String(localized: "go_to_sign_up_string")
         case .signUp: String(localized: "go_to_sign_in_string")
         case .chooseUserType: String(localized: "go_to_sign_in_string")
+        default: ""
         }
     }
     
@@ -276,22 +282,4 @@ private extension AuthenticationView {
         })
     }
     
-}
-
-extension AuthenticationView: SignInViewModelDelegate {
-    func showSignInValidationErrorMessage(_ error: AuthValidationError) {
-        showErrorToast(message: error.message)
-    }
-}
-
-extension AuthenticationView: SignUpViewModelDelegate {
-    func showSignUpValidationErrorMessage(_ error: AuthValidationError) {
-        showErrorToast(message: error.message)
-    }
-}
-
-extension AuthenticationView: AuthViewModelDelegate {
-    func showAuthErrorMessage(_ error: any AuthErrorProtocol) {
-        showErrorToast(message: error.message)
-    }
 }

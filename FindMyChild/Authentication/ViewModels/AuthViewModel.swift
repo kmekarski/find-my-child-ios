@@ -7,67 +7,78 @@
 
 import Foundation
 import SwiftUI
-
-protocol AuthViewModelDelegate {
-    func showAuthErrorMessage(_ error: AuthErrorProtocol)
-}
+import Combine
 
 class AuthViewModel: ObservableObject {
     var authManager: AuthManagerProtocol
-    var delegate: AuthViewModelDelegate?
+    private var cancellables = Set<AnyCancellable>()
     
     @Published var currentUser: User?
     @Published var isSignedIn: Bool = false
     @Published var isAuthenticating: Bool = false
+    @Published var toast: Toast?
     
     init(authManager: AuthManagerProtocol) {
         self.authManager = authManager
-        self.authManager.delegate = self
+        authManager.statePublisher
+                    .receive(on: DispatchQueue.main)
+                    .sink { [weak self] state in
+                        switch state {
+                        case .authenticating:
+                            self?.didStartAuthenticating()
+                        case .error(let error):
+                            self?.didAuthenticate(result: .failure(error))
+                        case .signedIn(let user), .signedUp(let user):
+                            self?.didAuthenticate(result: .success(user))
+                        case .signedOut:
+                            self?.didSignOut()
+                        default:
+                            self?.isAuthenticating = false
+                        }
+                    }
+                    .store(in: &cancellables)
         Task {
             await self.authManager.checkAuthentication()
-        }
-    }
-    
-    func didAuthenticate(result: AuthResult) {
-        isAuthenticating = false
-        switch result {
-        case .success(let authUser):
-            withAnimation() {
-                isSignedIn = true
-                currentUser = authUser
-            }
-        case .failure(let error):
-            delegate?.showAuthErrorMessage(error)
         }
     }
     
     func signOut() {
         authManager.signOut()
     }
+    
+    private func showErrorToast(error: any AuthErrorProtocol) {
+        toast = Toast(style: .error, message: error.message)
+    }
 }
 
-extension AuthViewModel: AuthDelegateProtocol {
+extension AuthViewModel {
     func didStartAuthenticating() {
-        isAuthenticating = true
+        DispatchQueue.main.async {
+            self.isAuthenticating = true
+        }
     }
     
-    func didSignIn(result: AuthResult) {
-        didAuthenticate(result: result)
-    }
-    
-    func didSignUp(result: AuthResult) {
-        didAuthenticate(result: result)
-    }
-    
-    func didSignOut(result: SignOutResult) {
-        isAuthenticating = false
-        switch result {
-        case .success(_):
-            withAnimation() {
-                isSignedIn = false
+    func didAuthenticate(result: AuthResult) {
+        DispatchQueue.main.async {
+            self.isAuthenticating = false
+            switch result {
+            case .success(let authUser):
+                withAnimation() {
+                    self.isSignedIn = true
+                }
+                self.currentUser = authUser
+            case .failure(let error):
+                self.showErrorToast(error: error)
             }
-        case .failure(let error):
-            delegate?.showAuthErrorMessage(error)
+        }
+    }
+    
+    func didSignOut() {
+        DispatchQueue.main.async {
+            self.isAuthenticating = false
+            withAnimation() {
+                self.isSignedIn = false
+            }
         }
     }
 }

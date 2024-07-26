@@ -13,11 +13,7 @@ enum MapViewsState {
 }
 
 class MapViewModel: ObservableObject {
-    @Published var currentState: MapViewsState
-    
-    init() {
-        self.currentState = .initial
-    }
+    @Published var currentState: MapViewsState = .initial
     
     func go(to: MapViewsState) {
         currentState = to

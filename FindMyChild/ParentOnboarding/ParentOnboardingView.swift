@@ -15,9 +15,6 @@ struct ParentOnboardingView: View {
             Button("finish onboarding") {
                 finishOnboarding()
             }
-            Button("show error") {
-                vm.showError()
-            }
         }
             .toastView(toast: $vm.toast)
     }

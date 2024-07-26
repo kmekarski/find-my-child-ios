@@ -9,9 +9,19 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var authVM: AuthViewModel
+    @EnvironmentObject var navVM: NavigationViewModel
     var body: some View {
-        ZStack {
-            RootRouter.getRoute(currentUser: authVM.currentUser, isSignedIn: isSignedIn).transition(.move(edge: .leading))
+        NavigationStack(path: $navVM.path) {
+            AuthenticationView(screenType: .signIn)
+                .navigationDestination(for: AppRoute.self) { route in
+                    switch route {
+                    case .signIn, .signUp, .chooseUserType: AuthenticationView(screenType: route)
+                    case .map: HomeTemplateView(screen: HomeView(), header: MapHeaderView())
+                    case .settings: HomeTemplateView(screen: SettingsView(), header: SettingsHeaderView())
+                    case .profile: HomeTemplateView(screen: ProfileView(), header: ProfileHeaderView())
+                    case .parentOnboarding: ParentOnboardingView()
+                    }
+                }
         }
     }
 }
@@ -27,27 +37,8 @@ private extension RootView {
     return RootView()
         .environmentObject(MapViewModel())
         .environmentObject(HomeViewModel(childrenManager: MockChildrenManager()))
-        .environmentObject(AuthNavigationViewModel())
-        .environmentObject(HomeNavigationViewModel())
+        .environmentObject(NavigationViewModel(authManager: authManager))
         .environmentObject(SignInViewModel(authManager: authManager))
         .environmentObject(SignUpViewModel(authManager: authManager))
         .environmentObject(AuthViewModel(authManager: authManager))
-}
-
-class RootRouter {
-    static func getRoute(currentUser: User?, isSignedIn: Bool) -> some View {
-        var resultView: any View = AuthNavigationView()
-
-        guard let currentUser = currentUser, isSignedIn else {
-            return AnyView(AuthNavigationView())
-        }
-        
-        if currentUser.type == .parent && currentUser.isFirstLogin {
-            resultView = ParentOnboardingView()
-        } else {
-            resultView = HomeNavigationView()
-        }
-        
-        return AnyView(resultView)
-    }
 }

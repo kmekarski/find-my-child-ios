@@ -65,7 +65,7 @@ struct HomeHeaderTemplateView: View {
         .environmentObject(HomeViewModel(childrenManager: childrenManager))
         .environmentObject(AuthViewModel(authManager: authManager))
         .environmentObject(MapViewModel())
-        .environmentObject(HomeNavigationViewModel())
+        .environmentObject(NavigationViewModel(authManager: authManager))
 }
 
 extension HomeHeaderTemplateView {

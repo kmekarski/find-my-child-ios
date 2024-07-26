@@ -9,12 +9,11 @@ import Foundation
 import SwiftUI
 
 class SignUpViewModel: ObservableObject {
-    var delegate: SignUpViewModelDelegate?
     var authManager: AuthManagerProtocol
     
     @Published var textParams: SignUpTextParams = SignUpTextParams()
-    
     @Published var selectedAccountType: UserType? = .parent
+    @Published var toast: Toast?
     
     init(authManager: AuthManagerProtocol) {
         self.authManager = authManager
@@ -22,7 +21,7 @@ class SignUpViewModel: ObservableObject {
     
     func signUp() async {
         guard let type = selectedAccountType else {
-            delegate?.showSignUpValidationErrorMessage(.signUp(.typeNotSelected))
+            showErrorToast(error: AuthValidationError.signUp(.typeNotSelected))
             return
         }
         let username = textParams.name
@@ -41,8 +40,12 @@ class SignUpViewModel: ObservableObject {
         case .success(_):
             await authManager.signUp(username: username, email: email, password: password, phoneNumber: phoneNumber, type: type)
         case .failure(let error):
-            delegate?.showSignUpValidationErrorMessage(error)
+            showErrorToast(error: error)
         }
+    }
+    
+    private func showErrorToast(error: any AuthErrorProtocol) {
+        toast = Toast(style: .error, message: error.message)
     }
 }
 

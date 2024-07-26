@@ -8,6 +8,9 @@
 import Foundation
 
 class MockAuthManager: AuthManagerProtocol {
+    @Published var state: AuthState = .idle
+    var statePublisher: Published<AuthState>.Publisher { $state }
+    
     var currentUser: User?
     
     func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> AuthValidationResult {
@@ -46,42 +49,39 @@ class MockAuthManager: AuthManagerProtocol {
     }
     
     func checkAuthentication() {
-        self.isSignedIn = true
-        self.currentUser = MockData.parentUser
-        self.delegate?.didSignIn(result: .success(MockData.parentUser))
-    }
-    
-    func signIn(email: String, password: String) {
-        self.delegate?.didStartAuthenticating()
+        state = .authenticating
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
             self.currentUser = MockData.parentUser
-            self.delegate?.didSignIn(result: .success(MockData.parentUser))
+            self.state = .signedIn(MockData.parentUser)
+        }
+    }
+    
+    func signIn(email: String, password: String) {
+        state = .authenticating
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.isSignedIn = true
+            self.currentUser = MockData.parentUser
+            self.state = .signedIn(MockData.parentUser)
         }
     }
     
     func signUp(username: String, email: String, password: String, phoneNumber: String, type: UserType) {
-        self.delegate?.didStartAuthenticating()
+        state = .authenticating
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
             self.currentUser = MockData.parentUser
-            self.delegate?.didSignUp(result: .success(MockData.parentUser))
+            self.state = .signedUp(MockData.parentUser)
         }
     }
     
-    var delegate: AuthDelegateProtocol?
-    
     var isSignedIn: Bool = false
     
-    func signIn() {
-        
-    }
-    
     func signOut() {
-        self.delegate?.didStartAuthenticating()
+        state = .authenticating
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isSignedIn = true
-            self.delegate?.didSignOut(result: .success(true))
+            self.state = .signedOut
         }
     }
 }

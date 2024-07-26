@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: HomeScreenProtocol {
     @EnvironmentObject var profileVM: ProfileViewModel
     @EnvironmentObject var authVM: AuthViewModel
-    var type: HomeScreenType = .settings
+    let type: AppRoute = .settings
     var body: some View {
         VStack {
             if let user = authVM.currentUser, user.type == .parent {

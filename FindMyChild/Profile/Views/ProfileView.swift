@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileView: HomeScreenProtocol {
     @EnvironmentObject var profileVM: ProfileViewModel
     @EnvironmentObject var authVM: AuthViewModel
-    var type: HomeScreenType = .profile
+    let type: AppRoute = .profile
     var body: some View {
         VStack {
             if let url = URL(string: authVM.currentUser?.imageUrl ?? "") {

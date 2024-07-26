@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 class SignInViewModel: ObservableObject {
-    var delegate: SignInViewModelDelegate?
     var authManager: AuthManagerProtocol
     
     @Published var textParams: SignInTextParams = SignInTextParams()
+    @Published var toast: Toast?
     
     init(authManager: AuthManagerProtocol) {
         self.authManager = authManager
@@ -26,11 +26,11 @@ class SignInViewModel: ObservableObject {
         case .success(_):
             await authManager.signIn(email: email, password: password)
         case .failure(let error):
-            delegate?.showSignInValidationErrorMessage(error)
+            showErrorToast(error: error)
         }
     }
-}
-
-protocol SignInViewModelDelegate {
-    func showSignInValidationErrorMessage(_ error: AuthValidationError)
+    
+    private func showErrorToast(error: any AuthErrorProtocol) {
+        toast = Toast(style: .error, message: error.message)
+    }
 }

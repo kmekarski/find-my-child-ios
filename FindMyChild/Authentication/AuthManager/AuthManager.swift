@@ -7,10 +7,21 @@
 
 import Foundation
 import FirebaseAuth
+import Combine
+
+enum AuthState {
+    case idle
+    case authenticating
+    case signedUp(User)
+    case signedIn(User)
+    case signedOut
+    case error(AuthError)
+}
 
 protocol AuthManagerProtocol {
+    var state: AuthState { get set }
+    var statePublisher: Published<AuthState>.Publisher { get }
     var currentUser: User? { get set }
-    var delegate: AuthDelegateProtocol? { get set }
     var isSignedIn: Bool { get set }
     func checkAuthentication() async
     func signIn(email: String, password: String) async
@@ -20,15 +31,10 @@ protocol AuthManagerProtocol {
     func validateSignUp(username: String, email: String, password: String, repeatPassword: String, phoneNumber: String) -> AuthValidationResult
 }
 
-protocol AuthDelegateProtocol {
-    func didStartAuthenticating()
-    func didSignIn(result: AuthResult)
-    func didSignUp(result: AuthResult)
-    func didSignOut(result: SignOutResult)
-}
-
-class AuthManager: AuthManagerProtocol {
-    var delegate: AuthDelegateProtocol?
+class AuthManager: AuthManagerProtocol, ObservableObject {
+    @Published var state: AuthState = .idle
+    var statePublisher: Published<AuthState>.Publisher { $state }
+    
     var isSignedIn: Bool = false
     var currentUser: User?
     
@@ -39,7 +45,7 @@ class AuthManager: AuthManagerProtocol {
     }
     
     func signIn(email: String, password: String) async {
-        delegate?.didStartAuthenticating()
+        state = .authenticating
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             let userId = result.user.uid
@@ -50,7 +56,7 @@ class AuthManager: AuthManagerProtocol {
     }
     
     func signUp(username: String, email: String, password: String, phoneNumber: String, type: UserType) async {
-        delegate?.didStartAuthenticating()
+        state = .authenticating
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             let userId = result.user.uid
@@ -58,35 +64,35 @@ class AuthManager: AuthManagerProtocol {
             try FirebaseService.createUser(user: newUser)
             isSignedIn = true
             self.currentUser = newUser
-            delegate?.didSignUp(result: .success(newUser))
+            state = .signedUp(newUser)
         } catch {
             handleError(error: error)
         }
     }
     
     func signOut() {
-        delegate?.didStartAuthenticating()
+        state = .authenticating
         do {
             try Auth.auth().signOut()
         } catch(let error) {
-            delegate?.didSignOut(result: .failure(getAuthError(error)))
+            state = .error(getAuthError(error))
         }
         isSignedIn = false
-        delegate?.didSignOut(result: .success(true))
+        state = .signedOut
         
     }
     
     private func handleSignInSuccess(userId: String) async {
         do {
             guard let user = try await FirebaseService.getUser(userId: userId) else {
-                self.delegate?.didSignIn(result: .failure(.somethingWentWrong))
+                state = .error(.somethingWentWrong)
                 return
             }
             self.isSignedIn = true
             self.currentUser = user
-            self.delegate?.didSignIn(result: .success(user))
+            state = .signedIn(user)
         } catch {
-            delegate?.didSignIn(result: .failure(.somethingWentWrong))
+            state = .error(.somethingWentWrong)
         }
     }
     
@@ -94,6 +100,6 @@ class AuthManager: AuthManagerProtocol {
         print(error.localizedDescription)
         self.isSignedIn = false
         let authError = getAuthError(error)
-        delegate?.didSignUp(result: .failure(authError))
+        state = .error(authError)
     }
 }

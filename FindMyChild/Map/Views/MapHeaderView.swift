@@ -11,7 +11,7 @@ struct MapHeaderView: HomeHeaderProtocol {
     @EnvironmentObject var homeVM: HomeViewModel
     @EnvironmentObject var mapVM: MapViewModel
     @EnvironmentObject var authVM: AuthViewModel
-    @EnvironmentObject var navVM: HomeNavigationViewModel
+    @EnvironmentObject var navVM: NavigationViewModel
     var title: String? = nil
     var body: some View {
         let leftItems = [
@@ -42,7 +42,7 @@ struct MapHeaderView: HomeHeaderProtocol {
         .environmentObject(HomeViewModel(childrenManager: childrenManager))
         .environmentObject(AuthViewModel(authManager: authManager))
         .environmentObject(MapViewModel())
-        .environmentObject(HomeNavigationViewModel())
+        .environmentObject(NavigationViewModel(authManager: authManager))
 }
 
 extension MapHeaderView {

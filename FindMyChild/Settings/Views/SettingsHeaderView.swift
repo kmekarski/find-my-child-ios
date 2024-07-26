@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsHeaderView: HomeHeaderProtocol {
     var title: String? = "Settings"
-    @EnvironmentObject var navVM: HomeNavigationViewModel
+    @EnvironmentObject var navVM: NavigationViewModel
     var body: some View {
         let leftItems = [
             Button(action: goBack, label: {
@@ -23,7 +23,7 @@ struct SettingsHeaderView: HomeHeaderProtocol {
 
 #Preview {
     HomeTemplateView(screen: SettingsView(), header: SettingsHeaderView())
-        .environmentObject(HomeNavigationViewModel())
+        .environmentObject(NavigationViewModel(authManager: AuthManager()))
 }
 
 extension SettingsHeaderView {
