@@ -58,9 +58,18 @@ class NavigationViewModel: ObservableObject {
 extension NavigationViewModel {
     func didAuthenticate(result: AuthResult) {
         switch result {
-        case .success(_): navigate(route: .map)
+        case .success(let user):
+            if user.isFirstLogin && user.type == .parent {
+                navigate(route: .parentOnboarding)
+            } else {
+                navigate(route: .map)
+            }
         case .failure(_): break
         }
+    }
+    
+    func didSignIn(user: User) {
+        didAuthenticate(result: .success(user))
     }
     
     func didSignOut() {

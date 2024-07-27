@@ -10,6 +10,8 @@ import Foundation
 class ParentOnboardingViewModel: ObservableObject {
     var userManager: UserManagerProtocol
     var authManager: AuthManagerProtocol
+    
+    @Published var step: ParentOnboardingStep = .smsVerification
     @Published var toast: Toast?
     
     init(userManager: UserManagerProtocol, authManager: AuthManagerProtocol) {
@@ -29,5 +31,25 @@ class ParentOnboardingViewModel: ObservableObject {
     
     func showError() {
         toast = Toast(style: .error, message: "Something went wrong")
+    }
+    
+    func goToNextStep() {
+        if !isLastStep {
+            step = ParentOnboardingStep(rawValue: step.rawValue + 1) ?? .smsVerification
+        }
+    }
+    
+    func goToPreviousStep() {
+        if !isFirstStep {
+            step = ParentOnboardingStep(rawValue: step.rawValue - 1) ?? .smsVerification
+        }
+    }
+    
+    var isLastStep: Bool {
+        return step.rawValue + 1 >= ParentOnboardingStep.allCases.count
+    }
+    
+    var isFirstStep: Bool {
+        return step.rawValue == 0
     }
 }

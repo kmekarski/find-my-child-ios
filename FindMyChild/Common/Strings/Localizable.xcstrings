@@ -11,6 +11,18 @@
         }
       }
     },
+    "4-digit verification code has been sent to %@" : {
+
+    },
+    "Account verification" : {
+
+    },
+    "Add children" : {
+
+    },
+    "Add profile picture" : {
+
+    },
     "ago_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -399,9 +411,6 @@
         }
       }
     },
-    "finish onboarding" : {
-
-    },
     "go_next_string" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -571,9 +580,6 @@
       }
     },
     "No children added. Add some!" : {
-
-    },
-    "parent onboarding" : {
 
     },
     "parent_data_string" : {

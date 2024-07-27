@@ -354,50 +354,6 @@
             endingLineNumber = "93"
             landmarkName = "handleSignInSuccess(userId:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4BD17471-D9D8-4086-8820-65AE951473A6 - c29f22e216b9dbd2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for FindMyChild.AuthManager.handleSignInSuccess(userId: Swift.String) async -&gt; ()"
-                  moduleName = "FindMyChild"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/klaudiuszmekarski/projects/find-my-child-ios/FindMyChild/Authentication/AuthManager/AuthManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91">
-               </Location>
-               <Location
-                  uuid = "4BD17471-D9D8-4086-8820-65AE951473A6 - 98c5436ca3ce39d3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for FindMyChild.AuthManager.handleSignInSuccess(userId: Swift.String) async -&gt; ()"
-                  moduleName = "FindMyChild"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/klaudiuszmekarski/projects/find-my-child-ios/FindMyChild/Authentication/AuthManager/AuthManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91">
-               </Location>
-               <Location
-                  uuid = "4BD17471-D9D8-4086-8820-65AE951473A6 - c29f22e216b9db10"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for FindMyChild.AuthManager.handleSignInSuccess(userId: Swift.String) async -&gt; ()"
-                  moduleName = "FindMyChild"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/klaudiuszmekarski/projects/find-my-child-ios/FindMyChild/Authentication/AuthManager/AuthManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -413,6 +369,84 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "init(authManager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE021D59-634E-4D65-8972-B2643E033809"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyChild/Navigation/NavigationViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "init(authManager:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D651EADE-8984-4754-96C7-3A47178AA9DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyChild/Navigation/NavigationViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "didAuthenticate(result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D651EADE-8984-4754-96C7-3A47178AA9DB - 53c963077c2b27a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FindMyChild.NavigationViewModel.didAuthenticate(result: Swift.Result&lt;FindMyChild.User, FindMyChild.AuthError&gt;) -&gt; ()"
+                  moduleName = "FindMyChild"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/klaudiuszmekarski/projects/find-my-child-ios/FindMyChild/Navigation/NavigationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "D651EADE-8984-4754-96C7-3A47178AA9DB - 53c963077c2b27a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FindMyChild.NavigationViewModel.didAuthenticate(result: Swift.Result&lt;FindMyChild.User, FindMyChild.AuthError&gt;) -&gt; ()"
+                  moduleName = "FindMyChild"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/klaudiuszmekarski/projects/find-my-child-ios/FindMyChild/Navigation/NavigationViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08DA5ED6-9DAB-442A-9443-CE23713C26F7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FindMyChild/Navigation/NavigationViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "didAuthenticate(result:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

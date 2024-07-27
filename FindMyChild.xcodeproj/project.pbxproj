@@ -92,6 +92,11 @@
 		A7D7F8B02C209FA5004897FC /* SignInTextParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D7F8AF2C209FA5004897FC /* SignInTextParams.swift */; };
 		A7E82C0C2C536EA90053CADF /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C0B2C536EA90053CADF /* NavigationViewModel.swift */; };
 		A7E82C0E2C5374620053CADF /* AuthFormTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C0D2C5374620053CADF /* AuthFormTitleView.swift */; };
+		A7E82C252C53D31E0053CADF /* SegmentedProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C242C53D31E0053CADF /* SegmentedProgressBarView.swift */; };
+		A7E82C282C53D3670053CADF /* ParentOnboardingSmsVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C272C53D3670053CADF /* ParentOnboardingSmsVerificationView.swift */; };
+		A7E82C2B2C53D3890053CADF /* ParentOnboardingAddChildrenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C2A2C53D3890053CADF /* ParentOnboardingAddChildrenView.swift */; };
+		A7E82C2E2C53D3A30053CADF /* ParentOnboardingAddProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C2D2C53D3A30053CADF /* ParentOnboardingAddProfilePictureView.swift */; };
+		A7E82C322C5414E30053CADF /* OTPTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E82C312C5414E30053CADF /* OTPTextFieldView.swift */; };
 		A7ED444F2C26FD0600BF8B5B /* IconButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ED444E2C26FD0600BF8B5B /* IconButtonView.swift */; };
 		A7ED44522C2725D900BF8B5B /* ChildHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ED44512C2725D900BF8B5B /* ChildHeaderView.swift */; };
 		A7F5104B2C500A2A00575542 /* ParentOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5104A2C500A2A00575542 /* ParentOnboardingView.swift */; };
@@ -184,6 +189,11 @@
 		A7D7F8AF2C209FA5004897FC /* SignInTextParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextParams.swift; sourceTree = "<group>"; };
 		A7E82C0B2C536EA90053CADF /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		A7E82C0D2C5374620053CADF /* AuthFormTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFormTitleView.swift; sourceTree = "<group>"; };
+		A7E82C242C53D31E0053CADF /* SegmentedProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressBarView.swift; sourceTree = "<group>"; };
+		A7E82C272C53D3670053CADF /* ParentOnboardingSmsVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentOnboardingSmsVerificationView.swift; sourceTree = "<group>"; };
+		A7E82C2A2C53D3890053CADF /* ParentOnboardingAddChildrenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentOnboardingAddChildrenView.swift; sourceTree = "<group>"; };
+		A7E82C2D2C53D3A30053CADF /* ParentOnboardingAddProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentOnboardingAddProfilePictureView.swift; sourceTree = "<group>"; };
+		A7E82C312C5414E30053CADF /* OTPTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldView.swift; sourceTree = "<group>"; };
 		A7ED444E2C26FD0600BF8B5B /* IconButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonView.swift; sourceTree = "<group>"; };
 		A7ED44512C2725D900BF8B5B /* ChildHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildHeaderView.swift; sourceTree = "<group>"; };
 		A7F5104A2C500A2A00575542 /* ParentOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentOnboardingView.swift; sourceTree = "<group>"; };
@@ -426,6 +436,7 @@
 		A715F2DD2C1984C000E5A1F3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A7E82C232C53D30D0053CADF /* SegmentedProgressBar */,
 				A7313A3D2C4C390100F9DCB5 /* Section */,
 				A70CFB4C2C49A73000ECCBD4 /* SettingsList */,
 				A74061642C48055800266C20 /* CircleProfileImage */,
@@ -736,6 +747,7 @@
 			isa = PBXGroup;
 			children = (
 				A7D7F8A22C1DF058004897FC /* AuthTextFieldView.swift */,
+				A7E82C312C5414E30053CADF /* OTPTextFieldView.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -766,11 +778,62 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		A7F510492C500A1A00575542 /* ParentOnboarding */ = {
+		A7E82C232C53D30D0053CADF /* SegmentedProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				A7E82C242C53D31E0053CADF /* SegmentedProgressBarView.swift */,
+			);
+			path = SegmentedProgressBar;
+			sourceTree = "<group>";
+		};
+		A7E82C262C53D34B0053CADF /* SmsVerification */ = {
+			isa = PBXGroup;
+			children = (
+				A7E82C272C53D3670053CADF /* ParentOnboardingSmsVerificationView.swift */,
+			);
+			path = SmsVerification;
+			sourceTree = "<group>";
+		};
+		A7E82C292C53D3720053CADF /* AddChildren */ = {
+			isa = PBXGroup;
+			children = (
+				A7E82C2A2C53D3890053CADF /* ParentOnboardingAddChildrenView.swift */,
+			);
+			path = AddChildren;
+			sourceTree = "<group>";
+		};
+		A7E82C2C2C53D3920053CADF /* AddProfilePicture */ = {
+			isa = PBXGroup;
+			children = (
+				A7E82C2D2C53D3A30053CADF /* ParentOnboardingAddProfilePictureView.swift */,
+			);
+			path = AddProfilePicture;
+			sourceTree = "<group>";
+		};
+		A7E82C2F2C54110D0053CADF /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A7F5104A2C500A2A00575542 /* ParentOnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7E82C302C5411120053CADF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
 				A7F5104F2C5011A700575542 /* ParentOnboardingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7F510492C500A1A00575542 /* ParentOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A7E82C302C5411120053CADF /* ViewModels */,
+				A7E82C2F2C54110D0053CADF /* Views */,
+				A7E82C2C2C53D3920053CADF /* AddProfilePicture */,
+				A7E82C292C53D3720053CADF /* AddChildren */,
+				A7E82C262C53D34B0053CADF /* SmsVerification */,
 			);
 			path = ParentOnboarding;
 			sourceTree = "<group>";
@@ -900,6 +963,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E82C322C5414E30053CADF /* OTPTextFieldView.swift in Sources */,
 				A7D7F8A32C1DF058004897FC /* AuthTextFieldView.swift in Sources */,
 				A70BE5D92C43222500176E31 /* SignInValidationError.swift in Sources */,
 				A7A946DE2C1C97BA0080F270 /* MockChildrenManager.swift in Sources */,
@@ -948,6 +1012,7 @@
 				A7A946C52C1C8E280080F270 /* StatusView.swift in Sources */,
 				A7D7F8912C1DC2A2004897FC /* ChildSelectorView.swift in Sources */,
 				A70BE5F42C43E60300176E31 /* AuthManager+Errors.swift in Sources */,
+				A7E82C252C53D31E0053CADF /* SegmentedProgressBarView.swift in Sources */,
 				A70BE6082C44329E00176E31 /* HomeHeaderTemplateView.swift in Sources */,
 				A7A946E02C1C9B1B0080F270 /* ChildData.swift in Sources */,
 				A70BE60F2C443C0F00176E31 /* ProfileHeaderView.swift in Sources */,
@@ -973,12 +1038,15 @@
 				A7D7F88F2C1DC248004897FC /* BottomContentView.swift in Sources */,
 				A740616A2C48EF4200266C20 /* SettingsListView.swift in Sources */,
 				A70BE5DC2C4323D300176E31 /* AuthValidationError.swift in Sources */,
+				A7E82C2B2C53D3890053CADF /* ParentOnboardingAddChildrenView.swift in Sources */,
 				A7D7F8932C1DC4EF004897FC /* BottomTabBarView.swift in Sources */,
 				A7946B072C2ACC1700176EC0 /* MockAuthManager.swift in Sources */,
 				A7313A422C4C396200F9DCB5 /* SettingsChildrenListView.swift in Sources */,
 				A70BE5D72C4315D800176E31 /* SignUpValidationError.swift in Sources */,
 				A7946B022C2AC4DE00176EC0 /* AuthenticationView.swift in Sources */,
+				A7E82C2E2C53D3A30053CADF /* ParentOnboardingAddProfilePictureView.swift in Sources */,
 				A7A946E72C1CA25F0080F270 /* Date.swift in Sources */,
+				A7E82C282C53D3670053CADF /* ParentOnboardingSmsVerificationView.swift in Sources */,
 				A7D7F8A82C1DF774004897FC /* WideButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
